@@ -6,10 +6,3 @@
     --sidebar-focus-color: rgb(10, 24, 48);
     font-size: 16px;
 }
-
-.main {
-    background-color: var(--main-bg-color);
-    height: 100px;
-    width: 100px;
-    font-size: 0.5rem;
-}
