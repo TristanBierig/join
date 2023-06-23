@@ -18,10 +18,6 @@ body {
     font-family: inter;
 }
 
-.sidebar-focus {
-    background-color: var(--sidebar-focus-color);
-    color: white;
-}
 
 
 /* ===== Navigation ===== */
@@ -35,6 +31,7 @@ body {
     height: 100vh;
     background-color: var(--main-color);
     box-shadow: var(--nuevo);
+    overflow: hidden;
 }
 
 .nav-menu a {
@@ -42,8 +39,9 @@ body {
     align-items: center;
     text-decoration: none;
     color: var(--sidebar-text-color);
-    padding: 8px 53px;
+    padding: 8px 60px;
     gap: 20px;
+    white-space: nowrap;
     font-family: inter;
 }
 
@@ -58,14 +56,23 @@ body {
     gap: 15px;
 }
 
-.sidebar a {
+.legal-link{
     display: flex;
     align-items: center;
     text-decoration: none;
     color: var(--sidebar-text-color);
-    padding: 8px;
+    padding: 8px 60px;
     gap: 20px;
     font-family: inter;
+    white-space: nowrap;
+}
+
+.sidebar-focus {
+    background-color: var(--sidebar-focus-color);
+}
+
+.sidebar-focus span {
+    color: white;
 }
 
 
