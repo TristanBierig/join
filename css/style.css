@@ -6,9 +6,10 @@
     --sidebar-text-color: rgb(205, 205, 205);
     --sidebar-focus-color: rgb(10, 24, 48);
 
-    /* Boxshadow */
+    /* Boxshadows */
     --barra-superior: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
     --nuevo: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
+    --shadoe-backlog-box:  0px 0px 14px 3px rgba(0, 0, 0, 0.04);
 }
 
 

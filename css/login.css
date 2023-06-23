@@ -1,4 +1,13 @@
+body {
+    margin: 0;
+    background-color: var(--bg-color);
+}
+
 .login-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     top: 0;
     left: 0;
@@ -6,4 +15,8 @@
     bottom: 0;
     margin: auto;
     width: 652px;
+    height: max-content;
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: var(--shadoe-backlog-box);
 }
