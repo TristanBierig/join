@@ -1,10 +1,14 @@
 :root {
+    /* Colors */
     --main-color: rgb(41, 53, 70);
     --secondary-color: rgb(0, 170, 223);
     --bg-color: rgb(246, 247, 248);
     --sidebar-text-color: rgb(205, 205, 205);
     --sidebar-focus-color: rgb(10, 24, 48);
-    font-size: 16px;
+
+    /* Boxshadow */
+    --barra-superior: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
+    --nuevo: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
 }
 
 
@@ -21,11 +25,11 @@ body {
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
-    padding: 66px, 20px, 66px, 20px;
     gap: 103px;
     width: 232px;
     height: 100vh;
     background-color: var(--main-color);
+    box-shadow: var(--nuevo);
 }
 
 .sidebar a {
@@ -38,6 +42,11 @@ body {
     font-family: inter;
 }
 
+.sidebar a:focus {
+    background-color: var(--sidebar-focus-color);
+    color: white;
+}
+
 .logo {
     width: 100px;
     height: 122px;
@@ -47,4 +56,42 @@ body {
     display: flex;
     flex-direction: column;
     gap: 15px;
+}
+
+
+/* ===== Header ===== */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 232px;
+    right: 0;
+    padding: 20px 36px 20px calc(348px - 232px);
+    font-size: 21px;
+    color: black;
+    background-color: white;
+    box-shadow: var(--barra-superior);
+}
+
+.right-frame {
+    display: flex;
+    gap: 26px;
+}
+
+.img-ellipse {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.img-profile {
+    position: absolute;
+    border-radius: 50%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
 }
