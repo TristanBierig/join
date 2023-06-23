@@ -6,3 +6,17 @@
     --sidebar-focus-color: rgb(10, 24, 48);
     font-size: 16px;
 }
+
+
+/* ===== General Styling ===== */
+body {
+    margin: 0;
+}
+
+
+/* ===== Navigation ===== */
+.sidebar {
+    width: 232px;
+    height: 100vh;
+    background-color: var(--main-color);
+}
