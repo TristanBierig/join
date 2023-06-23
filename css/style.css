@@ -14,15 +14,6 @@ body {
     font-family: inter;
 }
 
-/* inter-regular - latin */
-@font-face {
-    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    src: url('../assets/fontsinter-v12-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-  }
-
 
 /* ===== Navigation ===== */
 .sidebar {
@@ -44,6 +35,7 @@ body {
     color: var(--sidebar-text-color);
     padding: 8px 53px;
     gap: 20px;
+    font-family: inter;
 }
 
 .logo {
