@@ -20,20 +20,26 @@
     <main class="login-modal">
 
         <h1>Log in</h1>
+        
         <form action="">
-            <input type="text">
-            <input type="password">
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Password">
         </form>
 
-        <div>
-            <span>Remember me</span>
-            <span>Forgot my password</span>
+        <div class="reset-password-container">
+            <label class="container">
+                <input type="checkbox" checked="checked">
+                Remember me
+                <span class="checkmark"></span>
+            </label>
+            <span class="forgot-password">Forgot my password</span>
         </div>
 
         <div>
             <button>Log In</button>
             <a onclick="toggleSidebarFocus(0)" href="html/summary.html">Guest Log in</a>
         </div>
+
     </main>
 </body>
 

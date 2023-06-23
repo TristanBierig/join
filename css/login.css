@@ -1,3 +1,4 @@
+/* ===== General Styling ===== */
 body {
     margin: 0;
     background-color: var(--bg-color);
@@ -14,9 +15,63 @@ body {
     right: 0;
     bottom: 0;
     margin: auto;
+    padding: 35px 0;
+    gap: 35px;
     width: 652px;
     height: max-content;
     background-color: white;
     border-radius: 30px;
     box-shadow: var(--shadoe-backlog-box);
+}
+
+
+/* ===== Headline =====  */
+.login-modal h1 {
+    position: relative;
+    font-size: 61px;
+}
+
+.login-modal h1::after {
+    content: '';
+    position: absolute;
+    left: 15px; /* Centers the line horizontally*/
+    bottom: -24px;
+    width: 150px;
+    height: 2px;
+    background-color: var(--secondary-color);
+    
+}
+
+
+/* ===== Form ===== */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    width: 422px;
+}
+
+form input {
+    padding: 13px 21px;
+    border-radius: 10px;
+    border: 1px solid var(--sidebar-text-color);
+}
+
+form input::placeholder {
+    font-size: 21px;
+    color: var(--sidebar-text-color);
+}
+
+
+/* ===== Forgot Password Frame ===== */
+.reset-password-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 35px;
+}
+
+.forgot-password {
+    cursor: pointer;
+    color: var(--secondary-color);
 }
