@@ -18,6 +18,11 @@ body {
     font-family: inter;
 }
 
+.sidebar-focus {
+    background-color: var(--sidebar-focus-color);
+    color: white;
+}
+
 
 /* ===== Navigation ===== */
 .sidebar {
@@ -32,7 +37,7 @@ body {
     box-shadow: var(--nuevo);
 }
 
-.sidebar a {
+.nav-menu a {
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -40,11 +45,6 @@ body {
     padding: 8px 53px;
     gap: 20px;
     font-family: inter;
-}
-
-.sidebar a:focus {
-    background-color: var(--sidebar-focus-color);
-    color: white;
 }
 
 .logo {
@@ -56,6 +56,16 @@ body {
     display: flex;
     flex-direction: column;
     gap: 15px;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--sidebar-text-color);
+    padding: 8px;
+    gap: 20px;
+    font-family: inter;
 }
 
 
