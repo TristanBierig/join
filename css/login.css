@@ -34,12 +34,13 @@ body {
 .login-modal h1::after {
     content: '';
     position: absolute;
-    left: 15px; /* Centers the line horizontally*/
+    left: 15px;
+    /* Centers the line horizontally*/
     bottom: -24px;
     width: 150px;
     height: 2px;
     background-color: var(--secondary-color);
-    
+
 }
 
 
@@ -74,4 +75,14 @@ form input::placeholder {
 .forgot-password {
     cursor: pointer;
     color: var(--secondary-color);
+}
+
+
+/* ===== Sign up ===== */
+.signup-container {
+    display: flex;
+    position: absolute;
+    top: 67px;
+    right: 114px;
+    gap: 35px;
 }
