@@ -30,6 +30,8 @@ body {
 
 .button-secondary-wo-icon {
     height: 51px;
+    text-decoration: none;
+    white-space: nowrap;
 }
 
 
