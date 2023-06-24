@@ -24,16 +24,6 @@ body {
     box-shadow: var(--shadoe-backlog-box);
 }
 
-.button-wo-icon {
-    height: 51px;
-}
-
-.button-secondary-wo-icon {
-    height: 51px;
-    text-decoration: none;
-    white-space: nowrap;
-}
-
 
 /* ===== Headline =====  */
 .login-modal h1 {
@@ -44,7 +34,8 @@ body {
 .login-modal h1::after {
     content: '';
     position: absolute;
-    left: 15px;  /* Centers the line horizontally*/
+    left: 15px;
+    /* Centers the line horizontally*/
     bottom: -24px;
     width: 150px;
     height: 3px;
@@ -60,9 +51,24 @@ form {
     width: 422px;
 }
 
+.input-wrapper {
+    position: relative;
+    
+}
+
+.input-wrapper img {
+    position: absolute;
+    top: 26.5px;
+    right: 21px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
 form input {
-    padding: 13px 21px;
+    width: 422px;
+    padding: 13px 41px 13px 21px;
     border-radius: 10px;
+    font-size: 21px;
     border: 1px solid var(--sidebar-text-color);
 }
 
@@ -93,18 +99,45 @@ form input:focus {
 /* ===== Log in ===== */
 .btn-container {
     display: flex;
-    align-items: center;
+    width: 341px;
     gap: 35px;
 }
 
+/* ===== Buttons ===== */
+.button-wo-icon {
+    height: 51px;
+    width: 145px;
+    font-size: 21px;
+    font-weight: bold;
+    text-decoration: none;
+
+}
+
+.button-secondary-wo-icon {
+    height: 51px;
+    text-decoration: none;
+    white-space: nowrap;
+    font-size: 21px;
+    font-weight: 700;
+    width: auto;
+}
 
 
 /* ===== Sign up ===== */
 .signup-container {
     display: flex;
+    align-items: center;
     position: absolute;
     top: 67px;
     right: 114px;
     gap: 35px;
 }
 
+.signup-container span {
+    font-size: 21px;
+}
+
+.signup-container a {
+    font-size: 16px;
+    width: auto;
+}
