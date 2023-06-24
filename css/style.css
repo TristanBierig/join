@@ -81,6 +81,10 @@ body {
     background-color: var(--sidebar-focus-color);
 }
 
+.sidebar-focus path {
+    fill: #ffffff;
+}
+
 .sidebar-focus span {
     color: white;
 }
@@ -104,6 +108,12 @@ body {
 .right-frame {
     position: relative;
     display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-frame a {    
+    height: max-content;
 }
 
 .log-out-modal-wrapper {

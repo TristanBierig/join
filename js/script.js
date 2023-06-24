@@ -34,9 +34,13 @@ function doNotClose(event) {
  */
 function toggleSidebarFocus() {
   const pathName = window.location.pathname;
-  let id = 'sidebar-' + pathName.replace('/html/', '').replace('.html', '');
-  document.getElementById(id).classList.add('sidebar-focus');
+  let idClass = 'sidebar-' + pathName.replace('/html/', '').replace('.html', '').replace('/join', '');
+  let idSVG = 'sidebar-svg-' + pathName.replace('/html/', '').replace('.html', '').replace('/join', '');
+
+  document.getElementById(idClass).classList.add('sidebar-focus');
+  // document.getElementById(idSVG).classList.add('white-svg');
 }
+
 
 
 /**
@@ -44,5 +48,5 @@ function toggleSidebarFocus() {
  * 
  */
 function toggleLogOutModal() {
-document.getElementById('log-out-modal-wrapper').classList.toggle('d-none');
+  document.getElementById('log-out-modal-wrapper').classList.toggle('d-none');
 }
