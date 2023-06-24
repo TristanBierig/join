@@ -27,24 +27,65 @@
       w3-include-html="../assets/templates/sidebar.html"
     ></nav>
     <main>
-      <div>
-        <button class="button-secondary-wo-icon">Button</button>
-        <button class="button-wo-icon">Button</button>
+      <div class="bord-header">
+        <h1>Board</h1>
+        <div>
+          <input placeholder="Find Task" type="text" name="" id="" />
+          <button class="button-with-icon">
+            Add task <img src="../assets/img/icons/add-task-icon.svg" alt="" />
+          </button>
+        </div>
       </div>
-      <div>
-        <button class="button-with-icon">
-          Create Task
-          <img src="../assets/img/add-contact-icon.svg" alt="checkmark" />
-        </button>
-        <button class="button-secondary-with-icon">
-          Cancel
-          <img
-            class="svg"
-            src="../assets/img/cancel-icon.svg"
-            alt="checkmark"
-          />
-        </button>
-      </div>
+      <section class="drag-and-drop-container">
+        <div class="drag-and-drop-row">
+          <div class="drag-and-drop-header">
+            <h3>To do</h3>
+            <div>
+              <img
+                src="../assets/img/icons/add-task-main-color-icon.svg"
+                alt="add-task-icon"
+              />
+            </div>
+          </div>
+          <div class="drag-area"></div>
+        </div>
+        <div class="drag-and-drop-row">
+          <div class="drag-and-drop-header">
+            <h3>In progress</h3>
+            <div>
+              <img
+                src="../assets/img/icons/add-task-main-color-icon.svg"
+                alt="add-task-icon"
+              />
+            </div>
+          </div>
+          <div class="drag-area"></div>
+        </div>
+        <div class="drag-and-drop-row">
+          <div class="drag-and-drop-header">
+            <h3>Awaiting Feedback</h3>
+            <div>
+              <img
+                src="../assets/img/icons/add-task-main-color-icon.svg"
+                alt="add-task-icon"
+              />
+            </div>
+          </div>
+          <div class="drag-area"></div>
+        </div>
+        <div class="drag-and-drop-row">
+          <div class="drag-and-drop-header">
+            <h3>Done</h3>
+            <div>
+              <img
+                src="../assets/img/icons/add-task-main-color-icon.svg"
+                alt="add-task-icon"
+              />
+            </div>
+          </div>
+          <div class="drag-area"></div>
+        </div>
+      </section>
     </main>
   </body>
 </html>
