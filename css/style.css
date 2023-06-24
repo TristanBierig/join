@@ -1,115 +1,119 @@
 :root {
-    /* Colors */
-    --main-color: rgb(41, 53, 70);
-    --secondary-color: rgb(0, 170, 223);
-    --bg-color: rgb(246, 247, 248);
-    --sidebar-text-color: rgb(205, 205, 205);
-    --sidebar-focus-color: rgb(10, 24, 48);
+  /* Colors */
+  --main-color: rgb(41, 53, 70);
+  --secondary-color: rgb(0, 170, 223);
+  --bg-color: rgb(246, 247, 248);
+  --sidebar-text-color: rgb(205, 205, 205);
+  --sidebar-focus-color: rgb(10, 24, 48);
 
-    /* Boxshadows */
-    --barra-superior: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
-    --nuevo: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
-    --shadoe-backlog-box:  0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+  /* Boxshadows */
+  --barra-superior: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+  --nuevo: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+  --shadoe-backlog-box: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
 }
-
 
 /* ===== General Styling ===== */
 body {
-    margin: 0;
-    font-family: inter;
+  margin: 0;
+  font-family: inter;
 }
-
-
 
 /* ===== Navigation ===== */
 .sidebar {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: column;
-    gap: 103px;
-    width: 232px;
-    height: 100vh;
-    background-color: var(--main-color);
-    box-shadow: var(--nuevo);
-    overflow: hidden;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  gap: 103px;
+  width: 232px;
+  height: 100vh;
+  background-color: var(--main-color);
+  box-shadow: var(--nuevo);
+  overflow: hidden;
 }
 
 .nav-menu a {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: var(--sidebar-text-color);
-    padding: 8px 60px;
-    gap: 20px;
-    white-space: nowrap;
-    font-family: inter;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--sidebar-text-color);
+  padding: 8px 60px;
+  gap: 20px;
+  white-space: nowrap;
+  font-family: inter;
 }
 
 .logo {
-    width: 100px;
-    height: 122px;
+  width: 100px;
+  height: 122px;
 }
 
 .nav-menu {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.legal-link{
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: var(--sidebar-text-color);
-    padding: 8px 60px;
-    gap: 20px;
-    font-family: inter;
-    white-space: nowrap;
+.legal-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--sidebar-text-color);
+  padding: 8px 60px;
+  gap: 20px;
+  font-family: inter;
+  white-space: nowrap;
 }
 
 .sidebar-focus {
-    background-color: var(--sidebar-focus-color);
+  background-color: var(--sidebar-focus-color);
 }
 
 .sidebar-focus span {
-    color: white;
+  color: white;
 }
-
 
 /* ===== Header ===== */
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    left: 232px;
-    right: 0;
-    padding: 20px 36px 20px calc(348px - 232px);
-    font-size: 21px;
-    color: black;
-    background-color: white;
-    box-shadow: var(--barra-superior);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 232px;
+  right: 0;
+  padding: 20px 36px 20px calc(348px - 232px);
+  font-size: 21px;
+  color: black;
+  background-color: white;
+  box-shadow: var(--barra-superior);
 }
 
 .right-frame {
-    display: flex;
-    gap: 26px;
+  display: flex;
+  gap: 26px;
 }
 
 .img-ellipse {
-    display: flex;
-    align-items: center;
-    position: relative;
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
 .img-profile {
-    position: absolute;
-    border-radius: 50%;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
+  position: absolute;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+/* ===== Buttons ===== */
+
+.button-main {
+}
+
+.button-secondary {
 }

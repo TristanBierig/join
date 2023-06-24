@@ -1,51 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Join</title>
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/login.css">
-    <link rel="stylesheet" href="css/fonts.css">
-    <link rel="shortcut icon" href="assets/img/logo_Regular.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="css/fonts.css" />
+    <link
+      rel="shortcut icon"
+      href="assets/img/logo_Regular.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="css/fonts.css" />
 
     <script src="js/script.js"></script>
-</head>
+  </head>
 
-<body onload="">
+  <body onload="">
     <main class="login-modal">
+      <h1>Log in</h1>
 
-        <h1>Log in</h1>
+      <form action="">
+        <input type="email" placeholder="Email" />
+        <input type="password" placeholder="Password" />
+      </form>
 
-        <form action="">
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
-        </form>
+      <div class="reset-password-container">
+        <label class="container">
+          <input type="checkbox" checked="checked" />
+          Remember me
+          <span class="checkmark"></span>
+        </label>
+        <span class="forgot-password">Forgot my password</span>
+      </div>
 
-        <div class="reset-password-container">
-            <label class="container">
-                <input type="checkbox" checked="checked">
-                Remember me
-                <span class="checkmark"></span>
-            </label>
-            <span class="forgot-password">Forgot my password</span>
-        </div>
-
-        <div>
-            <button>Log In</button>
-            <a onclick="toggleSidebarFocus(0)" href="html/summary.html">Guest Log in</a>
-        </div>
-
+      <div>
+        <button>Log In</button>
+        <a onclick="toggleSidebarFocus(0)" href="html/summary.html"
+          >Guest Log in</a
+        >
+      </div>
     </main>
 
     <section class="signup-container">
-        <span>Not a Join user?</span>
-        <a href="sign_Up.html">Sign up</a>
+      <span>Not a Join user?</span>
+      <a href="sign_Up.html">Sign up</a>
     </section>
-</body>
-
+  </body>
 </html>
