@@ -1,5 +1,3 @@
-let sidebarFocus;
-
 async function init() {
   await includeHTML();
   toggleSidebarFocus();
@@ -19,12 +17,12 @@ async function includeHTML() {
   }
 }
 
-
-function toggleSidebarFocus(i) {
-  if (i !== undefined) {
-    sidebarFocus = i;
-    sessionStorage.setItem("sidebarFocus", i);
-  }
-  let focus = sessionStorage.getItem("sidebarFocus");
-  document.getElementById("sidebar" + focus).classList.add("sidebar-focus");
+/**
+ * This function highlights the currently open page in the sidebar navigation
+ * 
+ */
+function toggleSidebarFocus() {
+  const pathName = window.location.pathname;
+  let id = 'sidebar-' + pathName.replace('/html/', '').replace('.html', '');
+  document.getElementById(id).classList.add('sidebar-focus');
 }
