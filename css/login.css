@@ -24,6 +24,14 @@ body {
     box-shadow: var(--shadoe-backlog-box);
 }
 
+.button-wo-icon {
+    height: 51px;
+}
+
+.button-secondary-wo-icon {
+    height: 51px;
+}
+
 
 /* ===== Headline =====  */
 .login-modal h1 {
@@ -34,13 +42,11 @@ body {
 .login-modal h1::after {
     content: '';
     position: absolute;
-    left: 15px;
-    /* Centers the line horizontally*/
+    left: 15px;  /* Centers the line horizontally*/
     bottom: -24px;
     width: 150px;
-    height: 2px;
+    height: 3px;
     background-color: var(--secondary-color);
-
 }
 
 
@@ -63,6 +69,10 @@ form input::placeholder {
     color: var(--sidebar-text-color);
 }
 
+form input:focus {
+    outline: none;
+}
+
 
 /* ===== Forgot Password Frame ===== */
 .reset-password-container {
@@ -78,6 +88,15 @@ form input::placeholder {
 }
 
 
+/* ===== Log in ===== */
+.btn-container {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+
+
 /* ===== Sign up ===== */
 .signup-container {
     display: flex;
@@ -86,3 +105,4 @@ form input::placeholder {
     right: 114px;
     gap: 35px;
 }
+
