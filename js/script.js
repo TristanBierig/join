@@ -1,5 +1,3 @@
-let sidebarFocus;
-
 async function init() {
   await includeHTML();
   toggleSidebarFocus();
@@ -19,11 +17,29 @@ async function includeHTML() {
   }
 }
 
-function toggleSidebarFocus(i) {
-  if (i !== undefined) {
-    sidebarFocus = i;
-    sessionStorage.setItem("sidebarFocus", i);
-  }
-  let focus = sessionStorage.getItem("sidebarFocus");
-  document.getElementById("sidebar" + focus).classList.add("sidebar-focus");
+/**
+ * Prevents onclick functions to fire when an upper clickfunction gets triggerd
+ *
+ * @param {object} event
+ */
+function doNotClose(event) {
+  event.stopPropagation();
+}
+
+/**
+ * This function highlights the currently open page in the sidebar navigation
+ *
+ */
+function toggleSidebarFocus() {
+  const pathName = window.location.pathname;
+  let id = "sidebar-" + pathName.replace("/html/", "").replace(".html", "");
+  document.getElementById(id).classList.add("sidebar-focus");
+}
+
+/**
+ * Toggles the Modal css class for the log out button
+ *
+ */
+function toggleLogOutModal() {
+  document.getElementById("log-out-modal-wrapper").classList.toggle("d-none");
 }
