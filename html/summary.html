@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/fonts.css">
+    <link rel="stylesheet" href="../css/summary.css" />
     <link rel="shortcut icon" href="../assets/img/logos/logo_Regular.png" type="image/x-icon">
     
     <script src="../js/script.js"></script>
@@ -15,5 +16,54 @@
 <body onload="init()">
   <header class="header" w3-include-html="../assets/templates/header.html"></header>
   <nav class="sidebar" w3-include-html="../assets/templates/sidebar.html"></nav>
+
+  <div class="summary">
+    <div class="summary-head">
+        <h1 class="summary-h1">Summary</h1>
+        <hr class="summary-hr1">
+        <h2 class="summary-h2">Everything in a nutshell!</h2>
+    </div>
+
+    <div class="summary-container">
+      <div class="left-container">
+
+        <div class="first-line">
+          <div class="card">
+              <b class="numbers">5</b>Tasks in Board
+          </div>
+          <div class="card">
+              <b class="numbers">2</b>Tasks in Progress
+          </div>
+          <div class="card">
+              <b class="numbers">2</b>Awaiting Feedback
+          </div>
+        </div>
+
+        <div class="card second-line">
+          <div>
+            <b class="numbers">1</b>Urgent
+            <hr class="summary-hr2">
+          </div>
+          <div>
+          <p><b>October 16, 2022</b></p>
+          <p>Upcoming Deadline</p>
+          </div>
+        </div>
+
+
+        <div class="card">
+            <b class="numbers">1</b>To-do
+        </div>
+        <div class="card">
+            <b class="numbers">1</b>Done
+        </div>
+      </div>
+
+      <div class="right-container">
+          <p class="greetings">Good morning, <p class="user-name">Sofia Müller</p></p>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
