@@ -19,6 +19,7 @@ async function includeHTML() {
   }
 }
 
+
 function toggleSidebarFocus(i) {
   if (i !== undefined) {
     sidebarFocus = i;
