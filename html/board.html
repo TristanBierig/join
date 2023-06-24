@@ -39,7 +39,7 @@
       <section class="drag-and-drop-container">
         <div class="drag-and-drop-row">
           <div class="drag-and-drop-header">
-            <h3>To do</h3>
+            <span>To do</span>
             <div>
               <img
                 src="../assets/img/icons/add-task-main-color-icon.svg"
@@ -47,11 +47,16 @@
               />
             </div>
           </div>
-          <div class="drag-area"></div>
+          <div
+            id="to-do-area"
+            ondrop="moveTo('to-do')"
+            ondragover="allowDrop(event)"
+            class="drag-area"
+          ></div>
         </div>
         <div class="drag-and-drop-row">
           <div class="drag-and-drop-header">
-            <h3>In progress</h3>
+            <span>In progress</span>
             <div>
               <img
                 src="../assets/img/icons/add-task-main-color-icon.svg"
@@ -59,11 +64,16 @@
               />
             </div>
           </div>
-          <div class="drag-area"></div>
+          <div
+            id="in-progress-area"
+            ondrop="moveTo('in-progress')"
+            ondragover="allowDrop(event)"
+            class="drag-area"
+          ></div>
         </div>
         <div class="drag-and-drop-row">
           <div class="drag-and-drop-header">
-            <h3>Awaiting Feedback</h3>
+            <span>Awaiting Feedback</span>
             <div>
               <img
                 src="../assets/img/icons/add-task-main-color-icon.svg"
@@ -71,11 +81,16 @@
               />
             </div>
           </div>
-          <div class="drag-area"></div>
+          <div
+            id="awaiting-feedback-area"
+            ondrop="moveTo('awaiting-feedback')"
+            ondragover="allowDrop(event)"
+            class="drag-area"
+          ></div>
         </div>
         <div class="drag-and-drop-row">
           <div class="drag-and-drop-header">
-            <h3>Done</h3>
+            <span>Done</span>
             <div>
               <img
                 src="../assets/img/icons/add-task-main-color-icon.svg"
@@ -83,9 +98,16 @@
               />
             </div>
           </div>
-          <div class="drag-area"></div>
+          <div
+            id="done-area"
+            ondrop="moveTo('done')"
+            ondragover="allowDrop(event)"
+            class="drag-area"
+          ></div>
         </div>
       </section>
     </main>
   </body>
 </html>
+
+<script src="../js/bord.js"></script>
