@@ -69,6 +69,7 @@ input::placeholder {
   flex-direction: column;
   align-items: center;
   gap: 35px;
+  overflow-y: auto;
 }
 
 .dragarea-hover {

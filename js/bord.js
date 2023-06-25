@@ -81,7 +81,7 @@ function resetDropAreas() {
  */
 function getTodoHTML(todo) {
   return /*html*/ `
-    <div class="task" draggable="true" ondragstart="startDragging(${todo.id})">
+    <div onclick="openTask(${todo.id})" class="task" draggable="true" ondragstart="startDragging(${todo.id})">
       <span class="task-category">${todo.category}</span>
       <div class="task-title-description-box">
         <b>${todo.title}</b>
@@ -100,7 +100,7 @@ function getTodoHTML(todo) {
         <div>
           <span class="assigned-to-display">SM</span>
         </div>
-        <div>
+        <div class="task-prio-box">
           <img src="../assets/img/icons/low-prio-icon-small.svg" alt="">
         </div>        
       </div>
@@ -165,6 +165,10 @@ function searchTask() {
   console.log(input);
 
   /* TODO SUCHFUNKTION*/
+}
+
+function openTask(id) {
+  console.log(id);
 }
 
 renderTodos();
