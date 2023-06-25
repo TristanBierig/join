@@ -82,6 +82,11 @@
     justify-content: center;
 }
 
+.arrow-img, .pencil-img, .checkmark-summary-img {
+    width: 35px;
+    height: auto;
+}
+
 .summary-hr2 {
     border-color: rgba(205, 205, 205, 0.25);
     background-color: rgba(205, 205, 205, 0.7);
