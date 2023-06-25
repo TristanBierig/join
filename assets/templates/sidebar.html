@@ -10,8 +10,11 @@
     </object>
     <span>Summary</span>
   </a>
-  <a id="sidebar-board" onclick="toggleSidebarFocus()" href="board.html">
-    <img src="../assets/img/icons/sidebar-board.svg" alt="" />
+
+  <a id="sidebar-board" href="board.html">
+    <object onload="toggleSidebarFocus()" id="sidebar-object-board" data="../assets/img/icons/sidebar-board.svg" type="image/svg+xml">
+      <img src="../assets/img/icons/sidebar-board.svg" alt="" />
+    </object>
     <span>Board</span>
   </a>
 
@@ -32,7 +35,9 @@
 </div>
 
 <!-- Legal -->
-<a class="legal-link" id="sidebar-legal" onclick="toggleSidebarFocus(4)" href="legal.html">
-  <img src="../assets/img/icons/sidebar-legal.svg" alt="" />
+<a class="legal-link" id="sidebar-legal" href="legal.html">
+  <object onload="toggleSidebarFocus()" id="sidebar-object-legal" data="../assets/img/icons/sidebar-legal.svg" type="image/svg+xml">
+    <img src="../assets/img/icons/sidebar-legal.svg" alt="" />
+  </object>
   <span>Legal notice</span>
 </a>
