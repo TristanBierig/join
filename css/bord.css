@@ -11,6 +11,7 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  background-color: var(--bg-color);
 }
 
 .bord-header {
@@ -34,11 +35,15 @@ main {
 .drag-and-drop-row {
   width: 250px;
   height: 661px;
-  background-color: lightgrey;
+  background-color: var(--bg-color);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 35px;
+}
+
+.dragarea-hover {
+  background-color: rgb(242, 243, 244);
 }
 
 .drag-and-drop-header {

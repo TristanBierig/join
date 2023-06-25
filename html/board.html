@@ -50,7 +50,8 @@
           <div
             id="to-do-area"
             ondrop="moveTo('to-do')"
-            ondragover="allowDrop(event)"
+            ondragleave="toggleDropareaHoverEffect('to-do-area', 'remove')"
+            ondragover="allowDrop(event, 'to-do-area')"
             class="drag-area"
           ></div>
         </div>
@@ -67,7 +68,8 @@
           <div
             id="in-progress-area"
             ondrop="moveTo('in-progress')"
-            ondragover="allowDrop(event)"
+            ondragleave="toggleDropareaHoverEffect('in-progress-area', 'remove')"
+            ondragover="allowDrop(event, 'in-progress-area')"
             class="drag-area"
           ></div>
         </div>
@@ -83,8 +85,9 @@
           </div>
           <div
             id="awaiting-feedback-area"
+            ondragleave="toggleDropareaHoverEffect('awaiting-feedback-area', 'remove')"
             ondrop="moveTo('awaiting-feedback')"
-            ondragover="allowDrop(event)"
+            ondragover="allowDrop(event, 'awaiting-feedback-area')"
             class="drag-area"
           ></div>
         </div>
@@ -100,8 +103,9 @@
           </div>
           <div
             id="done-area"
+            ondragleave="toggleDropareaHoverEffect('done-area', 'remove')"
             ondrop="moveTo('done')"
-            ondragover="allowDrop(event)"
+            ondragover="allowDrop(event, 'done-area')"
             class="drag-area"
           ></div>
         </div>
