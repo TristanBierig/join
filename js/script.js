@@ -49,9 +49,13 @@ function toggleSidebarFocus() {
       .replace("/join", "")
       .replace("/Modul_10", "");
 
+  if (idClass === 'sidebar-help') {
+    return
+  }
   changeSvgColor(idObject);
   document.getElementById(idClass).classList.add("sidebar-focus");
 }
+
 
 /**
  * This function changes the SVG-Icon of the current page sidebartab to color white
