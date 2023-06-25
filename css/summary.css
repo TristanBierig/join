@@ -11,10 +11,15 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    margin-left: 60px;
 }
 
 .summary-h1, .summary-h2, .summary-hr1 {
     margin-right: 35px;
+}
+
+.summary-h1 {
+    font-size: 55px;
 }
 
 .summary-hr1 {
@@ -29,8 +34,8 @@
 
 .summary-h2 {
     font-size: 17px;
-    font-weight: 200;
-    color: var(--main-color);
+    font-weight: 400;
+    color: rgba(42, 54, 71, 1);
 }
 
 .summary-container {
@@ -41,7 +46,7 @@
 
 .left-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     margin-top: 30px;
 }
@@ -49,25 +54,6 @@
 .first-line {
     display: flex;
     justify-content: flex-start;
-    width: 50%;
-}
-
-.card {
-    background-color: white;
-    color: var(--main-color);
-    border: 2px solid rgba(205, 205, 205, 0.25);
-    border-radius: 20px;
-    width: 100px;
-    margin: 15px 15px 15px 0;
-    padding: 20px;
-    cursor: pointer;
-    text-align: center;
-}
-
-.card:hover {
-    transform: scale(1.1);
-    background-color: var(--main-color);
-    color: white;
 }
 
 .second-line {
@@ -76,10 +62,40 @@
     align-items: center;
 }
 
+.third-line {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.link-to-board {
+    text-decoration: none;
+}
+
+.card {
+    background-color: white;
+    color: rgba(42, 54, 71, 1);
+    border: 2px solid rgba(205, 205, 205, 0.25);
+    border-radius: 20px;
+    width: 130px;
+    height: 130px;
+    margin: 15px 15px 15px 0;
+    padding: 20px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: 400;
+}
+
+.card:hover {
+    transform: scale(1.1);
+    background-color: rgba(42, 54, 71, 1);
+    color: white;
+}
+
 .numbers {
     font-size: 40px;
     display: flex;
     justify-content: center;
+    font-weight: 600;
 }
 
 .arrow-img, .pencil-img, .checkmark-summary-img {
@@ -98,13 +114,17 @@
 }
 
 .greetings {
-    color: var(--main-color);
-    font-size: 25px;
+    color: rgba(42, 54, 71, 1);
+    font-size: 45px;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
 }
 
 .user-name {
     color: var(--secondary-color);
-    font-size: 40px;
+    font-size: 60px;
     font-weight: bold;
-    margin-top: 10px
+    margin-top: 5px;
+    font-weight: 700;
 }

@@ -4,15 +4,16 @@
 
 main {
   margin-left: 232px; /*sidebar-width*/
-  margin-top: 71px; /*header-height*/
-  padding-top: 82px;
-  height: calc(100vh - 71px);
+  margin-top: 95px; /*header-height*/
+  min-height: calc(100vh - 95px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   background-color: var(--bg-color);
 }
+
+/* ===== Header =====*/
 
 .bord-header {
   width: 100%;
@@ -23,13 +24,41 @@ main {
 
 .bord-header div {
   display: flex;
+  align-items: center;
+  gap: 35px;
 }
+
+input {
+  width: 251px;
+  height: 51px;
+  padding: 13px 65px 13px 21px;
+  border-radius: 15px;
+  border: 1px solid rgb(168, 168, 168);
+  font-size: 16px;
+  outline: unset;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.input-wrapper div {
+  position: absolute;
+  padding-left: 15px;
+  border-left: 1px solid rgb(209, 209, 209);
+  right: 15px;
+}
+
+input::placeholder {
+  font-size: 16px;
+}
+
+/* ===== Drag and Drop =====*/
 
 .drag-and-drop-container {
   display: flex;
   gap: 26px;
   justify-content: space-between;
-  max-width: 1078px;
 }
 
 .drag-and-drop-row {
@@ -43,6 +72,7 @@ main {
 }
 
 .dragarea-hover {
+  border-radius: 30px;
   background-color: rgb(242, 243, 244);
 }
 
@@ -76,8 +106,82 @@ main {
   height: calc(100% - 58px);
 }
 
+/* ===== Task =====*/
+
 .task {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 19px;
   width: 100%;
-  height: 200px;
-  background: rgb(230, 218, 218);
+  background: white;
+  border-radius: 30px;
+  box-shadow: var(--shadoe-backlog-box);
+}
+
+.task-category {
+  padding: 4px 25px;
+  border-radius: 8px;
+  background: #ff7a00; /*dynamisch über 2. classe einbinden wie pokedex*/
+  width: fit-content;
+}
+
+.task-title-description-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.task-title-description-box b {
+  color: var(--main-color);
+}
+
+.task-title-description-box p {
+  color: rgba(168, 168, 168, 1);
+  line-height: 120%;
+}
+
+.subtask-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.progress-bar-box {
+  width: 138px;
+  height: 8px;
+  background-color: rgba(244, 244, 244, 1);
+}
+
+.progress-bar-bar {
+  background-color: rgba(41, 171, 226, 1);
+  height: 100%;
+  width: 50%; /*mit js dynamisch machen inline*/
+}
+
+.subtask-text-box {
+  font-size: 12px;
+}
+
+.assign-and-prio-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.assigned-to-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 58px;
+  border: 1px solid white;
+  background: #0190e0;
+  color: white;
+  font-size: 12px;
+}
+
+.task-prio-box {
+  width: 32px;
 }
