@@ -1,4 +1,8 @@
+let users = [];
+
+
 async function init() {
+  loadUsers();
   await includeHTML();
 }
 
@@ -29,14 +33,18 @@ function doNotClose(event) {
 
 
 /**
- * This function highlights the currently open page in the sidebar navigation
+ * This function highlights the currently open page in the sidebar navigation and gets called from the sidebar.html SVG-Object onload
  *
  */
 function toggleSidebarFocus() {
   const pathName = window.location.pathname;
   let idClass = 'sidebar-' + pathName.replace('/html/', '').replace('.html', '').replace('/join', '');
   let idObject = 'sidebar-object-' + pathName.replace('/html/', '').replace('.html', '').replace('/join', '');
-
+ 
+  if (idClass === 'sidebar-help') {
+    return
+  }
+  
   changeSvgColor(idObject);
   document.getElementById(idClass).classList.add('sidebar-focus');
 }
