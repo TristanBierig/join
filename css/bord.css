@@ -23,13 +23,40 @@ main {
 
 .bord-header div {
   display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+input {
+  width: 251px;
+  height: 51px;
+  padding: 13px 65px 13px 21px;
+  border-radius: 15px;
+  border: 1px solid rgb(168, 168, 168);
+  font-size: 16px;
+  outline: unset;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.input-wrapper div {
+  position: absolute;
+  padding-left: 15px;
+  border-left: 1px solid rgb(209, 209, 209);
+  right: 15px;
+}
+
+input::placeholder {
+  font-size: 16px;
 }
 
 .drag-and-drop-container {
   display: flex;
   gap: 26px;
   justify-content: space-between;
-  max-width: 1078px;
+  /* max-width: 1078px; */
 }
 
 .drag-and-drop-row {
