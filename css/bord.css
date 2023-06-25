@@ -4,13 +4,12 @@
 
 main {
   margin-left: 232px; /*sidebar-width*/
-  margin-top: 71px; /*header-height*/
-  padding-top: 82px;
-  min-height: calc(100vh - 71px);
+  margin-top: 95px; /*header-height*/
+  min-height: calc(100vh - 95px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   background-color: var(--bg-color);
 }
 
@@ -73,6 +72,7 @@ input::placeholder {
 }
 
 .dragarea-hover {
+  border-radius: 30px;
   background-color: rgb(242, 243, 244);
 }
 
