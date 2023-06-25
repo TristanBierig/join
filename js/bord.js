@@ -54,16 +54,27 @@ function getTodoHTML(todo) {
 
 function startDragging(id) {
   currentlyDraggedElement = id;
-  console.log(id);
 }
 
 function moveTo(category) {
   testTodos[currentlyDraggedElement].category = category;
+  toggleDropareaHoverEffect(category + "-area", "remove");
   renderTodos();
 }
 
-function allowDrop(ev) {
+function allowDrop(ev, id) {
   ev.preventDefault();
+  toggleDropareaHoverEffect(id, "add");
+}
+
+function toggleDropareaHoverEffect(id, action) {
+  const dragArea = document.getElementById(id);
+  if (action == "remove") {
+    dragArea.classList.remove("dragarea-hover");
+  }
+  if (action == "add") {
+    dragArea.classList.add("dragarea-hover");
+  }
 }
 
 renderTodos();
