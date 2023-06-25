@@ -15,9 +15,10 @@ body {
     right: 0;
     bottom: 0;
     margin: auto;
-    padding: 35px 0;
+    padding: 35px;
     gap: 35px;
-    width: 652px;
+    min-width: 653px;
+    width: max-content;
     height: max-content;
     background-color: white;
     border-radius: 30px;
@@ -29,13 +30,15 @@ body {
 .login-modal h1 {
     position: relative;
     font-size: 61px;
+    margin-top: 0;
+    margin-bottom: 24px;
 }
 
 .login-modal h1::after {
     content: '';
     position: absolute;
-    left: 15px;
-    /* Centers the line horizontally*/
+    left: 50%;
+    transform: translateX(-50%);
     bottom: -24px;
     width: 150px;
     height: 3px;
@@ -53,7 +56,7 @@ form {
 
 .input-wrapper {
     position: relative;
-    
+
 }
 
 .input-wrapper img {
@@ -93,13 +96,14 @@ form input:focus {
 .forgot-password {
     cursor: pointer;
     color: var(--secondary-color);
+    text-decoration: none;
 }
 
 
 /* ===== Log in ===== */
 .btn-container {
     display: flex;
-    width: 341px;
+    justify-content: center;
     gap: 35px;
 }
 
@@ -141,3 +145,22 @@ form input:focus {
     font-size: 16px;
     width: auto;
 }
+
+
+/* ===== ============ ===== */
+/* ===== Sign up Page ===== */
+
+.back-arrow {
+    position: absolute;
+    left: 37px;
+    top: 37px;
+    cursor: pointer;
+}
+
+.info-text {
+
+}
+
+
+/* ===== ==================== ===== */
+/* ===== Forgot Password Page ===== */

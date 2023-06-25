@@ -16,10 +16,12 @@
     />
     <link rel="stylesheet" href="css/fonts.css" />
 
+    <script src="js/storage.js"></script>
+    <script src="js/data.js"></script>
     <script src="js/script.js"></script>
   </head>
 
-  <body onload="">
+  <body onload="init()">
     <main class="login-modal">
       <h1>Log in</h1>
 
@@ -40,7 +42,7 @@
           Remember me
           <span class="checkmark"></span>
         </label>
-        <span class="forgot-password">Forgot my password</span>
+        <a href="html/forgot_Password.html" class="forgot-password">Forgot my password</a>
       </div>
 
       <div class="btn-container">
