@@ -1,6 +1,5 @@
 let users = [];
 
-
 async function init() {
   loadUsers();
   await includeHTML();
@@ -35,8 +34,20 @@ function doNotClose(event) {
  */
 function toggleSidebarFocus() {
   const pathName = window.location.pathname;
-  let idClass = 'sidebar-' + pathName.replace('/html/', '').replace('.html', '').replace('/join', '');
-  let idObject = 'sidebar-object-' + pathName.replace('/html/', '').replace('.html', '').replace('/join', '');
+  let idClass =
+    "sidebar-" +
+    pathName
+      .replace("/html/", "")
+      .replace(".html", "")
+      .replace("/join", "")
+      .replace("/Modul_10", "");
+  let idObject =
+    "sidebar-object-" +
+    pathName
+      .replace("/html/", "")
+      .replace(".html", "")
+      .replace("/join", "")
+      .replace("/Modul_10", "");
 
   changeSvgColor(idObject);
   document.getElementById(idClass).classList.add("sidebar-focus");
