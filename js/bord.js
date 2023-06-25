@@ -5,19 +5,34 @@ let testTodos = [
     id: 0,
     title: "putzen",
     description: "wohnung staubsaugen und wischen",
-    category: "to-do",
+    status: "to-do",
+    category: "test",
+    assignedTo: ["tobi", "tristan", "julia"],
+    dueDate: "",
+    prio: "low",
+    subTasks: ["test"],
   },
   {
     id: 1,
     title: "sport",
     description: "50km rennen",
-    category: "to-do",
+    status: "to-do",
+    assignedTo: ["tobi", "tristan", "julia"],
+    category: "Design",
+    dueDate: "",
+    prio: "low",
+    subTasks: ["test"],
   },
   {
     id: 2,
     title: "essen",
     description: "sollte man nicht vergessen",
-    category: "to-do",
+    status: "to-do",
+    assignedTo: ["tobi", "tristan", "julia"],
+    category: "Training",
+    dueDate: "",
+    prio: "low",
+    subTasks: ["test"],
   },
 ];
 
@@ -30,7 +45,7 @@ function renderTodos() {
 
   for (let i = 0; i < testTodos.length; i++) {
     const todo = testTodos[i];
-    const container = document.getElementById(todo.category + "-area");
+    const container = document.getElementById(todo.status + "-area");
 
     container.innerHTML += getTodoHTML(todo);
   }
@@ -66,9 +81,30 @@ function resetDropAreas() {
  */
 function getTodoHTML(todo) {
   return /*html*/ `
-    <div draggable="true" ondragstart="startDragging(${todo.id})">
-      <b>${todo.title}</b>
-      <p>${todo.description}</p>
+    <div class="task" draggable="true" ondragstart="startDragging(${todo.id})">
+      <span class="task-category">${todo.category}</span>
+      <div class="task-title-description-box">
+        <b>${todo.title}</b>
+        <p>${todo.description}</p>
+      </div>
+      <div class="subtask-box">
+        <div class="progress-bar-box">
+          <div class="progress-bar-bar"></div>
+        </div>
+        <div class="subtask-text-box">
+          <span>1/2</span> 
+          <span>Done</span>
+        </div>
+      </div>
+      <div class="assign-and-prio-box">
+        <div>
+          <span class="assigned-to-display">SM</span>
+        </div>
+        <div>
+          <img src="../assets/img/icons/low-prio-icon-small.svg" alt="">
+        </div>        
+      </div>
+      </div>
     </div>
   `;
 }
@@ -85,14 +121,14 @@ function startDragging(id) {
 }
 
 /**
- * this function changes the category of the dragged task to @category
+ * this function changes the category of the dragged task to @status
  * then removes the hover effect, resets the variable currentlyDraggedElement
  *
- * @param {string} category category of the target area
+ * @param {string} status category of the target area
  */
-function moveTo(category) {
-  testTodos[currentlyDraggedElement].category = category;
-  toggleDropareaHoverEffect(category + "-area", "remove");
+function moveTo(status) {
+  testTodos[currentlyDraggedElement].status = status;
+  toggleDropareaHoverEffect(status + "-area", "remove");
   currentlyDraggedElement = null;
   renderTodos();
 }
@@ -105,7 +141,6 @@ function moveTo(category) {
  */
 function allowDrop(ev, id) {
   ev.preventDefault();
-  console.log(ev);
   toggleDropareaHoverEffect(id, "add");
 }
 
