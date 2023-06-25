@@ -52,6 +52,10 @@
     width: 50%;
 }
 
+.link-to-board {
+    text-decoration: none;
+}
+
 .card {
     background-color: white;
     color: var(--main-color);
