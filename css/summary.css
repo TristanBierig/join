@@ -11,10 +11,15 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    margin-left: 60px;
 }
 
 .summary-h1, .summary-h2, .summary-hr1 {
     margin-right: 35px;
+}
+
+.summary-h1 {
+    font-size: 55px;
 }
 
 .summary-hr1 {
@@ -41,7 +46,7 @@
 
 .left-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     margin-top: 30px;
 }
@@ -49,7 +54,17 @@
 .first-line {
     display: flex;
     justify-content: flex-start;
-    width: 50%;
+}
+
+.second-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.third-line {
+    display: flex;
+    justify-content: flex-start;
 }
 
 .link-to-board {
@@ -76,12 +91,6 @@
     color: white;
 }
 
-.second-line {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .numbers {
     font-size: 40px;
     display: flex;
@@ -106,14 +115,15 @@
 
 .greetings {
     color: rgba(42, 54, 71, 1);
-    font-size: 25px;
+    font-size: 45px;
     font-weight: 400;
     margin: 0;
+    padding: 0;
 }
 
 .user-name {
     color: var(--secondary-color);
-    font-size: 40px;
+    font-size: 60px;
     font-weight: bold;
     margin-top: 5px;
     font-weight: 700;
