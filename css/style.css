@@ -81,10 +81,6 @@ body {
     background-color: var(--sidebar-focus-color);
 }
 
-.sidebar-focus path {
-    fill: #ffffff;
-}
-
 .sidebar-focus span {
     color: white;
 }

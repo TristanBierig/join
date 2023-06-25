@@ -1,7 +1,7 @@
 async function init() {
   await includeHTML();
-  toggleSidebarFocus();
 }
+
 
 async function includeHTML() {
   let includeElements = document.querySelectorAll("[w3-include-html]");
@@ -17,6 +17,7 @@ async function includeHTML() {
   }
 }
 
+
 /**
  * Prevents onclick functions to fire when an upper clickfunction gets triggerd
  *
@@ -26,6 +27,7 @@ function doNotClose(event) {
   event.stopPropagation();
 }
 
+
 /**
  * This function highlights the currently open page in the sidebar navigation
  *
@@ -33,12 +35,36 @@ function doNotClose(event) {
 function toggleSidebarFocus() {
   const pathName = window.location.pathname;
   let idClass = 'sidebar-' + pathName.replace('/html/', '').replace('.html', '').replace('/join', '');
-  let idSVG = 'sidebar-svg-' + pathName.replace('/html/', '').replace('.html', '').replace('/join', '');
+  let idObject = 'sidebar-object-' + pathName.replace('/html/', '').replace('.html', '').replace('/join', '');
 
+  changeSvgColor(idObject);
   document.getElementById(idClass).classList.add('sidebar-focus');
-  // document.getElementById(idSVG).classList.add('white-svg');
 }
 
+
+/**
+ * This function changes the SVG-Icon of the current page sidebartab to color white
+ * 
+ * @param {string} idObject - This is the object for the currently highlighted SVG 
+ */
+function changeSvgColor(idObject) {
+  let object = document.getElementById(idObject);
+  let path = object.contentDocument.getElementsByTagName('path');
+  let circle = object.contentDocument.getElementsByTagName('circle');
+  if (path) {
+    for (let i = 0; i < path.length; i++) {
+      const element = path[i];
+      element.style.fill = '#ffffff';
+    }
+  }
+  if (circle.length !== 0) {
+    for (let i = 0; i < circle.length; i++) {
+      const element = circle[i];
+      element.style.stroke = '#ffffff';
+    }
+    path[0].style.stroke = '#ffffff';
+  }
+}
 
 
 /**
