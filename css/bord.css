@@ -186,3 +186,92 @@ input::placeholder {
 .task-prio-box {
   width: 32px;
 }
+
+/* ===== Task Overlay ===== */
+
+#task-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+#task-overlay-content {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 50px;
+  background-color: white;
+  border-radius: 30px;
+  box-shadow: var(--nuevo);
+  width: 623px;
+  font-size: 21px;
+  position: relative;
+}
+
+.overlay-close-button {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  cursor: pointer;
+}
+
+.overlayy-delete-edit-box {
+  width: 100px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--main-color);
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  cursor: pointer;
+}
+
+.overlay-delete-box {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay-edit-box {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-color);
+}
+
+.overlay-headline {
+  font-size: 61px;
+  color: var(--main-color);
+}
+
+.overlay-category {
+  font-size: 27px;
+  color: white;
+  padding: 4px 36.5px;
+  border-radius: 8px;
+  background: rgb(252, 113, 255);
+  width: fit-content;
+}
+
+.overlay-due-date {
+  display: flex;
+  gap: 25px;
+}
+
+.overlay-prio {
+  display: flex;
+  gap: 25px;
+}

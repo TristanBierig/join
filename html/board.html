@@ -127,8 +127,8 @@
         </div>
       </section>
     </main>
-    <div class="tast-overlay-modal">
-      <div id="task-overlay"></div>
+    <div onclick="closeOverlay()" class="d-none" id="task-overlay">
+      <div onclick="doNotClose(event)" id="task-overlay-content"></div>
     </div>
   </body>
 </html>

@@ -3,12 +3,12 @@ let currentlyDraggedElement;
 let testTodos = [
   {
     id: 0,
-    title: "putzen",
+    title: "putzen staubsaugen etc",
     description: "wohnung staubsaugen und wischen",
     status: "to-do",
     category: "test",
     assignedTo: ["tobi", "tristan", "julia"],
-    dueDate: "",
+    dueDate: "2023-06-29",
     prio: "low",
     subTasks: ["test"],
   },
@@ -167,8 +167,51 @@ function searchTask() {
   /* TODO SUCHFUNKTION*/
 }
 
+/* ===== Overlay Functions =====*/
+
 function openTask(id) {
+  const overlay = document.getElementById("task-overlay");
+  const overlayContent = document.getElementById("task-overlay-content");
+  overlay.classList.remove("d-none");
+  overlayContent.innerHTML = getOverlayContent(id);
   console.log(id);
+}
+
+function closeOverlay() {
+  const overlay = document.getElementById("task-overlay");
+  overlay.classList.add("d-none");
+}
+
+function getOverlayContent(id) {
+  for (let i = 0; i < testTodos.length; i++) {
+    const task = testTodos[i];
+
+    if (id == task.id) {
+      return getOverlayHTML(task);
+    }
+  }
+}
+
+function getOverlayHTML(task) {
+  return /*html*/ `
+    <span class="overlay-category">${task.category}</span>
+    <b class="overlay-headline">${task.title}</b>
+    <p>${task.description}</p>
+    <div class="overlay-due-date">
+      <b>Due date:</b>
+      <span>${task.dueDate}</span>
+    </div>
+    <div class="overlay-prio">
+      <b>Priority:</b>
+      <div>${task.prio}</div>
+    </div>
+    <b>Assigned To:</b>
+    <img onclick="closeOverlay()" class="overlay-close-button" src="../assets/img/icons/x-icon.svg" alt="X">
+    <div class="overlayy-delete-edit-box">
+      <div class="overlay-delete-box"><img src="../assets/img/icons/trash-bin.svg" alt=""></div>
+      <div class="overlay-edit-box"><img src="../assets/img/icons/bord-overlay-edit-pencil.svg" alt=""></div>
+    </div>
+  `;
 }
 
 renderTodos();
