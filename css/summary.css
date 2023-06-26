@@ -96,8 +96,13 @@
 
 .card-third-line {
     width: 202.5px;
+    height: 115px;
     display: flex;
 }
+
+.card-third-line:hover img {
+    filter: invert(100%) brightness(150%);
+  }
 
 .numbers {
     font-size: 40px;
@@ -119,7 +124,7 @@
     border-radius: 10px;
     width: 2px;
     height: 80px;
-    margin: 45px;
+    margin: 42px;
 }
 
 .greetings {
