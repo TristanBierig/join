@@ -1,3 +1,8 @@
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
 .summary {
     background-color: var(--bg-color);
     padding: 40px;
