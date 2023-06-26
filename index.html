@@ -32,8 +32,8 @@
           <img src="assets/img/icons/login-email.svg" alt="" />
         </div>
         <div class="input-wrapper">
-          <input required id="loginPw" type="password" placeholder="Password" />
-          <img src="assets/img/icons/login-password.svg" alt="" />
+          <input required id="loginPw" type="password" onkeyup="onPasswordInput()" placeholder="Password" />
+          <img onclick="togglePasswordVisibility()" id="loginPwImg" src="assets/img/icons/login-password.svg" alt="" />
         </div>
         <input type="submit" id="submit-form" class="d-none">
       </form>

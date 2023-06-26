@@ -157,9 +157,15 @@ form input:focus {
     cursor: pointer;
 }
 
-.info-text {
-
+.sign-up-modal {
+    gap: 0;
 }
+
+.sign-up-modal h1 {
+    margin-bottom: 59px;
+}
+
+.info-text {}
 
 
 /* ===== ==================== ===== */
