@@ -1,3 +1,7 @@
+/**
+ *  Downloads the users array from the backend
+ * 
+ */
 async function loadUsers(){
     try {
         users = JSON.parse(await getItem('users'));
@@ -7,6 +11,10 @@ async function loadUsers(){
 }
 
 
+/**
+ * This function takes the input.values of the register form, pushes them in the users array and POSTS it to the backend via setItem()
+ * 
+ */
 async function registerUser() {
     registerBtn.disabled = true;
     users.push({
@@ -18,7 +26,10 @@ async function registerUser() {
     resetForm();
 }
 
-
+/**
+ * Resets the form inputs once its submitted
+ * 
+ */
 function resetForm() {
     username.value = '';
     email.value = '';

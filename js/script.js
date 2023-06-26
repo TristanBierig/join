@@ -1,9 +1,12 @@
 let users = [];
+let currentUser;
 
 async function init() {
-  loadUsers();
+  await loadUsers();
   await includeHTML();
+  setCurrentUser();
 }
+
 
 async function includeHTML() {
   let includeElements = document.querySelectorAll("[w3-include-html]");
@@ -18,6 +21,19 @@ async function includeHTML() {
     }
   }
 }
+
+
+function setCurrentUser() {
+  let userIndex = sessionStorage.getItem('currentUser');
+  currentUser = users[userIndex];
+}
+
+
+function logOut() {
+  window.sessionStorage.clear();
+  window.location.replace('/index.html');
+}
+
 
 /**
  * Prevents onclick functions to fire when an upper clickfunction gets triggerd

@@ -19,21 +19,23 @@
     <script src="js/storage.js"></script>
     <script src="js/data.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/login.js"></script>
   </head>
 
   <body onload="init()">
     <main class="login-modal">
       <h1>Log in</h1>
 
-      <form action="">
+      <form id="login-form" onsubmit="login(); return false;">
         <div class="input-wrapper">
-          <input type="email" placeholder="Email" />
+          <input required id="loginEmail" type="email" placeholder="Email" />
           <img src="assets/img/icons/login-email.svg" alt="" />
         </div>
         <div class="input-wrapper">
-          <input type="password" placeholder="Password" />
+          <input required id="loginPw" type="password" placeholder="Password" />
           <img src="assets/img/icons/login-password.svg" alt="" />
         </div>
+        <input type="submit" id="submit-form" class="d-none">
       </form>
 
       <div class="reset-password-container">
@@ -46,7 +48,7 @@
       </div>
 
       <div class="btn-container">
-        <button class="button-wo-icon">Log In</button>
+        <label id="loginBtn" for="submit-form" class="button-wo-icon" tabindex="0">Log In</label>
         <a class="button-secondary-wo-icon" href="html/summary.html"
           >Guest Log in</a
         >
