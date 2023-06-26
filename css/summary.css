@@ -58,7 +58,6 @@
 
 .second-line {
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 
@@ -91,6 +90,15 @@
     color: white;
 }
 
+.card-second-line {
+    width: 420px;
+}
+
+.card-third-line {
+    width: 202.5px;
+    display: flex;
+}
+
 .numbers {
     font-size: 40px;
     display: flex;
@@ -101,16 +109,17 @@
 .arrow-img, .pencil-img, .checkmark-summary-img {
     width: 50px;
     height: auto;
+    margin: 0 20px;
 }
 
 .summary-hr2 {
-    border-color: rgba(205, 205, 205, 0.25);
-    background-color: rgba(205, 205, 205, 0.7);
+    border-color: rgba(209, 209, 209, 1);
+    background-color: rgba(209, 209, 209, 1);
     border: none;
     border-radius: 10px;
     width: 2px;
-    height: 35px;
-    margin-left: 0;
+    height: 80px;
+    margin: 45px;
 }
 
 .greetings {
