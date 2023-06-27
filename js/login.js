@@ -3,6 +3,7 @@ let hide = true;
 async function initLogin() {
     await loadUsers();
     registerSuccess();
+    checkForLogout();
 }
 
 
@@ -16,6 +17,15 @@ function login() {
         console.log('Computer sagt nein!');
     }
     resetLoginForm();
+}
+
+
+function checkForLogout() {
+    let logout = sessionStorage.getItem('currentUser');
+    console.log(logout);
+    if (logout === null) {
+        window.history.forward();
+    }
 }
 
 
