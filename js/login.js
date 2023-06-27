@@ -1,5 +1,11 @@
 let hide = true;
 
+async function initLogin() {
+    await loadUsers();
+    registerSuccess();
+}
+
+
 function login() {
     loginBtn.disabled = true;
     let loginUser = users.findIndex(checkIfUserExists);
@@ -9,7 +15,7 @@ function login() {
     } else {
         console.log('Computer sagt nein!');
     }
-    // resetLoginForm();
+    resetLoginForm();
 }
 
 
@@ -57,5 +63,15 @@ function togglePasswordVisibility() {
         hide = !hide;
         onPasswordInput();
         input.focus();
+    }
+}
+
+
+function registerSuccess() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const msg = urlParams.get('msg');
+    if (msg) {
+        registerSuccessBox.innerHTML = msg;
+        registerSuccessBox.classList.toggle('animate-register');
     }
 }

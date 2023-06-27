@@ -4,6 +4,11 @@ body {
     background-color: var(--bg-color);
 }
 
+.animate-register {
+    opacity: 100% !important;
+    scale: 1 !important;
+}
+
 .login-modal {
     display: flex;
     flex-direction: column;
@@ -23,6 +28,26 @@ body {
     background-color: white;
     border-radius: 30px;
     box-shadow: var(--shadoe-backlog-box);
+}
+
+#registerSuccessBox {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    text-align: center;
+    border: 2px solid var(--secondary-color);
+    border-radius: 30px;
+    background-color: white;
+    color: var(--secondary-color);
+    box-shadow: var(--shadoe-backlog-box);
+    padding: 24px;
+    width: 350px;
+    line-height: 120%;
+    transition: 425ms ease-in-out;
+    scale: 0;
+    opacity: 0;
 }
 
 
@@ -99,6 +124,10 @@ form input:focus {
     text-decoration: none;
 }
 
+.checkmark {
+    cursor: pointer;
+}
+
 
 /* ===== Log in ===== */
 .btn-container {
@@ -164,8 +193,6 @@ form input:focus {
 .sign-up-modal h1 {
     margin-bottom: 59px;
 }
-
-.info-text {}
 
 
 /* ===== ==================== ===== */

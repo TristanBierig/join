@@ -2,6 +2,10 @@ let users = [];
 let currentUser;
 
 async function init() {
+  if (checkForBypass()) {
+    window.location.href = '../index.html';
+    return
+  }
   await loadUsers();
   await includeHTML();
   setCurrentUser();
@@ -19,6 +23,14 @@ async function includeHTML() {
     } else {
       element.innerHTML = "Page not found";
     }
+  }
+}
+
+
+function checkForBypass() {
+  let currentUrl = window.location.pathname;
+  if (currentUrl != '/index.html' && document.referrer == "") {
+    return true;
   }
 }
 

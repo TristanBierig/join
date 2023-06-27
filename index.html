@@ -18,11 +18,11 @@
 
     <script src="js/storage.js"></script>
     <script src="js/data.js"></script>
-    <script src="js/script.js"></script>
     <script src="js/login.js"></script>
+    <script src="js/script.js"></script>
   </head>
 
-  <body onload="init()">
+  <body onload="initLogin()">
     <main class="login-modal">
       <h1>Log in</h1>
 
@@ -40,9 +40,8 @@
 
       <div class="reset-password-container">
         <label class="container">
-          <input type="checkbox" />
+          <input class="checkmark" type="checkbox" />
           Remember me
-          <span class="checkmark"></span>
         </label>
         <a href="html/forgot_Password.html" class="forgot-password">Forgot my password</a>
       </div>
@@ -54,6 +53,10 @@
         >
       </div>
     </main>
+
+    <section id="registerSuccessBox" class="">
+      
+    </section>
 
     <section class="signup-container">
       <span>Not a Join user?</span>
