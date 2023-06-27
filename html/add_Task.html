@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/fonts.css" />
+    <link rel="stylesheet" href="../css/add_task.css" />
     <link
       rel="shortcut icon"
       href="../assets/img/logos/logo_Regular.png"
@@ -16,6 +17,7 @@
     <script src="../js/storage.js"></script>
     <script src="../js/data.js"></script>
     <script src="../js/script.js"></script>
+    <script src="../js/add_task.js"></script>
   </head>
 
   <body onload="init()">
@@ -27,11 +29,69 @@
       class="sidebar"
       w3-include-html="../assets/templates/sidebar.html"
     ></nav>
-    <input
-      style="position: fixed; right: 100px; top: 500px"
-      type="date"
-      name=""
-      id="date"
-    />
+    <main>
+      <form onsubmit="addTask(); return false" class="add-task-form">
+        <div>
+          <label for="title">Title</label>
+          <input name="title" required id="title" type="text" />
+
+          <label for="description">Description</label>
+          <textarea id="description" cols="30" rows="10"></textarea>
+
+          <span>Category</span>
+          <div onclick="toggleCategoryPicker()" id="category">
+            <div>
+              <span>Select task category</span>
+              <img
+                class="open-arrow"
+                src="../assets/img/icons/open-select-arrow.svg"
+                alt="arrow-down"
+              />
+            </div>
+          </div>
+
+          <span>Assigned to</span>
+          <div onclick="toggleUserPicker()" id="assigned-to">
+            <div>
+              <span>Select contacts to assign</span>
+              <img
+                class="open-arrow"
+                src="../assets/img/icons/open-select-arrow.svg"
+                alt="arrow-down"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <label for="due-date">Due date</label>
+          <input
+            onclick="setMinDate()"
+            type="date"
+            name="due-date"
+            id="due-date"
+          />
+
+          <span>Prio</span>
+          <div class="prio-box">
+            <div>
+              <span>Urgent</span>
+              <img src="" alt="high-prio" />
+            </div>
+            <div>
+              <span>Medium</span>
+              <img src="" alt="medium-prio" />
+            </div>
+            <div>
+              <span>Low</span>
+              <img src="" alt="low-prio" />
+            </div>
+          </div>
+
+          <span>Subtasks</span>
+          <div>Add new subtask</div>
+        </div>
+      </form>
+    </main>
   </body>
 </html>
