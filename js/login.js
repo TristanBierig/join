@@ -21,7 +21,7 @@ function checkIfUserExists(user) {
 function checkForPassword(i) {
     if (users[i].password === loginPw.value) {
         sessionStorage.setItem('currentUser', i);
-        window.location.href = "/html/summary.html";
+        window.location = "html/summary.html";
     } else {
         console.log('Bitte überprüfen Sie ihr Passwort');
     }
@@ -40,13 +40,13 @@ function onPasswordInput() {
     let img = document.getElementById('loginPwImg');
 
     if (input.value != '' && hide) {
-        img.src = '/assets/img/icons/login-password-hidden.svg';
+        img.src = './assets/img/icons/login-password-hidden.svg';
         input.type = 'password';
     } else if (input.value != '' && !hide) {
-        img.src = '/assets/img/icons/login-password-show.svg';
+        img.src = './assets/img/icons/login-password-show.svg';
         input.type = 'text';
     } else {
-        img.src = '/assets/img/icons/login-password.svg';
+        img.src = './assets/img/icons/login-password.svg';
     }
 }
 
@@ -57,5 +57,5 @@ function togglePasswordVisibility() {
         hide = !hide;
         onPasswordInput();
         input.focus();
-    } 
+    }
 }

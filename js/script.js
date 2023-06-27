@@ -31,7 +31,7 @@ function setCurrentUser() {
 
 function logOut() {
   window.sessionStorage.clear();
-  window.location.replace('/index.html');
+  window.location.replace('../index.html');
 }
 
 
