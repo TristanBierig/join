@@ -17,6 +17,10 @@ body {
     justify-content: flex-end;
 }
 
+.arrow-left-icon {
+    cursor: pointer;
+}
+
 .legal-h1 {
     font-size: 60px;
     margin: 0 0 30px 0;
