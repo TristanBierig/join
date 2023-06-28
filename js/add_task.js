@@ -5,6 +5,7 @@ let categorys = [
   { name: "Media", color: "rgb(255,119,1)" },
   { name: "Marketing", color: "rgb(0,56,255)" },
 ];
+let selectedPrio;
 
 function toggleCategoryPicker() {
   const categoryBox = document.getElementById("category");
@@ -103,7 +104,7 @@ function addTask() {
     category: document.getElementById("selected-category").innerHTML,
     assignedTo: getAssignedPeople(),
     dueDate: document.getElementById("due-date").value,
-    prio: "",
+    prio: selectedPrio,
     subTasks: [],
     status: "to-do",
   };
@@ -125,4 +126,27 @@ function getAssignedPeople() {
   }
 
   return assignedTo;
+}
+
+function setPrio(prio) {
+  const highPrioBox = document.getElementById("high-prio-box");
+  const mediumPrioBox = document.getElementById("medium-prio-box");
+  const lowPrioBox = document.getElementById("low-prio-box");
+  selectedPrio = prio;
+
+  if (prio == "high") {
+    highPrioBox.classList.add("active", "high");
+    mediumPrioBox.classList.remove("active", "medium");
+    lowPrioBox.classList.remove("active", "low");
+  }
+  if (prio == "medium") {
+    highPrioBox.classList.remove("active", "high");
+    mediumPrioBox.classList.add("active", "medium");
+    lowPrioBox.classList.remove("active", "low");
+  }
+  if (prio == "low") {
+    highPrioBox.classList.remove("active", "high");
+    mediumPrioBox.classList.remove("active", "medium");
+    lowPrioBox.classList.add("active", "low");
+  }
 }
