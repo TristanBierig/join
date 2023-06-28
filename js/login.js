@@ -1,12 +1,17 @@
 let hide = true;
 
 async function initLogin() {
+    sessionStorage.clear();
     await loadUsers();
     registerSuccess();
     checkForLogout();
 }
 
 
+/**
+ * This function checks if the typed in email address is already registered as an user checks the password before logging in the user.
+ * 
+ */
 function login() {
     loginBtn.disabled = true;
     let loginUser = users.findIndex(checkIfUserExists);
@@ -20,20 +25,47 @@ function login() {
 }
 
 
+/**
+ * This function logs you in as the Guest Account to browse through the app without previous registration.
+ * 
+ */
+function guestLogin() {
+    sessionStorage.setItem('currentUser', 0);
+    window.location = "html/summary.html";
+}
+
+
+
+/**
+ * This Function checks if the current User logged out properly via the logout button or 
+ * not. If so, prevents from navigating back into the app via the backwards arrow from the browser.
+ * 
+ */
 function checkForLogout() {
     let logout = sessionStorage.getItem('currentUser');
-    console.log(logout);
     if (logout === null) {
         window.history.forward();
     }
 }
 
 
+/**
+ * This function checks if the typed in email address is already registered and returns the index of the user within the users Array. 
+ * 
+ * @param {object} user - This object defines a single user JSON in the users Array.
+ * @returns - Returns the object on which the stated test succeeded.
+ */
 function checkIfUserExists(user) {
     return user.email === loginEmail.value;
 }
 
 
+
+/**
+ * This function compares the typed in password with the saved password from the user and either denies or grants access to the App afterwards.
+ * 
+ * @param {integer} i - This is the index of the user within the users Array.
+ */
 function checkForPassword(i) {
     if (users[i].password === loginPw.value) {
         sessionStorage.setItem('currentUser', i);
@@ -44,6 +76,11 @@ function checkForPassword(i) {
 }
 
 
+
+/**
+ * This function sets all the values from the LoginForm back and enables the login btn for the next Login action.
+ * 
+ */
 function resetLoginForm() {
     loginEmail.value = '';
     loginPw.value = '';
@@ -51,6 +88,10 @@ function resetLoginForm() {
 }
 
 
+/**
+ * This function fires when the value of the password Input field is being changed and sets the proper Icon accordingly.
+ * 
+ */
 function onPasswordInput() {
     let input = document.getElementById('loginPw');
     let img = document.getElementById('loginPwImg');
@@ -67,6 +108,11 @@ function onPasswordInput() {
 }
 
 
+
+/**
+ * This function changes the visibility of the typed in password.
+ * 
+ */
 function togglePasswordVisibility() {
     let input = document.getElementById('loginPw');
     if (input.value != '') {
@@ -77,6 +123,10 @@ function togglePasswordVisibility() {
 }
 
 
+/**
+ * This function notices if the user is redirected from an succesful register process and displays a info message.
+ * 
+ */
 function registerSuccess() {
     const urlParams = new URLSearchParams(window.location.search);
     const msg = urlParams.get('msg');

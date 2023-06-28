@@ -2,13 +2,13 @@ let users = [];
 let currentUser;
 
 async function init() {
+  await loadUsers();
+  setCurrentUser();
   if (checkForBypass()) {
     window.location.href = '../index.html';
     return
   }
-  await loadUsers();
   await includeHTML();
-  setCurrentUser();
 }
 
 
@@ -27,20 +27,37 @@ async function includeHTML() {
 }
 
 
+/**
+ * This function checks if the user accessing a page within the app is properly logged in.
+ * If not the access is denied and user is send back to the Login page
+ * 
+ * @returns {Boolean} - If true the user tried to bypass the Loginrules and access the app directly.   
+ */
 function checkForBypass() {
   let currentUrl = window.location.pathname;
-  if (currentUrl != '/index.html' && document.referrer == "") {
+  if (currentUrl == '/html/sign_Up.html') {
+    return false;
+  }
+  if (currentUrl != '/index.html' && document.referrer == "" || currentUser === undefined) {
     return true;
   }
 }
 
 
+/**
+ * This function takes the one logged in user from the sessionstorage and updates the variable to be used in the script.
+ * 
+ */
 function setCurrentUser() {
   let userIndex = sessionStorage.getItem('currentUser');
   currentUser = users[userIndex];
 }
 
 
+/**
+ * 
+ * 
+ */
 function logOut() {
   window.sessionStorage.clear();
   window.location.replace('../index.html');
