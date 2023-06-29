@@ -10,7 +10,7 @@ let testTodos = [
     assignedTo: ["tobi", "tristan", "julia"],
     dueDate: "2023-06-29",
     prio: "low",
-    subTasks: ["test"],
+    subTasks: ["test", "staubsauger beutel wechseln"],
   },
   {
     id: 1,

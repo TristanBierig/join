@@ -97,8 +97,37 @@
             </div>
           </div>
 
-          <span>Subtasks</span>
-          <div onclick="" id="subtask-box">Add new subtask</div>
+          <label for=""></label>
+          <div>
+            <input
+              placeholder="Add new subtask"
+              id="subtask-input"
+              type="text"
+            />
+            <img
+              onclick="clearInput('subtask-input')"
+              class="subtask-img"
+              src="../assets/img/icons/cancel-icon.svg"
+              alt=""
+            />
+            <div class="seperator"></div>
+            <img
+              onclick="addSubtask()"
+              class="subtask-img"
+              src="../assets/img/icons/checkmark-icon-black.svg"
+              alt=""
+            />
+          </div>
+          <div id="subtask-box"></div>
+          <div>
+            <button type="reset" onclick="resetForm()">
+              Clear <img src="../assets/img/icons/cancel-icon.svg" alt="" />
+            </button>
+            <button type="submit">
+              Create Task
+              <img src="../assets/img/icons/checkmark-icon.svg" alt="" />
+            </button>
+          </div>
         </div>
       </form>
     </main>

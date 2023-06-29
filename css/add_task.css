@@ -56,11 +56,16 @@ main {
 }
 
 .active {
-  background-color: aqua;
+  border: 1px solid black;
 }
 
 #subtask-box {
   border: 1px solid black;
+}
+
+.subtask-img {
+  width: 24px;
+  height: 24px;
 }
 
 /* Prio Colors */

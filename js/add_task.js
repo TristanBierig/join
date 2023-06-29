@@ -6,6 +6,7 @@ let categorys = [
   { name: "Marketing", color: "rgb(0,56,255)" },
 ];
 let selectedPrio;
+let subTasksTest = [];
 
 function toggleCategoryPicker() {
   const categoryBox = document.getElementById("category");
@@ -35,8 +36,7 @@ function toggleCategoryPicker() {
     categoryBox.innerHTML += /*html*/ `
       <div onclick="createNewCategory()">New category</div>
     `;
-    categorys.forEach((category, index) => {
-      console.log(index);
+    categorys.forEach((category) => {
       categoryBox.innerHTML += /*html*/ `
         <div onclick="doNotClose(event), selectCategory('${category.name}')">
           <div>
@@ -48,6 +48,37 @@ function toggleCategoryPicker() {
     });
   }
 }
+
+function createNewCategory() {
+  const categoryBox = document.getElementById("category");
+  categoryBox.removeAttribute("onclick");
+
+  categoryBox.innerHTML = /*html*/ `
+          <div>
+            <input
+              placeholder="new Category"
+              id="subtask-input"
+              type="text"
+            />
+            <img
+              onclick="clearInput('subtask-input')"
+              class="subtask-img"
+              src="../assets/img/icons/cancel-icon.svg"
+              alt=""
+            />
+            <div class="seperator"></div>
+            <img
+              onclick="addNewCategory()"
+              class="subtask-img"
+              src="../assets/img/icons/checkmark-icon-black.svg"
+              alt=""
+            />
+          </div>
+          <div>color1 color2 ....</div>
+  `;
+}
+
+function addNewCategory() {}
 
 function selectCategory(category) {
   const categoryBox = document.getElementById("category");
@@ -101,14 +132,14 @@ function addTask() {
     id: 0,
     title: document.getElementById("title").value,
     description: document.getElementById("description").value,
-    category: document.getElementById("selected-category").innerHTML,
+    category: getCategory(),
     assignedTo: getAssignedPeople(),
     dueDate: document.getElementById("due-date").value,
     prio: selectedPrio,
-    subTasks: [],
+    subTasks: subTasksTest,
     status: "to-do",
   };
-
+  subTasksTest = [];
   console.log(task);
 }
 
@@ -148,5 +179,38 @@ function setPrio(prio) {
     highPrioBox.classList.remove("active", "high");
     mediumPrioBox.classList.remove("active", "medium");
     lowPrioBox.classList.add("active", "low");
+  }
+}
+
+function clearInput(id) {
+  let inputField = document.getElementById(id);
+  inputField.value = "";
+}
+
+function addSubtask() {
+  const subtask = document.getElementById("subtask-input").value;
+  subTasksTest.push(subtask);
+  renderSubtasks();
+}
+
+function renderSubtasks() {
+  const container = document.getElementById("subtask-box");
+  clearInput("subtask-input");
+  container.innerHTML = "";
+
+  subTasksTest.forEach((subtask) => {
+    container.innerHTML += /*html*/ `
+      <div>${subtask}</div>
+    `;
+  });
+}
+
+function getCategory() {
+  const selectCategory = document.getElementById("selected-category");
+
+  if (!selectCategory) {
+    return "notSelected";
+  } else {
+    return selectCategory.innerHTML;
   }
 }
