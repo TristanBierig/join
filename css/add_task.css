@@ -50,5 +50,29 @@ main {
 }
 
 .prio-box div {
-  display: flex;
+  flex-direction: row !important;
+  gap: 10px;
+  padding: 18px 10px;
+}
+
+.active {
+  background-color: aqua;
+}
+
+#subtask-box {
+  border: 1px solid black;
+}
+
+/* Prio Colors */
+
+.high {
+  background-color: rgb(255, 61, 0);
+}
+
+.medium {
+  background-color: rgb(255, 168, 0);
+}
+
+.low {
+  background-color: rgb(122, 226, 41);
 }
