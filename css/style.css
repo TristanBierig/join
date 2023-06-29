@@ -147,13 +147,31 @@ body {
     
 }
 
-.img-profile {
+#default-profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 47px;
+    height: 47px;
+    border-radius: 50%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    cursor: pointer;
+}
+
+#img-profile {
     position: absolute;
     border-radius: 50%;
     left: 0;
     top: 0;
     right: 0;
     bottom: 0;
+    width: 47px;
+    height: 47px;
     margin: auto;
     cursor: pointer;
 }

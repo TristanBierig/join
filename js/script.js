@@ -3,12 +3,12 @@ let currentUser;
 
 async function init() {
   await loadUsers();
+  await includeHTML();
   setCurrentUser();
   if (checkForBypass()) {
     window.location.href = '../index.html';
     return
   }
-  await includeHTML();
 }
 
 
@@ -31,7 +31,7 @@ async function includeHTML() {
  * This function checks if the user accessing a page within the app is properly logged in.
  * If not the access is denied and user is send back to the Login page
  * 
- * @returns {Boolean} - If true the user tried to bypass the Loginrules and access the app directly.   
+ * @returns {Boolean} - If true, the user tried to bypass the Loginrules and access the app directly.   
  */
 function checkForBypass() {
   let currentUrl = window.location.pathname;
@@ -51,11 +51,35 @@ function checkForBypass() {
 function setCurrentUser() {
   let userIndex = sessionStorage.getItem('currentUser');
   currentUser = users[userIndex];
+  loadProfilePicture();
 }
 
 
 /**
+ * This function checks if the user has an uploaded img file as a profile picture and sets it as an profile picture.
+ * Otherwise a default icon is generated and shown based on user initials and a random color.
  * 
+ */
+function loadProfilePicture() {
+  let user = currentUser.image.initials;
+  let picture = document.getElementById('img-profile');
+  let defaultImg = document.getElementById('default-profile');
+
+  if (currentUser.image.src == "") {
+   picture.classList.add('d-none');
+    defaultImg.innerHTML = `
+      <span>${user}</span>
+    `;
+    defaultImg.style = `background-color: ${currentUser.image.color}`
+  } else {
+    defaultImg.classList.add('d-none');
+    picture.src = currentUser.image.src;
+  }
+}
+
+
+/**
+ * This function clears the logged-in user from the session storage and redirects to the login page.
  * 
  */
 function logOut() {
@@ -125,6 +149,7 @@ function changeSvgColor(idObject) {
     path[0].style.stroke = "#ffffff";
   }
 }
+
 
 /**
  * Toggles the Modal css class for the log out button
