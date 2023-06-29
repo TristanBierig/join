@@ -89,6 +89,10 @@ form {
     top: 26.5px;
     right: 21px;
     transform: translateY(-50%);
+
+}
+
+input[type=password] + img {
     cursor: pointer;
 }
 
