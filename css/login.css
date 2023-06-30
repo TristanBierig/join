@@ -81,7 +81,6 @@ form {
 
 .input-wrapper {
     position: relative;
-
 }
 
 .input-wrapper img {
@@ -89,7 +88,6 @@ form {
     top: 26.5px;
     right: 21px;
     transform: translateY(-50%);
-
 }
 
 input[type=password] + img {

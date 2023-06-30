@@ -9,6 +9,7 @@ async function init() {
     window.location.href = '../index.html';
     return
   }
+  loadProfilePicture();
 }
 
 
@@ -51,7 +52,6 @@ function checkForBypass() {
 function setCurrentUser() {
   let userIndex = sessionStorage.getItem('currentUser');
   currentUser = users[userIndex];
-  loadProfilePicture();
 }
 
 

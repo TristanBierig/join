@@ -161,6 +161,9 @@ body {
     bottom: 0;
     margin: auto;
     cursor: pointer;
+    font-weight: 400;
+    color: white;
+    font-size: 12px;
 }
 
 #img-profile {

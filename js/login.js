@@ -35,7 +35,6 @@ function guestLogin() {
 }
 
 
-
 /**
  * This Function checks if the current User logged out properly via the logout button or 
  * not. If so, prevents from navigating back into the app via the backwards arrow from the browser.
@@ -76,7 +75,6 @@ function checkForPassword(i) {
 }
 
 
-
 /**
  * This function sets all the values from the LoginForm back and enables the login btn for the next Login action.
  * 
@@ -108,7 +106,6 @@ function onPasswordInput() {
 }
 
 
-
 /**
  * This function changes the visibility of the typed in password.
  * 
@@ -130,8 +127,33 @@ function togglePasswordVisibility() {
 function registerSuccess() {
     const urlParams = new URLSearchParams(window.location.search);
     const msg = urlParams.get('msg');
-    if (msg) {
+    let url = window.location.href;
+    if (msg && url.includes("index.html")) {
         registerSuccessBox.innerHTML = msg;
         registerSuccessBox.classList.toggle('animate-register');
+    }
+}
+
+
+function resetPassword() {
+    let email = users.find(checkIfUserExists)
+    if (email) {
+        document.getElementById('resetForm').submit();
+    } else {
+        console.log('Diese Email Adresse existiert nicht');
+    }
+}
+
+
+async function getResetUser() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const msg = urlParams.get('msg');
+    let i = users.findIndex(e => e.email === msg);
+
+    if (i && newPw.value === confirmPw.value) {
+        users[i].password = newPw.value;
+        await setItem('users', JSON.stringify(users));
+    } else {
+
     }
 }
