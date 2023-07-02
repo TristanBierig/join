@@ -1,50 +1,28 @@
 let categorys = [
-  { name: "Design", color: "rbg(255,122,0)" },
-  { name: "Sales", color: "rgb(252,113,255)" },
-  { name: "Backoffice", color: "rgb(31,215,193)" },
-  { name: "Media", color: "rgb(255,119,1)" },
-  { name: "Marketing", color: "rgb(0,56,255)" },
+  { name: "Design", color: "FF7A00;" },
+  { name: "Sales", color: "FC71FF" },
+  { name: "Backoffice", color: "1FD7C1" },
+  { name: "Media", color: "FFC701" },
+  { name: "Marketing", color: "0038FF" },
 ];
+
+let categoryColors = ["8AA4FF", "F00", "2AD300", "FF8A00", "E200BE", "0038FF"];
+
 let selectedPrio;
+let selectedColor;
 let subTasksTest = [];
 
 function toggleCategoryPicker() {
   const categoryBox = document.getElementById("category");
 
   if (categoryBox.childElementCount >= 2) {
-    categoryBox.innerHTML = /*html*/ `
-         <div>
-              <span>Select task category</span>
-              <img
-                class="open-arrow"
-                src="../assets/img/icons/open-select-arrow.svg"
-                alt="arrow-down"
-              />
-            </div>
-    `;
+    categoryBox.innerHTML = getTaskCategotryHTML();
   } else {
-    categoryBox.innerHTML = /*html*/ `
-       <div>
-              <span>Select task category</span>
-              <img
-                class="open-arrow"
-                src="../assets/img/icons/open-select-arrow.svg"
-                alt="arrow-down"
-              />
-            </div>
-    `;
-    categoryBox.innerHTML += /*html*/ `
-      <div onclick="createNewCategory()">New category</div>
-    `;
+    categoryBox.innerHTML = getTaskCategotryHTML();
+    categoryBox.innerHTML += getNewCategoryHTML();
+
     categorys.forEach((category) => {
-      categoryBox.innerHTML += /*html*/ `
-        <div onclick="doNotClose(event), selectCategory('${category.name}')">
-          <div>
-            <span>${category.name}</span>
-            <div></div>
-          </div>
-        </div>
-      `;
+      categoryBox.innerHTML += getCategoryHTML(category);
     });
   }
 }
@@ -53,48 +31,51 @@ function createNewCategory() {
   const categoryBox = document.getElementById("category");
   categoryBox.removeAttribute("onclick");
 
-  categoryBox.innerHTML = /*html*/ `
-          <div>
-            <input
-              placeholder="new Category"
-              id="subtask-input"
-              type="text"
-            />
-            <img
-              onclick="clearInput('subtask-input')"
-              class="subtask-img"
-              src="../assets/img/icons/cancel-icon.svg"
-              alt=""
-            />
-            <div class="seperator"></div>
-            <img
-              onclick="addNewCategory()"
-              class="subtask-img"
-              src="../assets/img/icons/checkmark-icon-black.svg"
-              alt=""
-            />
-          </div>
-          <div>color1 color2 ....</div>
-  `;
+  categoryBox.innerHTML = getCreateNewCategoryHTML();
+  getColorPicker();
 }
 
-function addNewCategory() {}
+function getColorPicker() {
+  const colorBox = document.getElementById("color-picker-box");
 
-function selectCategory(category) {
+  categoryColors.forEach((color, index) => {
+    colorBox.innerHTML += getColorHTML(color, index);
+  });
+}
+
+function addNewCategory() {
   const categoryBox = document.getElementById("category");
 
-  categoryBox.innerHTML = /*html*/ `
-    <div>
-      <span id="selected-category">${category}</span>
-      <div></div>
-      <img
-                class="open-arrow"
-                src="../assets/img/icons/open-select-arrow.svg"
-                alt="arrow-down"
-              />
-    </div>
-        
-  `;
+  if (selectedColor) {
+    const newCategory = {
+      name: document.getElementById("subtask-input").value,
+      color: selectedColor,
+    };
+    categorys.push(newCategory);
+    categoryBox.innerHTML = getTaskCategotryHTML();
+    setTimeout(() => {
+      categoryBox.setAttribute("onclick", "toggleCategoryPicker()");
+    }, 1);
+  }
+}
+
+function selectColor(color, id) {
+  const colrPickerBox = document.getElementById("color-picker-box");
+  const colorBoxes = colrPickerBox.querySelectorAll("div");
+  selectedColor = color;
+
+  colorBoxes.forEach((colorBox) => {
+    colorBox.classList.remove("active-color");
+  });
+
+  const selectedColorBox = document.getElementById(id);
+  selectedColorBox.classList.add("active-color");
+}
+
+function selectCategory(category, color) {
+  const categoryBox = document.getElementById("category");
+
+  categoryBox.innerHTML = getSelectedCategoryHTML(category, color);
 }
 
 function toggleUserPicker() {
@@ -103,13 +84,8 @@ function toggleUserPicker() {
   if (userBox.childElementCount >= 2) {
     hideusers(userBox);
   } else {
-    users.forEach((user, index) => {
-      userBox.innerHTML += /*html*/ `
-        <label onclick="doNotClose(event)" class="">
-          ${user.name}
-          <input name="" type="checkbox" />
-        </label>
-      `;
+    users.forEach((user) => {
+      userBox.innerHTML += getAssignUsersHTML(user);
     });
   }
 }
@@ -139,8 +115,8 @@ function addTask() {
     subTasks: subTasksTest,
     status: "to-do",
   };
-  subTasksTest = [];
-  console.log(task);
+  subTasksTest = []; // replace by new name
+  console.log(task); // delete
 }
 
 function getAssignedPeople() {
@@ -152,7 +128,7 @@ function getAssignedPeople() {
     const label = labels[i];
 
     if (label.querySelector("input").checked) {
-      assignedTo.push(label.innerText);
+      assignedTo.push(label.innerText.replace(/(\r\n|\n|\r)/gm, ""));
     }
   }
 
@@ -160,26 +136,17 @@ function getAssignedPeople() {
 }
 
 function setPrio(prio) {
-  const highPrioBox = document.getElementById("high-prio-box");
-  const mediumPrioBox = document.getElementById("medium-prio-box");
-  const lowPrioBox = document.getElementById("low-prio-box");
+  const prioBox = document.getElementById("prio-box");
+  const prioDivs = prioBox.querySelectorAll("div");
   selectedPrio = prio;
 
-  if (prio == "high") {
-    highPrioBox.classList.add("active", "high");
-    mediumPrioBox.classList.remove("active", "medium");
-    lowPrioBox.classList.remove("active", "low");
-  }
-  if (prio == "medium") {
-    highPrioBox.classList.remove("active", "high");
-    mediumPrioBox.classList.add("active", "medium");
-    lowPrioBox.classList.remove("active", "low");
-  }
-  if (prio == "low") {
-    highPrioBox.classList.remove("active", "high");
-    mediumPrioBox.classList.remove("active", "medium");
-    lowPrioBox.classList.add("active", "low");
-  }
+  prioDivs.forEach((div) => {
+    div.classList.remove("active", "high", "medium", "low");
+    console.log(div);
+  });
+
+  const clickedPrio = document.getElementById(prio + "-prio-box");
+  clickedPrio.classList.add(prio);
 }
 
 function clearInput(id) {
@@ -188,7 +155,10 @@ function clearInput(id) {
 }
 
 function addSubtask() {
-  const subtask = document.getElementById("subtask-input").value;
+  const subtask = {
+    name: document.getElementById("subtask-input").value,
+    status: "open",
+  };
   subTasksTest.push(subtask);
   renderSubtasks();
 }
@@ -199,9 +169,7 @@ function renderSubtasks() {
   container.innerHTML = "";
 
   subTasksTest.forEach((subtask) => {
-    container.innerHTML += /*html*/ `
-      <div>${subtask}</div>
-    `;
+    container.innerHTML += getSubtaskHTML(subtask);
   });
 }
 

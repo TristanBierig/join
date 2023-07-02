@@ -45,11 +45,11 @@ main {
   height: 16px;
 }
 
-.prio-box {
+#prio-box {
   flex-direction: row !important;
 }
 
-.prio-box div {
+#prio-box div {
   flex-direction: row !important;
   gap: 10px;
   padding: 18px 10px;
@@ -59,6 +59,10 @@ main {
   border: 1px solid black;
 }
 
+.active-color {
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
 #subtask-box {
   border: 1px solid black;
 }
@@ -66,6 +70,19 @@ main {
 .subtask-img {
   width: 24px;
   height: 24px;
+}
+
+#color-picker-box {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.color-picker-color {
+  width: 20px !important;
+  height: 20px !important;
+  border-radius: 50%;
+  border: 2px solid white;
 }
 
 /* Prio Colors */

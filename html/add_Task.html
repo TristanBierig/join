@@ -17,6 +17,7 @@
     <script src="../js/storage.js"></script>
     <script src="../js/data.js"></script>
     <script src="../js/script.js"></script>
+    <script src="../js/HTML_tamplates.js"></script>
     <script src="../js/add_task.js"></script>
   </head>
 
@@ -66,6 +67,7 @@
         <div>
           <label for="due-date">Due date</label>
           <input
+            required
             onclick="setMinDate()"
             type="date"
             name="due-date"
@@ -73,7 +75,7 @@
           />
 
           <span>Prio</span>
-          <div class="prio-box">
+          <div id="prio-box">
             <div id="high-prio-box" onclick="setPrio('high')">
               <span>Urgent</span>
               <img
@@ -97,12 +99,13 @@
             </div>
           </div>
 
-          <label for=""></label>
           <div>
+            <label for="subtask-input">Subtasks</label>
             <input
               placeholder="Add new subtask"
               id="subtask-input"
               type="text"
+              name="subtask-input"
             />
             <img
               onclick="clearInput('subtask-input')"
@@ -120,7 +123,7 @@
           </div>
           <div id="subtask-box"></div>
           <div>
-            <button type="reset" onclick="resetForm()">
+            <button type="reset">
               Clear <img src="../assets/img/icons/cancel-icon.svg" alt="" />
             </button>
             <button type="submit">
