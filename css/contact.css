@@ -36,22 +36,45 @@ main {
 }
 
 
+
+
 /* ===== Contacts List ===== */
 #contactsList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 453px;
     background-color: white;
     min-height: calc(100vh - 95px);
+    box-shadow: 4px 0px 6px 0px rgba(0, 0, 0, 0.08);
+}
+
+.line-list {
+    width: 323px;
+    height: 1px;
+    background-color: #d1d1d1;
+    margin: 14px 12px;
+}
+
+.seperator-list {
+    padding: 10px;
+    font-size: 21px;
+    align-self: flex-start;
+}
+
+.contact-wrapper {
+
 }
 
 
 /* ===== AddContact Modal ===== */
 #addContactModal {
-
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
+    background-color: rgba(0,0,0, 0.5);
 }
 
 #addContact {
@@ -211,21 +234,19 @@ main {
     margin-right: 6px;
 }
 
-/* Third Child*/
+/* Third & Fourth Child*/
 #currentContact>div:nth-child(3) a {
+    display: inline-flex;
+    margin-top: 15px;
     text-decoration: none;
     color: rgb(23, 118, 233);
 }
 
 #currentContact>div:nth-child(4) a {
+    display: inline-flex;
     text-decoration: none;
     color: black;
-}
-
-#currentContact>div:nth-child(3), #currentContact>div:nth-child(4) {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    margin-top: 15px;
 }
 
 

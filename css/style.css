@@ -27,6 +27,10 @@ body {
     margin: 0;
 }
 
+.active-modal {
+    filter: brightness(0.5);
+}
+
 /* ===== Navigation ===== */
 .sidebar {
     display: flex;

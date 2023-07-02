@@ -18,7 +18,7 @@
   <script src="../js/contact.js"></script>
 </head>
 
-<body onload="init()">
+<body onload="initContacts()">
   <header class="header" w3-include-html="../assets/templates/header.html"></header>
   <nav class="sidebar" w3-include-html="../assets/templates/sidebar.html"></nav>
   <main>
@@ -76,14 +76,14 @@
         </div>
       </div>
 
-      <button class="button-with-icon">
+      <button onclick="toggleContactModal()" class="button-with-icon">
         New contact
         <img src="../assets/img/icons/add-contact-icon.svg" alt="">
       </button>
     </section>
 
-    <section id="addContactModal" class="d-none">
-      <div id="addContact">
+    <section onclick="toggleContactModal()" id="addContactModal" class="d-none">
+      <div onclick="doNotClose(event)" id="addContact">
         <div class="left-frame-add">
           <img src="../assets/img/logos/logo_Light.png" alt="Join logo">
           <div class="contact-info">
@@ -93,28 +93,28 @@
         </div>
 
         <div class="right-frame-add">
-          <img class="cancel-btn" src="../assets/img/icons/cancel-icon.svg" alt="">
+          <img onclick="toggleContactModal()" class="cancel-btn" src="../assets/img/icons/cancel-icon.svg" alt="">
 
           <div class="img-wrapper">
             <img src="../assets/img/icons/default-user.svg" alt="">
           </div>
 
-          <form onsubmit="">
+          <form id="addContactForm" onsubmit="addNewContact(); return false;">
             <div class="input-wrapper">
-              <input required type="text" placeholder="Name">
+              <input id="contactName" required type="text" placeholder="Name">
               <img src="../assets/img/icons/user-icon.svg" alt="">
             </div>
             <div class="input-wrapper">
-              <input required type="email" placeholder="Email">
+              <input id="contactEmail" required type="email" placeholder="Email">
               <img src="../assets/img/icons/login-email.svg" alt="">
             </div>
             <div class="input-wrapper">
-              <input required type="tel" placeholder="Phone">
+              <input id="contactPhone" required type="tel" placeholder="Phone">
               <img src="../assets/img/icons/telephone.svg" alt="">
             </div>
 
             <div class="button-wrapper">
-              <button class="button-secondary-with-icon">
+              <button type="reset" class="button-secondary-with-icon">
                 Cancel
                 <img src="../assets/img/icons/cancel-icon.svg" alt="">
               </button>
