@@ -30,6 +30,7 @@ function toggleCategoryPicker() {
 function createNewCategory() {
   const categoryBox = document.getElementById("category");
   categoryBox.removeAttribute("onclick");
+  categoryBox.style = "padding: 0;";
 
   categoryBox.innerHTML = getCreateNewCategoryHTML();
   getColorPicker();
@@ -37,6 +38,8 @@ function createNewCategory() {
 
 function getColorPicker() {
   const colorBox = document.getElementById("color-picker-box");
+  colorBox.classList.remove("d-none");
+  colorBox.innerHTML = "";
 
   categoryColors.forEach((color, index) => {
     colorBox.innerHTML += getColorHTML(color, index);
@@ -45,17 +48,20 @@ function getColorPicker() {
 
 function addNewCategory() {
   const categoryBox = document.getElementById("category");
+  const colorBox = document.getElementById("color-picker-box");
 
   if (selectedColor) {
     const newCategory = {
-      name: document.getElementById("subtask-input").value,
+      name: document.getElementById("category-input").value,
       color: selectedColor,
     };
     categorys.push(newCategory);
     categoryBox.innerHTML = getTaskCategotryHTML();
+    categoryBox.style = "";
     setTimeout(() => {
       categoryBox.setAttribute("onclick", "toggleCategoryPicker()");
     }, 1);
+    colorBox.classList.add("d-none");
   }
 }
 
@@ -142,7 +148,6 @@ function setPrio(prio) {
 
   prioDivs.forEach((div) => {
     div.classList.remove("active", "high", "medium", "low");
-    console.log(div);
   });
 
   const clickedPrio = document.getElementById(prio + "-prio-box");

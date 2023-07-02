@@ -30,20 +30,19 @@ function getCategoryHTML(category) {
 
 function getCreateNewCategoryHTML() {
   return /*html*/ `
-    <div class="input">
       <input
-        placeholder="new Category"
-        id="subtask-input"
+        placeholder="New category name"
+        id="category-input"
         type="text"
       />
-      <div>
+      <div class="add-category-img-box">
       <img
         onclick="clearInput('subtask-input')"
         class="subtask-img"
         src="../assets/img/icons/cancel-icon.svg"
         alt=""
       />
-      <div class="seperator"></div>
+      <div class="seperator-small"></div>
       <img
         onclick="addNewCategory()"
         class="subtask-img"
@@ -51,8 +50,7 @@ function getCreateNewCategoryHTML() {
         alt=""
       />
       </div>
-    </div>
-    <div id="color-picker-box"></div>
+  
   `;
 }
 
@@ -65,9 +63,11 @@ function getColorHTML(color, index) {
 function getSelectedCategoryHTML(category, color) {
   return /*html*/ `
     <div>
-      <span id="selected-category">${category}</span>
-      <div class="color-picker-color" style="background-color: #${color}"></div>
-    
+      <div>
+        <span id="selected-category">${category}</span>
+        <div class="color-picker-color" style="background-color: #${color}"></div>
+      </div>
+
       <img
                 class="open-arrow"
                 src="../assets/img/icons/open-select-arrow.svg"

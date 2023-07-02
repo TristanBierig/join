@@ -4,15 +4,143 @@ main {
   min-height: calc(100vh - 95px);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
+  position: relative;
+  font-size: 21px;
+  background-color: var(--bg-color);
 }
 
-.add-task-form {
+/* ===== Form Selectors =====*/
+
+form {
   display: flex;
 }
 
-.add-task-form div {
+form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+}
+
+form label {
+  font-size: 21px;
+  color: rgba(0, 0, 0, 1);
+}
+
+form input[type="text"],
+form input[type="date"] {
+  height: 51px;
+}
+
+form textarea {
+  height: 119px;
+  resize: none;
+}
+
+form input,
+form textarea {
+  padding: 13px 21px;
+  border-radius: 10px;
+  outline: unset;
+  border: 1px solid var(--sidebar-text-color);
+  background-color: white;
+  font-size: 21px;
+}
+
+input[type="date"]:invalid::-webkit-datetime-edit {
+  color: var(--sidebar-text-color);
+  font-size: 21px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  font-size: 21px;
+  color: var(--sidebar-text-color);
+}
+
+/* ===== Form Classes & ID´s ===== */
+
+.seperator {
+  margin: 0px 25px;
+  border-left: 1px solid rgba(209, 209, 209, 1);
+}
+
+.input-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+.input-with-icons {
+  position: relative;
+}
+
+.input-with-icons > input {
+  width: 100%;
+  padding-right: 80px;
+}
+
+.input-with-icons > div {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+}
+
+.input-icon-box {
+  display: flex;
+}
+
+.input-icon-box > div {
+  border-left: 1px solid black;
+  margin: 0 8px;
+}
+
+.label {
+  font-size: 21px;
+  color: rgba(0, 0, 0, 1);
+}
+
+.placeholder {
+  font-size: 21px;
+  color: var(--sidebar-text-color);
+}
+
+.input {
+  height: 51px;
+  padding: 13px 21px;
+  border-radius: 10px;
+  outline: unset;
+  border: 1px solid var(--sidebar-text-color);
+  background-color: white;
+}
+
+.button-box {
+  display: flex;
+  gap: 25px;
+}
+
+#prio-box {
+  display: flex;
+  gap: 10px;
+}
+
+#prio-box div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 10px;
+  height: 51px;
+  width: 136px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: var(--nuevo);
+}
+
+#assigned-to {
   display: flex;
   flex-direction: column;
 }
@@ -20,16 +148,30 @@ main {
 #category,
 #assigned-to {
   display: flex;
-  border: 1px solid black;
+  flex-direction: column;
+  min-height: 51px;
+  padding: 13px 21px;
+  border-radius: 10px;
+  outline: unset;
+  border: 1px solid var(--sidebar-text-color);
+  background-color: white;
+}
+
+#category-input {
+  border: unset;
 }
 
 #category div,
-#assigned-to div {
-  width: 100%;
+#assigned-to > div {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  gap: 10px;
+}
+
+.add-category-img-box {
+  position: absolute;
+  right: 0;
 }
 
 #assigned-to label {
@@ -43,16 +185,6 @@ main {
 .open-arrow {
   width: 16px;
   height: 16px;
-}
-
-#prio-box {
-  flex-direction: row !important;
-}
-
-#prio-box div {
-  flex-direction: row !important;
-  gap: 10px;
-  padding: 18px 10px;
 }
 
 .active {
@@ -88,13 +220,13 @@ main {
 /* Prio Colors */
 
 .high {
-  background-color: rgb(255, 61, 0);
+  background-color: rgb(255, 61, 0) !important;
 }
 
 .medium {
-  background-color: rgb(255, 168, 0);
+  background-color: rgb(255, 168, 0) !important;
 }
 
 .low {
-  background-color: rgb(122, 226, 41);
+  background-color: rgb(122, 226, 41) !important;
 }
