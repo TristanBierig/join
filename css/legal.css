@@ -1,13 +1,12 @@
 body {
     margin: 0;
-    overflow: hidden;
 }
 
 .main {
     background-color: var(--bg-color);
     padding: 100px 116px;
     width: auto;
-    height: 100vh;
+    height: auto;
     margin-left: 232px; /*sidebar-width*/
     margin-top: 71px; /*header-height*/
 }
