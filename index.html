@@ -1,66 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Join</title>
 
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/login.css" />
-    <link rel="stylesheet" href="css/fonts.css" />
-    <link
-      rel="shortcut icon"
-      href="assets/img/logos/logo_Regular.png"
-      type="image/x-icon"
-    />
-    <link rel="stylesheet" href="css/fonts.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join</title>
 
-    <script src="js/storage.js"></script>
-    <script src="js/data.js"></script>
-    <script src="js/login.js"></script>
-    <script src="js/script.js"></script>
-  </head>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/login.css" />
+  <link rel="stylesheet" href="css/fonts.css" />
+  <link rel="shortcut icon" href="assets/img/logos/logo_Regular.png" type="image/x-icon" />
+  <link rel="stylesheet" href="css/fonts.css" />
 
-  <body onload="initLogin()">
-    <main class="login-modal">
-      <h1>Log in</h1>
+  <script src="js/storage.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/login.js"></script>
+  <script src="js/script.js"></script>
+</head>
 
-      <form id="login-form" onsubmit="login(); return false;">
-        <div class="input-wrapper">
-          <input required autocomplete="email" id="loginEmail" type="email" placeholder="Email" />
-          <img src="assets/img/icons/login-email.svg" alt="" />
-        </div>
-        <div class="input-wrapper">
-          <input required id="loginPw" type="password" onkeyup="onPasswordInput()" placeholder="Password" />
-          <img onclick="togglePasswordVisibility()" id="loginPwImg" src="assets/img/icons/login-password.svg" alt="" />
-        </div>
-        <input type="submit" id="submit-form" class="d-none">
-      </form>
+<body onload="initLogin()">
+  <div id="openImg">
+    <img src="assets/img/logos/logo_Big.png" alt="">
+  </div>
+  <main class="login-modal">
+    <h1>Log in</h1>
 
-      <div class="reset-password-container">
-        <label class="container">
-          <input class="checkmark" type="checkbox" />
-          Remember me
-        </label>
-        <a href="html/forgot_Password.html" class="forgot-password">Forgot my password</a>
+    <form id="login-form" onsubmit="login(); return false;">
+      <div class="input-wrapper">
+        <input required autocomplete="email" id="loginEmail" type="email" placeholder="Email" />
+        <img src="assets/img/icons/login-email.svg" alt="" />
       </div>
-
-      <div class="btn-container">
-        <label id="loginBtn" for="submit-form" class="button-wo-icon" tabindex="0">Log In</label>
-        <a class="button-secondary-wo-icon" onclick="guestLogin()"
-          >Guest Log in</a
-        >
+      <div class="input-wrapper">
+        <input required id="loginPw" type="password" onkeyup="onPasswordInput()" placeholder="Password" />
+        <img onclick="togglePasswordVisibility()" id="loginPwImg" src="assets/img/icons/login-password.svg" alt="" />
       </div>
-    </main>
+      <input type="submit" id="submit-form" class="d-none">
+    </form>
 
-    <section id="registerSuccessBox" class="">
-      
-    </section>
+    <div class="reset-password-container">
+      <label class="container">
+        <input class="checkmark" type="checkbox" />
+        Remember me
+      </label>
+      <a href="html/forgot_Password.html" class="forgot-password">Forgot my password</a>
+    </div>
 
-    <section class="signup-container">
-      <span>Not a Join user?</span>
-      <a class="button-wo-icon" href="html/sign_Up.html">Sign up</a>
-    </section>
-  </body>
+    <div class="btn-container">
+      <label id="loginBtn" for="submit-form" class="button-wo-icon" tabindex="0">Log In</label>
+      <a class="button-secondary-wo-icon" onclick="guestLogin()">Guest Log in</a>
+    </div>
+  </main>
+
+  <section id="registerSuccessBox" class="">
+
+  </section>
+
+  <section class="signup-container">
+    <span>Not a Join user?</span>
+    <a class="button-wo-icon" href="html/sign_Up.html">Sign up</a>
+  </section>
+</body>
+
 </html>

@@ -1,0 +1,252 @@
+main {
+    display: flex;
+    margin-left: 232px;
+    margin-top: 95px;
+    height: calc(100vh - 95px);
+    background-color: var(--bg-color);
+}
+
+.bold {
+    font-weight: bold;
+}
+
+/* ===== Sub-Header ===== */
+.sub-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding-left: 60px;
+}
+
+.sub-header h1 {
+    font-size: 61px;
+}
+
+.sub-header h3 {
+    font-size: 27px;
+    font-weight: 400;
+
+}
+
+.line {
+    height: 59px;
+    width: 2px;
+    background-color: var(--secondary-color);
+}
+
+
+/* ===== Contacts List ===== */
+#contactsList {
+    width: 453px;
+    background-color: white;
+    min-height: calc(100vh - 95px);
+}
+
+
+/* ===== AddContact Modal ===== */
+#addContactModal {
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+#addContact {
+    display: flex;
+    width: 1212px;
+    height: 594px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Left frame */
+.left-frame-add {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: white;
+    padding: 66px 46px;
+    background-color: var(--main-color);
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.left-frame-add img {
+    width: 55.123px;
+    height: 66.483px;
+}
+
+.left-frame-add h1 {
+    font-size: 61px;
+    margin-bottom: 0;
+    margin-top: 12px;
+}
+
+.left-frame-add h2 {
+    font-size: 27px;
+    font-weight: 400;
+    margin-top: 12px;
+}
+
+.contact-info {
+    position: relative;
+}
+
+.contact-info::after {
+    content: '';
+    width: 90px;
+    height: 2px;
+    background-color: var(--secondary-color);
+    position: absolute;
+    bottom: 12px;
+}
+
+/* Right frame */
+.right-frame-add {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    gap: 65px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.right-frame-add form {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    background-color: #d1d1d1;
+    border: 2px solid white;
+    box-shadow: var(--nuevo);
+}
+
+#contactsOverview button {
+    position: absolute;
+    bottom: 67px;
+    right: 47px;
+}
+
+#currentContact {
+    display: flex;
+    flex-direction: column;
+    padding-left: 65px;
+    gap: 21px;
+}
+
+/* First Child */
+#currentContact div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 54px;
+}
+
+#currentContact div:first-child h3 {
+    font-size: 47px;
+    font-weight: 500;
+    margin: 0;
+}
+
+#currentContact div:first-child span svg path {
+    stroke: var(--secondary-color);
+}
+
+#currentContact div:first-child span {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 13px;
+    color: var(--secondary-color);
+}
+
+#currentContact div:first-child span:hover svg path {
+    stroke-width: 3;
+}
+
+#currentContact div:first-child span:hover {
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Second Child */
+#currentContact>div:nth-child(2) {
+    display: flex;
+    align-items: center;
+    height: 74px;
+    gap: 59px;
+}
+
+#currentContact>div:nth-child(2)> span:first-child {
+    font-size: 21px;
+    font-weight: 400;
+}
+
+#currentContact>div:nth-child(2)> span:last-child:hover {
+    cursor: pointer;
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+#currentContact>div:nth-child(2)> span:last-child:hover svg path {
+    fill: var(--secondary-color);
+}
+
+#currentContact>div:nth-child(2) span svg {
+    margin-right: 6px;
+}
+
+/* Third Child*/
+#currentContact>div:nth-child(3) a {
+    text-decoration: none;
+    color: rgb(23, 118, 233);
+}
+
+#currentContact>div:nth-child(4) a {
+    text-decoration: none;
+    color: black;
+}
+
+#currentContact>div:nth-child(3), #currentContact>div:nth-child(4) {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+
+/* ===== Modal ===== */
+.button-wrapper {
+    display: flex;
+    gap: 25px;
+}
+
+.cancel-btn {
+    position: absolute;
+    top: 26px;
+    right: 55px;
+    cursor: pointer;
+}
+
+.button-secondary-with-icon img {
+    transition: ease-in-out 100ms;
+}
+
+.button-secondary-with-icon:hover img {
+    filter: invert(47%) sepia(28%) saturate(5405%) hue-rotate(164deg) brightness(101%) contrast(101%);
+}

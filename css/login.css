@@ -50,6 +50,27 @@ body {
     opacity: 0;
 }
 
+#openImg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--bg-color);
+    z-index: 2;
+    transition: 425ms;
+}
+
+.logo-animation {
+    width: 100px !important;
+    height: 122px !important;
+    top: 80px !important;
+    left: 77px !important;
+}
+
 
 /* ===== Headline =====  */
 .login-modal h1 {
@@ -90,7 +111,7 @@ form {
     transform: translateY(-50%);
 }
 
-input[type=password] + img {
+input[type=password]+img {
     cursor: pointer;
 }
 

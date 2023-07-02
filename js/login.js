@@ -5,6 +5,7 @@ async function initLogin() {
     await loadUsers();
     registerSuccess();
     checkForLogout();
+    animateLogo();
 }
 
 
@@ -156,4 +157,11 @@ async function getResetUser() {
     } else {
 
     }
+}
+
+
+function animateLogo() {
+    setTimeout(() => {
+        openImg.classList.add('logo-animation');
+    }, 400);
 }
