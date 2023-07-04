@@ -87,80 +87,84 @@
 
         <div class="seperator"></div>
 
-        <div>
-          <div class="input-box">
-            <label for="due-date">Due date</label>
-            <input
-              required
-              onclick="setMinDate()"
-              type="date"
-              name="due-date"
-              id="due-date"
-            />
-          </div>
-
-          <div class="input-box">
-            <span>Prio</span>
-            <div id="prio-box">
-              <div id="high-prio-box" onclick="setPrio('high')">
-                <span>Urgent</span>
-                <img
-                  src="..//assets/img/icons/high-prio-icon-small.svg"
-                  alt="high-prio"
-                />
-              </div>
-              <div id="medium-prio-box" onclick="setPrio('medium')">
-                <span>Medium</span>
-                <img
-                  src="..//assets/img/icons/medium-prio-icon-small.svg"
-                  alt="medium-prio"
-                />
-              </div>
-              <div id="low-prio-box" onclick="setPrio('low')">
-                <span>Low</span>
-                <img
-                  src="..//assets/img/icons/low-prio-icon-small.svg"
-                  alt="low-prio"
-                />
-              </div>
-            </div>
-          </div>
-
-          <div class="input-box">
-            <label for="subtask-input">Subtasks</label>
-            <div class="input-with-icons">
+        <div class="form-right-box">
+          <div class="form-right-top-box">
+            <div class="input-box">
+              <label for="due-date">Due date</label>
               <input
-                placeholder="Add new subtask"
-                id="subtask-input"
-                type="text"
-                name="subtask-input"
+                required
+                onclick="setMinDate()"
+                type="date"
+                name="due-date"
+                id="due-date"
               />
-              <div class="input-icon-box">
-                <img
-                  onclick="clearInput('subtask-input')"
-                  class="subtask-img"
-                  src="../assets/img/icons/cancel-icon.svg"
-                  alt=""
-                />
-                <div class="seperator-small"></div>
-                <img
-                  onclick="addSubtask()"
-                  class="subtask-img"
-                  src="../assets/img/icons/checkmark-icon-black.svg"
-                  alt=""
-                />
+            </div>
+
+            <div class="input-box">
+              <span>Prio</span>
+              <div id="prio-box">
+                <div id="high-prio-box" onclick="setPrio('high')">
+                  <span>Urgent</span>
+                  <img
+                    src="..//assets/img/icons/high-prio-icon-small.svg"
+                    alt="high-prio"
+                  />
+                </div>
+                <div id="medium-prio-box" onclick="setPrio('medium')">
+                  <span>Medium</span>
+                  <img
+                    src="..//assets/img/icons/medium-prio-icon-small.svg"
+                    alt="medium-prio"
+                  />
+                </div>
+                <div id="low-prio-box" onclick="setPrio('low')">
+                  <span>Low</span>
+                  <img
+                    src="..//assets/img/icons/low-prio-icon-small.svg"
+                    alt="low-prio"
+                  />
+                </div>
               </div>
             </div>
+
+            <div class="input-box">
+              <label for="subtask-input">Subtasks</label>
+              <div class="input-with-icons">
+                <input
+                  placeholder="Add new subtask"
+                  id="subtask-input"
+                  type="text"
+                  name="subtask-input"
+                />
+                <div class="input-icon-box">
+                  <img
+                    onclick="clearInput('subtask-input')"
+                    class="subtask-img"
+                    src="../assets/img/icons/cancel-icon.svg"
+                    alt=""
+                  />
+                  <div class="seperator-small"></div>
+                  <img
+                    onclick="addSubtask()"
+                    class="subtask-img"
+                    src="../assets/img/icons/checkmark-icon-black.svg"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div id="subtask-box"></div>
           </div>
-          <div id="subtask-box"></div>
-          <div class="button-box">
-            <button class="button-secondary-with-icon" type="reset">
-              Clear <img src="../assets/img/icons/cancel-icon.svg" alt="" />
-            </button>
-            <button class="button-with-icon" type="submit">
-              Create Task
-              <img src="../assets/img/icons/checkmark-icon.svg" alt="" />
-            </button>
+          <div class="form-right-bottom-box">
+            <div class="button-box">
+              <button class="button-secondary-with-icon" type="reset">
+                Clear <img src="../assets/img/icons/cancel-icon.svg" alt="" />
+              </button>
+              <button class="button-with-icon" type="submit">
+                Create Task
+                <img src="../assets/img/icons/checkmark-icon.svg" alt="" />
+              </button>
+            </div>
           </div>
         </div>
       </form>

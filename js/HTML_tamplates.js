@@ -88,6 +88,6 @@ function getAssignUsersHTML(user) {
 
 function getSubtaskHTML(subtask) {
   return /*html*/ `
-    <div>${subtask.name}</div>
+    <label onchange="updateSubtask()"><input  type="checkbox"> ${subtask.name}</label>
   `;
 }

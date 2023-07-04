@@ -103,7 +103,6 @@ body {
   color: black;
   background-color: white;
   box-shadow: var(--barra-superior);
-  z-index: 100;
 }
 
 .right-frame {

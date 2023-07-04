@@ -173,9 +173,26 @@ function renderSubtasks() {
   clearInput("subtask-input");
   container.innerHTML = "";
 
-  subTasksTest.forEach((subtask) => {
+  subTasksTest.forEach((subtask, index) => {
     container.innerHTML += getSubtaskHTML(subtask);
   });
+}
+
+function updateSubtask() {
+  const subtaskBox = document.getElementById("subtask-box");
+  const subtasks = subtaskBox.querySelectorAll("label");
+  let updatedSubtasks = [];
+
+  subtasks.forEach((subtask) => {
+    if (subtask.querySelector("input").checked) {
+      const updatedSubtask = { name: subtask.textContent, status: "closed" };
+      updatedSubtasks.push(updatedSubtask);
+    } else {
+      const updatedSubtask = { name: subtask.textContent, status: "open" };
+      updatedSubtasks.push(updatedSubtask);
+    }
+  });
+  subTasksTest = updatedSubtasks;
 }
 
 function getCategory() {
