@@ -1,9 +1,14 @@
+body {
+    overflow: hidden;
+}
+
 main {
     display: flex;
     margin-left: 232px;
     margin-top: 95px;
     height: calc(100vh - 95px);
     background-color: var(--bg-color);
+    overflow: hidden;
 }
 
 .bold {
@@ -43,15 +48,17 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 453px;
+    width: 453x;
     background-color: white;
     min-height: calc(100vh - 95px);
     box-shadow: 4px 0px 6px 0px rgba(0, 0, 0, 0.08);
+    overflow-y: scroll;
+    scroll-behavior: smooth;
 }
 
 .line-list {
     width: 323px;
-    height: 1px;
+    height: 2px;
     background-color: #d1d1d1;
     margin: 14px 12px;
 }
@@ -60,32 +67,138 @@ main {
     padding: 10px;
     font-size: 21px;
     align-self: flex-start;
+    padding-left: 35px;
+}
+
+.contact-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 35px;
+    margin: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 15px 25px;
+}
+
+.contact-container:hover {
+    background-color: #d1d1d1;
+}
+
+.contact-container-focus {
+    background-color: var(--main-color);
+}
+
+.contact-container-focus:hover {
+    background-color: var(--main-color);
+}
+
+.contact-container-focus .contact-name {
+    color: white;
 }
 
 .contact-wrapper {
-
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
 }
 
+.contactlist-data {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
 
-/* ===== AddContact Modal ===== */
-#addContactModal {
+.contact-name {
+    font-size: 21px;
+    font-weight: 400;
+}
+
+.contact-email {
+    color: rgb(23, 118, 233);
+}
+
+.contact-avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    border-radius: 50%;
+    height: 42px;
+    width: 42px;
+    font-size: 12px;
+    color: white;
+    border: 1px solid white;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+#contactsList {
+    scrollbar-width: auto;
+    scrollbar-color: #a8a8a8 #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+#contactsList::-webkit-scrollbar {
+    width: 20px;
+}
+
+#contactsList::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+#contactsList::-webkit-scrollbar-thumb {
+    background-color: #a8a8a8;
+    border-radius: 20px;
+    border: 7px solid #ffffff;
+}
+
+#contactsList::-webkit-scrollbar-button:single-button:vertical:decrement {
+    background-image: url('../assets/img/icons/scrollbar-up.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#contactsList::-webkit-scrollbar-button:single-button:vertical:increment {
+    background-image: url('../assets/img/icons/scrollbar-down.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* ===== Contact Modals ===== */
+.modal-container {
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
-    background-color: rgba(0,0,0, 0.5);
+    z-index: -99;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    transition: 400ms;
+    opacity: 0;
 }
 
-#addContact {
+.modal-inner-container {
     display: flex;
     width: 1212px;
     height: 594px;
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 150%;
     transform: translate(-50%, -50%);
+    transition: 400ms ease-in-out;
 }
+
+.modal-bg-animation {
+    opacity: 1;
+    z-index: 999;
+}
+
+.modal-animation {
+    left: 50%;
+}
+
 
 /* Left frame */
 .left-frame-add {
@@ -158,6 +271,8 @@ main {
     background-color: #d1d1d1;
     border: 2px solid white;
     box-shadow: var(--nuevo);
+    color: white;
+    font-size: 47px;
 }
 
 #contactsOverview button {
@@ -215,18 +330,18 @@ main {
     gap: 59px;
 }
 
-#currentContact>div:nth-child(2)> span:first-child {
+#currentContact>div:nth-child(2)>span:first-child {
     font-size: 21px;
     font-weight: 400;
 }
 
-#currentContact>div:nth-child(2)> span:last-child:hover {
+#currentContact>div:nth-child(2)>span:last-child:hover {
     cursor: pointer;
     color: var(--secondary-color);
     font-weight: 600;
 }
 
-#currentContact>div:nth-child(2)> span:last-child:hover svg path {
+#currentContact>div:nth-child(2)>span:last-child:hover svg path {
     fill: var(--secondary-color);
 }
 
@@ -252,6 +367,24 @@ main {
 
 
 /* ===== Modal ===== */
+.confirm-modal {
+    position: absolute;
+    left: 50%;
+    bottom: -20%;
+    transform: translate(-50% -50%);
+    padding: 20px;
+    font-size: 21px;
+    color: white;
+    background-color: var(--main-color);
+    border-radius: 20px;
+    box-shadow: var(--nuevo);
+    transition: 225ms ease-in-out;
+}
+
+.confirm-animation {
+    bottom: 15%;
+}
+
 .button-wrapper {
     display: flex;
     gap: 25px;
