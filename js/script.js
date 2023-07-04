@@ -1,17 +1,19 @@
 let users = [];
 let currentUser;
+let tasks = [];
 
 async function init() {
   await loadUsers();
   await includeHTML();
   setCurrentUser();
+  await loadTasks();
+  checkIfBord();
   if (checkForBypass()) {
-    window.location.href = '../index.html';
-    return
+    window.location.href = "../index.html";
+    return;
   }
   loadProfilePicture();
 }
-
 
 async function includeHTML() {
   let includeElements = document.querySelectorAll("[w3-include-html]");
@@ -27,66 +29,64 @@ async function includeHTML() {
   }
 }
 
-
 /**
  * This function checks if the user accessing a page within the app is properly logged in.
  * If not the access is denied and user is send back to the Login page
- * 
- * @returns {Boolean} - If true, the user tried to bypass the Loginrules and access the app directly.   
+ *
+ * @returns {Boolean} - If true, the user tried to bypass the Loginrules and access the app directly.
  */
 function checkForBypass() {
   let currentUrl = window.location.pathname;
-  if (currentUrl == '/html/sign_Up.html') {
+  if (currentUrl == "/html/sign_Up.html") {
     return false;
   }
-  if (currentUrl != '/index.html' && document.referrer == "" || currentUser === undefined) {
+  if (
+    (currentUrl != "/index.html" && document.referrer == "") ||
+    currentUser === undefined
+  ) {
     return true;
   }
 }
 
-
 /**
  * This function takes the one logged in user from the sessionstorage and updates the variable to be used in the script.
- * 
+ *
  */
 function setCurrentUser() {
-  let userIndex = sessionStorage.getItem('currentUser');
+  let userIndex = sessionStorage.getItem("currentUser");
   currentUser = users[userIndex];
 }
-
 
 /**
  * This function checks if the user has an uploaded img file as a profile picture and sets it as an profile picture.
  * Otherwise a default icon is generated and shown based on user initials and a random color.
- * 
+ *
  */
 function loadProfilePicture() {
   let user = currentUser.image.initials;
-  let picture = document.getElementById('img-profile');
-  let defaultImg = document.getElementById('default-profile');
+  let picture = document.getElementById("img-profile");
+  let defaultImg = document.getElementById("default-profile");
 
   if (currentUser.image.src == "") {
-   picture.classList.add('d-none');
+    picture.classList.add("d-none");
     defaultImg.innerHTML = `
       <span>${user}</span>
     `;
-    defaultImg.style = `background-color: ${currentUser.image.color}`
+    defaultImg.style = `background-color: ${currentUser.image.color}`;
   } else {
-    defaultImg.classList.add('d-none');
+    defaultImg.classList.add("d-none");
     picture.src = currentUser.image.src;
   }
 }
 
-
 /**
  * This function clears the logged-in user from the session storage and redirects to the login page.
- * 
+ *
  */
 function logOut() {
   window.sessionStorage.clear();
-  window.location.replace('../index.html');
+  window.location.replace("../index.html");
 }
-
 
 /**
  * Prevents onclick functions to fire when an upper clickfunction gets triggerd
@@ -118,13 +118,12 @@ function toggleSidebarFocus() {
       .replace("/join", "")
       .replace("/Modul_10", "");
 
-  if (idClass === 'sidebar-help') {
-    return
+  if (idClass === "sidebar-help") {
+    return;
   }
   changeSvgColor(idObject);
   document.getElementById(idClass).classList.add("sidebar-focus");
 }
-
 
 /**
  * This function changes the SVG-Icon of the current page sidebartab to color white
@@ -150,11 +149,18 @@ function changeSvgColor(idObject) {
   }
 }
 
-
 /**
  * Toggles the Modal css class for the log out button
  *
  */
 function toggleLogOutModal() {
   document.getElementById("log-out-modal-wrapper").classList.toggle("d-none");
+}
+
+function checkIfBord() {
+  const url = window.location.href;
+  const htmlPage = url.substring(url.lastIndexOf("/") + 1);
+  if (htmlPage == "board.html") {
+    renderTodos();
+  }
 }

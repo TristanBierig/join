@@ -1,53 +1,20 @@
 let currentlyDraggedElement;
 
-let testTodos = [
-  {
-    id: 0,
-    title: "putzen staubsaugen etc",
-    description: "wohnung staubsaugen und wischen",
-    status: "to-do",
-    category: "test",
-    assignedTo: ["tobi", "tristan", "julia"],
-    dueDate: "2023-06-29",
-    prio: "low",
-    subTasks: ["test", "staubsauger beutel wechseln"],
-  },
-  {
-    id: 1,
-    title: "sport",
-    description: "50km rennen",
-    status: "to-do",
-    assignedTo: ["tobi", "tristan", "julia"],
-    category: "Design",
-    dueDate: "",
-    prio: "low",
-    subTasks: ["test"],
-  },
-  {
-    id: 2,
-    title: "essen",
-    description: "sollte man nicht vergessen",
-    status: "to-do",
-    assignedTo: ["tobi", "tristan", "julia"],
-    category: "Training",
-    dueDate: "",
-    prio: "low",
-    subTasks: ["test"],
-  },
-];
-
 /**
  * this function renders tasks on the bord
  *
  */
 function renderTodos() {
-  resetDropAreas();
+  const url = window.location.href;
+  const htmlPage = url.substring(url.lastIndexOf("/") + 1);
+  if (htmlPage == "board.html") {
+    resetDropAreas();
+    for (let i = 0; i < tasks.length; i++) {
+      const todo = tasks[i];
+      const container = document.getElementById(todo.status + "-area");
 
-  for (let i = 0; i < testTodos.length; i++) {
-    const todo = testTodos[i];
-    const container = document.getElementById(todo.status + "-area");
-
-    container.innerHTML += getTodoHTML(todo);
+      container.innerHTML += getTodoHTML(todo);
+    }
   }
 }
 
@@ -127,7 +94,7 @@ function startDragging(id) {
  * @param {string} status category of the target area
  */
 function moveTo(status) {
-  testTodos[currentlyDraggedElement].status = status;
+  tasks[currentlyDraggedElement].status = status;
   toggleDropareaHoverEffect(status + "-area", "remove");
   currentlyDraggedElement = null;
   renderTodos();
@@ -183,8 +150,8 @@ function closeOverlay() {
 }
 
 function getOverlayContent(id) {
-  for (let i = 0; i < testTodos.length; i++) {
-    const task = testTodos[i];
+  for (let i = 0; i < tasks.length; i++) {
+    const task = tasks[i];
 
     if (id == task.id) {
       return getOverlayHTML(task);

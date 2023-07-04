@@ -109,22 +109,6 @@ function setMinDate() {
   document.getElementsByName("due-date")[0].setAttribute("min", today);
 }
 
-function addTask() {
-  const task = {
-    id: 0,
-    title: document.getElementById("title").value,
-    description: document.getElementById("description").value,
-    category: getCategory(),
-    assignedTo: getAssignedPeople(),
-    dueDate: document.getElementById("due-date").value,
-    prio: selectedPrio,
-    subTasks: subTasksTest,
-    status: "to-do",
-  };
-  subTasksTest = []; // replace by new name
-  console.log(task); // delete
-}
-
 function getAssignedPeople() {
   const userBox = document.getElementById("assigned-to");
   const labels = userBox.querySelectorAll("label");
@@ -203,4 +187,35 @@ function getCategory() {
   } else {
     return selectCategory.innerHTML;
   }
+}
+
+async function addTask() {
+  document.querySelector("button").disabled = true;
+  getTaskData();
+  await uploadTasks();
+  addTaskConfirmModal.classList.add("confirm-animation");
+  setTimeout(() => {
+    window.location.replace("board.html");
+  }, 1000);
+}
+
+async function getTaskData() {
+  const task = {
+    id: 0,
+    title: document.getElementById("title").value,
+    description: document.getElementById("description").value,
+    category: getCategory(),
+    assignedTo: getAssignedPeople(),
+    dueDate: document.getElementById("due-date").value,
+    prio: selectedPrio,
+    subTasks: subTasksTest,
+    status: "to-do",
+  };
+  tasks.push(task);
+  subTasksTest = []; // replace by new name
+  console.log(task); // delete
+}
+
+async function uploadTasks() {
+  await setItem("tasks", JSON.stringify(tasks));
 }
