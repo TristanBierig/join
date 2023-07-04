@@ -1,9 +1,14 @@
+body {
+    overflow: hidden;
+}
+
 main {
     display: flex;
     margin-left: 232px;
     margin-top: 95px;
     height: calc(100vh - 95px);
     background-color: var(--bg-color);
+    overflow: hidden;
 }
 
 .bold {
@@ -48,6 +53,7 @@ main {
     min-height: calc(100vh - 95px);
     box-shadow: 4px 0px 6px 0px rgba(0, 0, 0, 0.08);
     overflow-y: scroll;
+    scroll-behavior: smooth;
 }
 
 .line-list {
@@ -159,25 +165,40 @@ main {
     background-position: center;
 }
 
-/* ===== AddContact Modal ===== */
-#addContactModal {
+/* ===== Contact Modals ===== */
+.modal-container {
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
+    z-index: -99;
     background-color: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    transition: 400ms;
+    opacity: 0;
 }
 
-#addContact {
+.modal-inner-container {
     display: flex;
     width: 1212px;
     height: 594px;
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 150%;
     transform: translate(-50%, -50%);
+    transition: 400ms ease-in-out;
 }
+
+.modal-bg-animation {
+    opacity: 1;
+    z-index: 999;
+}
+
+.modal-animation {
+    left: 50%;
+}
+
 
 /* Left frame */
 .left-frame-add {
@@ -346,6 +367,24 @@ main {
 
 
 /* ===== Modal ===== */
+.confirm-modal {
+    position: absolute;
+    left: 50%;
+    bottom: -20%;
+    transform: translate(-50% -50%);
+    padding: 20px;
+    font-size: 21px;
+    color: white;
+    background-color: var(--main-color);
+    border-radius: 20px;
+    box-shadow: var(--nuevo);
+    transition: 225ms ease-in-out;
+}
+
+.confirm-animation {
+    bottom: 15%;
+}
+
 .button-wrapper {
     display: flex;
     gap: 25px;

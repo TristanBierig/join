@@ -15,6 +15,7 @@ async function initContacts() {
 
 
 function renderContacts() {
+    letters = [];
     for (let i = 0; i < currentUser.contacts.length; i++) {
         const element = currentUser.contacts[i];
         let singleLetter = element.name.charAt(0);
@@ -37,17 +38,7 @@ function renderContacts() {
     for (let k = 0; k < currentUser.contacts.length; k++) {
         const element = currentUser.contacts[k];
         let firstLetter = element.name.charAt(0);
-        document.getElementById('contact' + firstLetter).innerHTML += /*html*/ `
-            <div class="contact-container" id="contact${k}" onclick="showContact(${k})">
-                <div class="contact-avatar" style="background-color: ${element.color}">
-                    <span>${element.initials}</span>
-                </div>
-                <div class="contactlist-data">
-                    <span class="contact-name">${element.name}</span>
-                    <span class="contact-email">${element.email}</span>
-                </div>
-            </div>
-        `;
+        document.getElementById('contact' + firstLetter).innerHTML += contactListItem(element, k);
     }
 }
 
@@ -64,8 +55,26 @@ function getInitialsContact(name) {
 }
 
 
-function toggleContactModal() {
-    addContactModal.classList.toggle('d-none');
+function toggleAddContactModal() {
+    addContactForm.reset();
+    let parent = document.getElementById('addContactModal');
+    let child = document.getElementById('addContact');
+
+    parent.classList.toggle('modal-bg-animation');
+    child.classList.toggle('modal-animation');
+}
+
+
+function toggleEditContactModal() {
+    let parent = document.getElementById('editContactModal');
+    let child = document.getElementById('editContact');
+
+    parent.classList.toggle('modal-bg-animation');
+    child.classList.toggle('modal-animation');
+}
+
+
+function resetAddContactForm() {
     addContactForm.reset();
 }
 
@@ -80,8 +89,27 @@ function addNewContact() {
         'color': getRandomColor()
     });
     setItem('users', JSON.stringify(users));
-    addContactForm.reset();
-    toggleContactModal();
+    resetAddContactForm()
+    toggleAddContactModal();
+    renderContacts();
+    
+    let newContact = document.getElementById('contact' + (currentUser.contacts.length - 1));
+    showContact((currentUser.contacts.length - 1));
+    newContact.scrollIntoView({behavior: 'smooth'}, true);
+    
+    let modal = document.getElementById('confirmModal');
+    modal.classList.add('confirm-animation');
+    setTimeout(() => {
+        modal.classList.remove('confirm-animation');
+    }, 2000);
+}
+
+
+function deleteContact(i) {
+    currentUser.contacts.splice(i, 1);
+    setItem('users', JSON.stringify(users));
+    toggleEditContactModal();
+    currentContact.innerHTML = '';
     renderContacts();
 }
 
@@ -90,11 +118,38 @@ function showContact(i) {
     let contact = currentUser.contacts[i];
     let focus = document.getElementById('contact' + i);
     currentContact.innerHTML = '';
-    currentContact.innerHTML = currentContactHTML(contact);
+    currentContact.innerHTML = currentContactHTML(contact, i);
 
     for (let j = 0; j < currentUser.contacts.length; j++) {
         const element = document.getElementById('contact' + j);
         element.classList.remove('contact-container-focus');
     }
     focus.classList.add('contact-container-focus');
+}
+
+
+function editContact(i) {
+    let contact = currentUser.contacts[i];
+    editContactModal.innerHTML = '';
+    editContactModal.innerHTML = editContactModalHTML(contact, i);
+
+    contactNameEdit.value = contact.name;
+    contactEmailEdit.value = contact.email;
+    contactPhoneEdit.value = contact.phone;
+    toggleEditContactModal();
+}
+
+
+function saveEditContact(i) {
+    let contact = currentUser.contacts[i];
+    let name = contactNameEdit.value
+
+    contact.name = contactNameEdit.value;
+    contact.email = contactEmailEdit.value;
+    contact.phone = contactPhoneEdit.value;
+    contact.initials = getInitialsContact(name);
+
+    setItem('users', JSON.stringify(users));
+    toggleEditContactModal();
+    showContact(i);
 }

@@ -35,17 +35,17 @@
       </div>
 
       <div id="currentContact">
-       
+
       </div>
 
-      <button onclick="toggleContactModal()" class="button-with-icon">
+      <button onclick="toggleAddContactModal()" class="button-with-icon">
         New contact
         <img src="../assets/img/icons/add-contact-icon.svg" alt="">
       </button>
     </section>
 
-    <section onclick="toggleContactModal()" id="addContactModal" class="d-none">
-      <div onclick="doNotClose(event)" id="addContact">
+    <section onclick="toggleAddContactModal()" id="addContactModal" class="modal-container">
+      <div onclick="doNotClose(event)" id="addContact" class="modal-inner-container">
         <div class="left-frame-add">
           <img src="../assets/img/logos/logo_Light.png" alt="Join logo">
           <div class="contact-info">
@@ -55,7 +55,7 @@
         </div>
 
         <div class="right-frame-add">
-          <img onclick="toggleContactModal()" class="cancel-btn" src="../assets/img/icons/cancel-icon.svg" alt="">
+          <img onclick="toggleAddContactModal()" class="cancel-btn" src="../assets/img/icons/cancel-icon.svg" alt="">
 
           <div class="img-wrapper">
             <img src="../assets/img/icons/default-user.svg" alt="">
@@ -89,7 +89,16 @@
         </div>
       </div>
     </section>
+
+    <section onclick="toggleEditContactModal()" id="editContactModal" class="modal-container">
+    </section>
+
+
+
   </main>
+  <div id="confirmModal" class="confirm-modal">
+    Contact succesfully created
+  </div>
 </body>
 
 </html>

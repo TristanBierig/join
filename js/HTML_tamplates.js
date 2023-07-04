@@ -93,7 +93,7 @@ function getSubtaskHTML(subtask) {
 }
 
 
-function currentContactHTML(contact) {
+function currentContactHTML(contact, i) {
   return `
   <div>
         <div class="img-wrapper" style="background-color: ${contact.color}">
@@ -117,7 +117,7 @@ function currentContactHTML(contact) {
   </div>
   <div>
     <span>Contact Information</span>
-    <span>
+    <span onclick="editContact(${i})">
       <svg width="21" height="30" viewBox="0 0 21 30" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
           d="M2.87121 22.0156L7.69054 24.9405L20.3337 4.10842C20.6203 3.63628 20.4698 3.02125 19.9977 2.73471L16.8881 0.847482C16.4159 0.56094 15.8009 0.711391 15.5144 1.18353L2.87121 22.0156Z"
@@ -135,6 +135,70 @@ function currentContactHTML(contact) {
     <div class="bold">Phone</div>
     <a href="tel:${contact.phone}">${contact.phone}</a>
   </div>
+  `;
+}
 
+
+function editContactModalHTML(contact, i) {
+  return `
+  <div onclick="doNotClose(event)" id="editContact" class="modal-inner-container">
+  <div class="left-frame-add">
+    <img src="../assets/img/logos/logo_Light.png" alt="Join logo">
+    <div class="contact-info">
+      <h1>Edit contact</h1>
+      <h2></h2>
+    </div>
+  </div>
+
+  <div class="right-frame-add">
+    <img onclick="toggleEditContactModal()" class="cancel-btn" src="../assets/img/icons/cancel-icon.svg" alt="">
+
+    <div class="img-wrapper" style="background-color: ${contact.color}">
+      ${contact.initials} 
+    </div>
+
+    <form id="editContactForm" onreset="deleteContact(${i})" onsubmit="saveEditContact(${i}); return false;">
+      <div class="input-wrapper">
+        <input id="contactNameEdit" required type="text" placeholder="Name">
+        <img src="../assets/img/icons/user-icon.svg" alt="">
+      </div>
+      <div class="input-wrapper">
+        <input id="contactEmailEdit" required type="email" placeholder="Email">
+        <img src="../assets/img/icons/login-email.svg" alt="">
+      </div>
+      <div class="input-wrapper">
+        <input id="contactPhoneEdit" required type="tel" placeholder="Phone">
+        <img src="../assets/img/icons/telephone.svg" alt="">
+      </div>
+
+      <div class="button-wrapper">
+        <button type="reset" class="button-secondary-with-icon">
+          Delete
+          <img src="../assets/img/icons/cancel-icon.svg" alt="">
+        </button>
+        <button class="button-with-icon">
+          Save
+          <img src="../assets/img/icons/checkmark-icon.svg" alt="">
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+}
+
+
+function contactListItem(element, k) {
+  return `
+    
+  <div class="contact-container" id="contact${k}" onclick="showContact(${k})">
+  <div class="contact-avatar" style="background-color: ${element.color}">
+      <span>${element.initials}</span>
+  </div>
+  <div class="contactlist-data">
+      <span class="contact-name">${element.name}</span>
+      <span class="contact-email">${element.email}</span>
+  </div>
+</div>
   `;
 }
