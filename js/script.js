@@ -159,8 +159,9 @@ function toggleLogOutModal() {
 
 function checkIfBord() {
   const url = window.location.href;
-  const htmlPage = url.substring(url.lastIndexOf("/") + 1);
-  if (htmlPage == "board.html") {
+  const htmlPage = url.substring(url.lastIndexOf("/"));
+
+  if (htmlPage == "/board.html") {
     renderTodos();
   }
 }

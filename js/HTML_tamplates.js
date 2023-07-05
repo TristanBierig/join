@@ -92,7 +92,6 @@ function getSubtaskHTML(subtask) {
   `;
 }
 
-
 function currentContactHTML(contact, i) {
   return `
   <div>
@@ -137,7 +136,6 @@ function currentContactHTML(contact, i) {
   </div>
   `;
 }
-
 
 function editContactModalHTML(contact, i) {
   return `
@@ -187,7 +185,6 @@ function editContactModalHTML(contact, i) {
 `;
 }
 
-
 function contactListItem(element, k) {
   return `
     
@@ -200,5 +197,35 @@ function contactListItem(element, k) {
       <span class="contact-email">${element.email}</span>
   </div>
 </div>
+  `;
+}
+
+function getTodoHTML(todo) {
+  return /*html*/ `
+    <div onclick="openTask(${todo.id})" class="task" draggable="true" ondragstart="startDragging(${todo.id})">
+      <span class="task-category">${todo.category}</span>
+      <div class="task-title-description-box">
+        <b>${todo.title}</b>
+        <p>${todo.description}</p>
+      </div>
+      <div class="subtask-box">
+        <div class="progress-bar-box">
+          <div class="progress-bar-bar"></div>
+        </div>
+        <div class="subtask-text-box">
+          <span>1/2</span> 
+          <span>Done</span>
+        </div>
+      </div>
+      <div class="assign-and-prio-box">
+        <div>
+          <span class="assigned-to-display">SM</span>
+        </div>
+        <div class="task-prio-box">
+          <img src="../assets/img/icons/low-prio-icon-small.svg" alt="">
+        </div>        
+      </div>
+      </div>
+    </div>
   `;
 }
