@@ -14,6 +14,11 @@ async function initContacts() {
 }
 
 
+/**
+ * This function gets the first letter of every Name of the contactlist and filters them in a way so every letter is just saved once.
+ * Then the array gets sorted in alphabetical order and gets renderd
+ * 
+ */
 function renderContacts() {
     letters = [];
     for (let i = 0; i < currentUser.contacts.length; i++) {
@@ -23,7 +28,7 @@ function renderContacts() {
             letters.push(singleLetter);
         }
     }
-
+    letters.sort();
     contactsList.innerHTML = '';
     for (let j = 0; j < letters.length; j++) {
         const element = letters[j];
