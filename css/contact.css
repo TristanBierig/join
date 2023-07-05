@@ -41,8 +41,6 @@ main {
 }
 
 
-
-
 /* ===== Contacts List ===== */
 #contactsList {
     display: flex;
@@ -199,7 +197,6 @@ main {
     left: 50%;
 }
 
-
 /* Left frame */
 .left-frame-add {
     display: flex;
@@ -258,7 +255,6 @@ main {
 .right-frame-add form {
     display: flex;
     flex-direction: column;
-
 }
 
 .img-wrapper {
@@ -363,8 +359,6 @@ main {
     color: black;
     margin-top: 15px;
 }
-
-
 
 /* ===== Modal ===== */
 .confirm-modal {

@@ -146,6 +146,7 @@ function resetPassword() {
 }
 
 
+
 async function getResetUser() {
     const urlParams = new URLSearchParams(window.location.search);
     const msg = urlParams.get('msg');
@@ -160,8 +161,19 @@ async function getResetUser() {
 }
 
 
+/**
+ * This function animates the logo in the beginning of the login screen.
+ * First Timeout adds the classes needed for the animation to run.
+ * Second Timeout sets the background to a negative z-index to not interfer with the layout.
+ * 
+ */
 function animateLogo() {
-    setTimeout(() => {
-        openImg.classList.add('logo-animation');
-    }, 400);
+        setTimeout(() => {
+            openImgContainer.classList.add('logo-animation-bg');
+            openImg.classList.add('logo-animation');
+        }, 425);
+
+        setTimeout(() => {
+            openImgContainer.classList.add('negative-z')
+        }, 850);   
 }

@@ -50,7 +50,7 @@ body {
     opacity: 0;
 }
 
-#openImg {
+#openImgContainer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -64,12 +64,31 @@ body {
     transition: 425ms;
 }
 
-.logo-animation {
-    width: 100px !important;
-    height: 122px !important;
-    top: 80px !important;
-    left: 77px !important;
+#openImg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 425ms ease-in;
 }
+
+.logo-animation {
+    top: 0 !important;
+    left: 0 !important;
+    scale: 0.37;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.logo-animation-bg {
+    background-color: rgba(246, 247, 248, 0) !important;
+}
+
+.negative-z {
+    z-index: -1 !important;
+}
+
+
 
 
 /* ===== Headline =====  */
