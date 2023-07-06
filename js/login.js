@@ -191,14 +191,13 @@ function animateLogo() {
 
     setTimeout(() => {
         openImgContainer.classList.add('negative-z')
-    }, 450);
+    }, 650);
 }
 
 
 function checkForRemember() {
     let email = localStorage.getItem('rememberEmail');
     let pw = localStorage.getItem('rememberPw');
-
     if (email && pw) {
         loginEmail.value = email;
         loginPw.value = pw;
