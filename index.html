@@ -19,7 +19,7 @@
   <script src="js/script.js"></script>
 </head>
 
-<body onload="initLogin()">
+<body onload="initLogin(); checkForRemember()">
   <div id="openImgContainer">
     <img id="openImg" src="assets/img/logos/logo_Big.png" alt="">
   </div>
@@ -30,17 +30,19 @@
       <div class="input-wrapper">
         <input required autocomplete="email" id="loginEmail" type="email" placeholder="Email" />
         <img src="assets/img/icons/login-email.svg" alt="" />
+        <div id="errorTagEmail" class="error-msg d-none">This user doesn't exists.</div>
       </div>
       <div class="input-wrapper">
         <input required id="loginPw" type="password" onkeyup="onPasswordInput()" placeholder="Password" />
         <img onclick="togglePasswordVisibility()" id="loginPwImg" src="assets/img/icons/login-password.svg" alt="" />
+        <div id="errorTagPw" class="error-msg d-none">Wrong password</div>
       </div>
       <input type="submit" id="submit-form" class="d-none">
     </form>
 
     <div class="reset-password-container">
       <label class="container">
-        <input class="checkmark" type="checkbox" />
+        <input id="rememberMe" class="checkmark" type="checkbox" />
         Remember me
       </label>
       <a href="html/forgot_Password.html" class="forgot-password">Forgot my password</a>
@@ -58,7 +60,7 @@
 
   <section class="signup-container">
     <span>Not a Join user?</span>
-    <a class="button-wo-icon" href="html/sign_Up.html">Sign up</a>
+    <a class="button-wo-icon" href="sign_Up.html">Sign up</a>
   </section>
 </body>
 

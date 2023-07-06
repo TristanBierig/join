@@ -15,12 +15,13 @@ async function initLogin() {
  */
 function login() {
     loginBtn.disabled = true;
+    errorTagEmail.classList.add('d-none');
     let loginUser = users.findIndex(checkIfUserExists);
 
     if (loginUser != -1) {
         checkForPassword(loginUser);
     } else {
-        console.log('Computer sagt nein!');
+         errorTagEmail.classList.remove('d-none');
     }
     resetLoginForm();
 }
@@ -68,11 +69,23 @@ function checkIfUserExists(user) {
  */
 function checkForPassword(i) {
     if (users[i].password === loginPw.value) {
+        checkForRememberMeLogin();
         sessionStorage.setItem('currentUser', i);
         window.location = "html/summary.html";
     } else {
-        console.log('Bitte überprüfen Sie ihr Passwort');
+        errorTagPw.classList.remove('d-none');
+        loginPw.placeholder = 'Ups! Try again';
     }
+}
+
+
+function checkForRememberMeLogin() {
+      if (rememberMe.checked) {
+            localStorage.setItem('rememberEmail', loginEmail.value);
+            localStorage.setItem('rememberPw', loginPw.value);
+        } else {
+            localStorage.clear();
+        }
 }
 
 
@@ -141,10 +154,10 @@ function resetPassword() {
     if (email) {
         document.getElementById('resetForm').submit();
     } else {
-        console.log('Diese Email Adresse existiert nicht');
+        errorTagEmail.classList.remove('d-none');
+        return false;
     }
 }
-
 
 
 async function getResetUser() {
@@ -155,8 +168,9 @@ async function getResetUser() {
     if (i && newPw.value === confirmPw.value) {
         users[i].password = newPw.value;
         await setItem('users', JSON.stringify(users));
+        window.location = '../index.html';
     } else {
-
+        errorTagPw.classList.remove('d-none');
     }
 }
 
@@ -175,5 +189,17 @@ function animateLogo() {
 
         setTimeout(() => {
             openImgContainer.classList.add('negative-z')
-        }, 850);   
+        }, 650);
+}
+
+
+function checkForRemember() {
+    let email = localStorage.getItem('rememberEmail');
+    let pw = localStorage.getItem('rememberPw');
+
+    if (email && pw) {
+        loginEmail.value = email;
+        loginPw.value = pw;
+        rememberMe.checked = true;
+    }
 }

@@ -282,6 +282,9 @@ main {
     flex-direction: column;
     padding-left: 65px;
     gap: 21px;
+    position: relative;
+    left: 300%;
+    transition: 225ms;
 }
 
 /* First Child */
@@ -358,6 +361,12 @@ main {
     text-decoration: none;
     color: black;
     margin-top: 15px;
+}
+
+/* Current Contact Animation */
+
+.current-contact-animation {
+    left: 0% !important;
 }
 
 /* ===== Modal ===== */

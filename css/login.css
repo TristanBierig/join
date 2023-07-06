@@ -9,6 +9,13 @@ body {
     scale: 1 !important;
 }
 
+.error-msg {
+    position: absolute;
+    margin-top: 4px;
+    font-size: 12px;
+    color: var(--error-color);
+}
+
 .login-modal {
     display: flex;
     flex-direction: column;
@@ -28,6 +35,19 @@ body {
     background-color: white;
     border-radius: 30px;
     box-shadow: var(--shadoe-backlog-box);
+}
+
+.login-modal p {
+    text-align: center;
+    font-size: 21px;
+}
+
+.password-modal {
+    padding: 35px 85px;
+}
+
+.password-modal > h1, .password-modal > p {
+    margin: 0 !important;
 }
 
 #registerSuccessBox {
@@ -50,6 +70,7 @@ body {
     opacity: 0;
 }
 
+/* ===== Logo animation ===== */
 #openImgContainer {
     display: flex;
     justify-content: center;
@@ -89,8 +110,6 @@ body {
 }
 
 
-
-
 /* ===== Headline =====  */
 .login-modal h1 {
     position: relative;
@@ -114,6 +133,7 @@ body {
 /* ===== Form ===== */
 form {
     display: flex;
+    align-items: center;
     flex-direction: column;
     gap: 36px;
     width: 422px;
@@ -185,7 +205,7 @@ form input:focus {
     font-size: 21px;
     font-weight: bold;
     text-decoration: none;
-
+    white-space: nowrap;
 }
 
 .button-secondary-wo-icon {
@@ -195,6 +215,10 @@ form input:focus {
     font-size: 21px;
     font-weight: 700;
     width: auto;
+}
+
+.password-btn {
+    width: max-content;
 }
 
 

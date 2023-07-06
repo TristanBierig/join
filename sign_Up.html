@@ -7,43 +7,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join</title>
 
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/login.css">
-    <link rel="stylesheet" href="../css/fonts.css">
-    <link rel="shortcut icon" href="../assets/img/logos/logo_Regular.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="shortcut icon" href="assets/img/logos/logo_Regular.png" type="image/x-icon">
 
-    <script src="../js/storage.js"></script>
-    <script src="../js/data.js"></script>
-    <script src="../js/script.js"></script>
-    <script src="../js/login.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/login.js"></script>
 
 </head>
 
 <body onload="initLogin()">
     <div id="openImgContainer" class="logo-animation-bg">
-        <img id="openImg" class="logo-animation" src="../assets/img/logos/logo_Big.png" alt="">
+        <img id="openImg" class="logo-animation" src="assets/img/logos/logo_Big.png" alt="">
     </div>
 
     <main class="login-modal sign-up-modal">
         <h1>Sign Up</h1>
 
-        <a href="../index.html">
-            <img class="back-arrow" src="../assets/img/icons/sign-up-arrow-left.svg" alt="Arrow to get back"
+        <a href="index.html">
+            <img class="back-arrow" src="assets/img/icons/sign-up-arrow-left.svg" alt="Arrow to get back"
                 title="Arrow to get back">
         </a>
 
         <form onsubmit="registerUser(); return false;">
             <div class="input-wrapper">
                 <input id="username" required autocomplete="additional-name" type="text" placeholder="Name" />
-                <img src="../assets/img/icons/sign-up-name.svg" alt="" />
+                <img src="assets/img/icons/sign-up-name.svg" alt="" />
             </div>
             <div class="input-wrapper">
                 <input id="email" required autocomplete="email" type="email" placeholder="Email" />
-                <img src="../assets/img/icons/login-email.svg" alt="" />
+                <img src="assets/img/icons/login-email.svg" alt="" />
+                <div id="errorTagEmail" class="error-msg d-none">This user already exists.</div>
             </div>
             <div class="input-wrapper">
                 <input id="loginPw" onkeyup="onPasswordInput()" required type="password" placeholder="Password" />
-                <img onclick="togglePasswordVisibility()" src="../assets/img/icons/login-password.svg" alt="" />
+                <img id="loginPwImg" onclick="togglePasswordVisibility()" src="assets/img/icons/login-password.svg" alt="" />
             </div>
             <div class="btn-container">
                 <button id="registerBtn" class="button-wo-icon">Sign up</button>

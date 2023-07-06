@@ -30,9 +30,9 @@ async function registerUser() {
     await setItem("users", JSON.stringify(users));
     resetForm();
     window.location.href =
-      "../index.html?msg=Registrierung erfolgreich abgeschlossen. Du kannst dich jetzt mit deinen Anmeldedaten einloggen!";
+      "index.html?msg=Registrierung erfolgreich abgeschlossen. Du kannst dich jetzt mit deinen Anmeldedaten einloggen!";
   } else {
-    console.log("Email existiert bereits!");
+    errorTagEmail.classList.remove('d-none');
   }
   registerBtn.disabled = false;
 }
@@ -41,7 +41,7 @@ function setNewUser() {
   users.push({
     name: username.value.trim(),
     email: email.value.trim(),
-    password: password.value,
+    password: loginPw.value,
     contacts: [],
     image: {
       initials: getInitials(),
@@ -84,7 +84,7 @@ function checkIfUserExists(user) {
 function resetForm() {
   username.value = "";
   email.value = "";
-  password.value = "";
+  loginPw.value = "";
   registerBtn.disabled = false;
 }
 

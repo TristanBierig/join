@@ -97,11 +97,11 @@ function addNewContact() {
     resetAddContactForm()
     toggleAddContactModal();
     renderContacts();
-    
+
     let newContact = document.getElementById('contact' + (currentUser.contacts.length - 1));
     showContact((currentUser.contacts.length - 1));
-    newContact.scrollIntoView({behavior: 'smooth'}, true);
-    
+    newContact.scrollIntoView({ behavior: 'smooth' }, true);
+
     let modal = document.getElementById('confirmModal');
     modal.classList.add('confirm-animation');
     setTimeout(() => {
@@ -129,7 +129,9 @@ function showContact(i) {
         const element = document.getElementById('contact' + j);
         element.classList.remove('contact-container-focus');
     }
+
     focus.classList.add('contact-container-focus');
+    currentContact.classList.add('current-contact-animation');
 }
 
 

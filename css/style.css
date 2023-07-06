@@ -5,6 +5,7 @@
   --bg-color: rgb(246, 247, 248);
   --sidebar-text-color: rgb(205, 205, 205);
   --sidebar-focus-color: rgb(10, 24, 48);
+  --error-color: #FF001F;
 
   /* Boxshadows */
   --barra-superior: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
