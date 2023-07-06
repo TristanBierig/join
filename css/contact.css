@@ -370,24 +370,6 @@ main {
 }
 
 /* ===== Modal ===== */
-.confirm-modal {
-    position: absolute;
-    left: 50%;
-    bottom: -20%;
-    transform: translate(-50% -50%);
-    padding: 20px;
-    font-size: 21px;
-    color: white;
-    background-color: var(--main-color);
-    border-radius: 20px;
-    box-shadow: var(--nuevo);
-    transition: 225ms ease-in-out;
-}
-
-.confirm-animation {
-    bottom: 15%;
-}
-
 .button-wrapper {
     display: flex;
     gap: 25px;

@@ -165,3 +165,12 @@ function checkIfBord() {
     renderTodos();
   }
 }
+
+
+function showToast() {
+  let modal = document.getElementById('confirmModal');
+  modal.classList.add('confirm-animation');
+  setTimeout(() => {
+    modal.classList.remove('confirm-animation');
+  }, 2000);
+}

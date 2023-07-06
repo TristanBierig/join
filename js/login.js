@@ -1,4 +1,5 @@
 let hide = true;
+let emailSend = false;
 
 async function initLogin() {
     sessionStorage.clear();
@@ -21,7 +22,7 @@ function login() {
     if (loginUser != -1) {
         checkForPassword(loginUser);
     } else {
-         errorTagEmail.classList.remove('d-none');
+        errorTagEmail.classList.remove('d-none');
     }
     resetLoginForm();
 }
@@ -80,12 +81,12 @@ function checkForPassword(i) {
 
 
 function checkForRememberMeLogin() {
-      if (rememberMe.checked) {
-            localStorage.setItem('rememberEmail', loginEmail.value);
-            localStorage.setItem('rememberPw', loginPw.value);
-        } else {
-            localStorage.clear();
-        }
+    if (rememberMe.checked) {
+        localStorage.setItem('rememberEmail', loginEmail.value);
+        localStorage.setItem('rememberPw', loginPw.value);
+    } else {
+        localStorage.clear();
+    }
 }
 
 
@@ -153,6 +154,7 @@ function resetPassword() {
     let email = users.find(checkIfUserExists)
     if (email) {
         document.getElementById('resetForm').submit();
+        localStorage.setItem('emailSend', true);
     } else {
         errorTagEmail.classList.remove('d-none');
         return false;
@@ -168,7 +170,8 @@ async function getResetUser() {
     if (i && newPw.value === confirmPw.value) {
         users[i].password = newPw.value;
         await setItem('users', JSON.stringify(users));
-        window.location = '../index.html';
+        newPwForm.reset();
+        showToast();
     } else {
         errorTagPw.classList.remove('d-none');
     }
@@ -182,14 +185,14 @@ async function getResetUser() {
  * 
  */
 function animateLogo() {
-        setTimeout(() => {
-            openImgContainer.classList.add('logo-animation-bg');
-            openImg.classList.add('logo-animation');
-        }, 425);
+    setTimeout(() => {
+        openImgContainer.classList.add('logo-animation-bg');
+        openImg.classList.add('logo-animation');
+    }, 425);
 
-        setTimeout(() => {
-            openImgContainer.classList.add('negative-z')
-        }, 650);
+    setTimeout(() => {
+        openImgContainer.classList.add('negative-z')
+    }, 650);
 }
 
 
@@ -201,5 +204,15 @@ function checkForRemember() {
         loginEmail.value = email;
         loginPw.value = pw;
         rememberMe.checked = true;
+    }
+}
+
+
+function checkIfEmailSend() {
+    let status = localStorage.getItem('emailSend');
+    emailSend = status;
+    if (emailSend) {
+        showToast();
+        localStorage.removeItem('emailSend');
     }
 }

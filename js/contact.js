@@ -101,12 +101,7 @@ function addNewContact() {
     let newContact = document.getElementById('contact' + (currentUser.contacts.length - 1));
     showContact((currentUser.contacts.length - 1));
     newContact.scrollIntoView({ behavior: 'smooth' }, true);
-
-    let modal = document.getElementById('confirmModal');
-    modal.classList.add('confirm-animation');
-    setTimeout(() => {
-        modal.classList.remove('confirm-animation');
-    }, 2000);
+    showToast();
 }
 
 

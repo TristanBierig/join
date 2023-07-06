@@ -294,3 +294,26 @@ body {
   border: 1px solid var(--sidebar-focus-color);
   color: var(--sidebar-focus-color);
 }
+
+
+/* ===== Toast ===== */
+.confirm-modal {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  position: absolute;
+  left: 50%;
+  bottom: -20%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  font-size: 21px;
+  color: white;
+  background-color: var(--main-color);
+  border-radius: 20px;
+  box-shadow: var(--nuevo);
+  transition: 225ms ease-in-out;
+}
+
+.confirm-animation {
+  bottom: 15%;
+}
