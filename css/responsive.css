@@ -1,0 +1,85 @@
+/* ========================= */
+/* ===== Login Pages ===== */
+
+/* Max-Width 450px */
+@media (max-width: 450px) {
+
+    /* Login Modal */
+    form {
+        width: 100%;
+    }
+
+    .login-modal {
+        width: 90%;
+        min-width: 0;
+        gap: 25px;
+        padding: 20px;
+    }
+
+    form input {
+        width: 100%;
+    }
+
+    .input-wrapper {
+        display: flex;
+        justify-content: center;
+    }
+
+    h1 {
+        font-size: 47px;
+    }
+
+    .reset-password-container {
+        flex-direction: column-reverse;
+        align-self: flex-start;
+        margin-left: 5%;
+    }
+
+    .checkmark {
+        margin: 0 20px 0 0;
+    }
+
+    .btn-container {
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .btn-container>* {
+        width: 150%;
+        font-size: 16px;
+    }
+
+    /* Signup */
+    .signup-container {
+        top: auto;
+        right: auto;
+        bottom: 35px;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+    }
+
+    /* Logo */
+    #openImgContainer {
+        background-color: var(--main-color);
+    }
+
+    #openImg path:not(:first-child) {
+        fill: white;
+        margin: 0;
+    }
+
+    .logo-animation path:not(:first-child) {
+        fill: var(--main-color) !important;
+        transition-duration: 425ms;
+    }
+
+    .logo-animation {
+        top: 35px !important;
+        left: 40px !important;
+        scale: 0.6;
+    }
+
+
+}

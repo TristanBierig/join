@@ -93,12 +93,14 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     transition: 425ms ease-in;
+    z-index: 3;
+    scale: 1.5;
 }
 
 .logo-animation {
-    top: 0 !important;
-    left: 0 !important;
-    scale: 0.37;
+    top: 50px !important;
+    left: 80px !important;
+    scale: 0.8 !important;
     margin-top: 20px;
     margin-left: 20px;
 }
@@ -261,7 +263,3 @@ form input:focus {
 .sign-up-modal h1 {
     margin-bottom: 59px;
 }
-
-
-/* ===== ==================== ===== */
-/* ===== Forgot Password Page ===== */

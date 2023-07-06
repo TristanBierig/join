@@ -6,7 +6,6 @@ async function initLogin() {
     await loadUsers();
     registerSuccess();
     checkForLogout();
-    animateLogo();
 }
 
 
@@ -192,7 +191,7 @@ function animateLogo() {
 
     setTimeout(() => {
         openImgContainer.classList.add('negative-z')
-    }, 650);
+    }, 450);
 }
 
 
