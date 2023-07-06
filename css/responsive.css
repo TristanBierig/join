@@ -72,7 +72,7 @@
 
     .logo-animation path:not(:first-child) {
         fill: var(--main-color) !important;
-        transition-duration: 425ms;
+        transition-duration: 825ms;
     }
 
     .logo-animation {
