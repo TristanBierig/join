@@ -125,7 +125,7 @@ function getOverlayContent(id) {
 
 function getOverlayHTML(task) {
   return /*html*/ `
-    <span class="overlay-category">${task.category}</span>
+    <span style="background-color: #${task.categoryColor}" class="overlay-category">${task.category}</span>
     <b class="overlay-headline">${task.title}</b>
     <p>${task.description}</p>
     <div class="overlay-due-date">

@@ -189,6 +189,19 @@ function getCategory() {
   }
 }
 
+function getCategoryColor() {
+  const selectCategory = document.getElementById("selected-category").innerHTML;
+  let color;
+
+  categorys.forEach((category) => {
+    if (category.name == selectCategory) {
+      color = category.color;
+      return;
+    }
+  });
+  return color;
+}
+
 async function addTask() {
   document.querySelector("button").disabled = true;
   getTaskData();
@@ -205,6 +218,7 @@ async function getTaskData() {
     title: document.getElementById("title").value,
     description: document.getElementById("description").value,
     category: getCategory(),
+    categoryColor: getCategoryColor(),
     assignedTo: getAssignedPeople(),
     dueDate: document.getElementById("due-date").value,
     prio: selectedPrio,

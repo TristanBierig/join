@@ -203,7 +203,7 @@ function contactListItem(element, k) {
 function getTodoHTML(todo) {
   return /*html*/ `
     <div onclick="openTask(${todo.id})" class="task" draggable="true" ondragstart="startDragging(${todo.id})">
-      <span class="task-category">${todo.category}</span>
+      <span style="background-color: #${todo.categoryColor}" class="task-category">${todo.category}</span>
       <div class="task-title-description-box">
         <b>${todo.title}</b>
         <p>${todo.description}</p>
