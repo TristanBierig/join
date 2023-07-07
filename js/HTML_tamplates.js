@@ -208,24 +208,33 @@ function getTodoHTML(todo) {
         <b>${todo.title}</b>
         <p>${todo.description}</p>
       </div>
-      <div class="subtask-box">
-        <div class="progress-bar-box">
-          <div class="progress-bar-bar"></div>
-        </div>
-        <div class="subtask-text-box">
-          <span>1/2</span> 
-          <span>Done</span>
-        </div>
+      <div id="subtask-box${todo.id}" class="subtask-box">
       </div>
       <div class="assign-and-prio-box">
-        <div>
-          <span class="assigned-to-display">SM</span>
-        </div>
+        <div class="assigned-to-overview-box" id="overview-assigned-to-box${todo.id}"></div>
         <div class="task-prio-box">
           <img src="../assets/img/icons/low-prio-icon-small.svg" alt="">
         </div>        
       </div>
       </div>
+    </div>
+  `;
+}
+
+function getTaskAssignedUsersHTML(user) {
+  return /*html*/ `
+     <span style="background-color: ${user.image.color}" class="assigned-to-display">${user.image.initials}</span>
+  `;
+}
+
+function getProgressBarHTML() {
+  return /*html*/ `
+    <div class="progress-bar-box">
+    <div class="progress-bar-bar"></div>
+    </div>
+    <div class="subtask-text-box">
+    <span>1/2</span> 
+    <span>Done</span>
     </div>
   `;
 }

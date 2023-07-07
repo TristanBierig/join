@@ -118,7 +118,7 @@ function getAssignedPeople() {
     const label = labels[i];
 
     if (label.querySelector("input").checked) {
-      assignedTo.push(label.innerText.replace(/(\r\n|\n|\r)/gm, ""));
+      assignedTo.push(label.innerText.replace(/(\r\n|\n|\r|\s)/gm, ""));
     }
   }
 
@@ -203,7 +203,7 @@ function getCategoryColor() {
 }
 
 async function addTask() {
-  document.querySelector("button").disabled = true;
+  document.getElementById("submit-button").disabled = true;
   getTaskData();
   await uploadTasks();
   addTaskConfirmModal.classList.add("confirm-animation");

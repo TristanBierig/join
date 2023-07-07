@@ -10,12 +10,39 @@ function renderTodos() {
   if (htmlPage == "board.html") {
     resetDropAreas();
     for (let i = 0; i < tasks.length; i++) {
-      const todo = tasks[i];
-      const container = document.getElementById(todo.status + "-area");
+      const task = tasks[i];
+      const container = document.getElementById(task.status + "-area");
 
-      container.innerHTML += getTodoHTML(todo);
+      container.innerHTML += getTodoHTML(task);
+      renderAssignedUsersOverview(task);
+      renderSubtaskProgressBar(task);
     }
   }
+}
+
+function renderAssignedUsersOverview(task) {
+  const container = document.getElementById(
+    "overview-assigned-to-box" + task.id
+  );
+  container.innerHTML = "";
+
+  for (let i = 0; i < task.assignedTo.length; i++) {
+    const user = task.assignedTo[i];
+    const registeredUser = users.find((registeredUser) => {
+      return registeredUser.name.replace(/(\r\n|\n|\r|\s)/gm, "") === user;
+    });
+
+    if (registeredUser) {
+      console.log(registeredUser);
+      container.innerHTML += getTaskAssignedUsersHTML(registeredUser);
+    }
+  }
+}
+
+function renderSubtaskProgressBar(task) {
+  const container = document.getElementById("subtask-box" + task.id);
+  const subtasks = task.subTasks;
+  container.innerHTML = getProgressBarHTML();
 }
 
 /**
@@ -105,7 +132,7 @@ function openTask(id) {
   const overlayContent = document.getElementById("task-overlay-content");
   overlay.classList.remove("d-none");
   overlayContent.innerHTML = getOverlayContent(id);
-  console.log(id);
+  renderAssignedUsersOverviw(id);
 }
 
 function closeOverlay() {
@@ -123,6 +150,37 @@ function getOverlayContent(id) {
   }
 }
 
+function renderAssignedUsersOverviw(id) {
+  const userBox = document.getElementById("assigned-to-box");
+
+  for (let i = 0; i < tasks.length; i++) {
+    const task = tasks[i];
+
+    if (id == task.id) {
+      task.assignedTo.forEach((user) => {
+        const registeredUser = users.find((registeredUser) => {
+          return registeredUser.name.replace(/(\r\n|\n|\r|\s)/gm, "") === user;
+        });
+
+        if (registeredUser) {
+          console.log(registeredUser);
+          userBox.innerHTML += getAssignedUsersHTML(registeredUser);
+        }
+      });
+    }
+  }
+}
+
+function getAssignedUsersHTML(task) {
+  return /*html*/ `
+      <div>
+        <div style="background-color: ${task.image.color};" class="assigned-to-display-maximized">${task.image.initials}</div>
+        <span>${task.name}</span>
+      </div>
+  `;
+}
+
+/*AUSLAGERN !!!*/
 function getOverlayHTML(task) {
   return /*html*/ `
     <span style="background-color: #${task.categoryColor}" class="overlay-category">${task.category}</span>
@@ -137,6 +195,7 @@ function getOverlayHTML(task) {
       <div>${task.prio}</div>
     </div>
     <b>Assigned To:</b>
+    <div id="assigned-to-box"></div>
     <img onclick="closeOverlay()" class="overlay-close-button" src="../assets/img/icons/x-icon.svg" alt="X">
     <div class="overlayy-delete-edit-box">
       <div class="overlay-delete-box"><img src="../assets/img/icons/trash-bin.svg" alt=""></div>
@@ -144,5 +203,3 @@ function getOverlayHTML(task) {
     </div>
   `;
 }
-
-renderTodos();

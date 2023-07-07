@@ -170,6 +170,18 @@ input::placeholder {
   align-items: center;
 }
 
+#assigned-to-box {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+#assigned-to-box > div {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
 .assigned-to-display {
   display: flex;
   justify-content: center;
@@ -178,9 +190,25 @@ input::placeholder {
   height: 35px;
   border-radius: 58px;
   border: 1px solid white;
-  background: #0190e0;
   color: white;
   font-size: 12px;
+}
+
+.assigned-to-overview-box {
+  display: flex;
+  gap: -5px;
+}
+
+.assigned-to-display-maximized {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 58px;
+  border: 1px solid white;
+  color: white;
+  font-size: 16px;
 }
 
 .task-prio-box {
