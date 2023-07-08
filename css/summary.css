@@ -1,6 +1,5 @@
 body {
     margin: 0;
-    overflow: hidden;
 }
 
 .summary {
@@ -146,4 +145,72 @@ body {
     font-weight: bold;
     margin-top: 5px;
     font-weight: 700;
+}
+
+@media (max-width: 850px) {
+    .summary {
+        background-color: var(--bg-color);
+        padding: 0;
+        width: auto;
+        height: 100vh;
+        margin-left: 0;
+        margin-top: 71px; /*header-height*/
+    }
+    
+    .summary-head {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 0;
+    }
+
+    .summary-h1 {
+        margin: 60px 10px 20px 0;
+    } 
+    
+    .summary-h2 {
+        margin: 0;
+    }
+    
+    .summary-hr1 {
+        display: none;
+    }
+
+    .mobile-summary-hr1 {
+        border-color: var(--secondary-color);
+        background-color: var(--secondary-color);
+        border: none;
+        border-radius: 10px;
+        width: 3px;
+        height: 90px;
+        margin: 0;
+        transform: rotate(90deg);
+    }
+
+    .right-container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        flex-wrap: wrap;
+        z-index: 1;
+        animation: fadeOutGreeting 1s 1s ease-in forwards;
+        position: fixed;
+        background-color: var(--bg-color);
+        top: 0;
+        left: 0;
+      }
+      
+      @keyframes fadeOutGreeting {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0;
+          display: none;
+        }
+      }
 }
