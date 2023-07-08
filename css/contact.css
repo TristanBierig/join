@@ -9,11 +9,23 @@ main {
     height: calc(100vh - 95px);
     background-color: var(--bg-color);
     overflow: hidden;
+    position: relative;
 }
 
 .bold {
     font-weight: bold;
 }
+
+#newContact {
+    position: absolute;
+    bottom: 64px;
+    right: 47px;
+}
+
+.mobile-addons {
+    display: none;
+}
+
 
 /* ===== Sub-Header ===== */
 .sub-header {
@@ -46,11 +58,12 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 453x;
+    min-width: 380px;
     background-color: white;
     min-height: calc(100vh - 95px);
     box-shadow: 4px 0px 6px 0px rgba(0, 0, 0, 0.08);
     overflow-y: scroll;
+    overflow-x: hidden;
     scroll-behavior: smooth;
 }
 
@@ -269,6 +282,11 @@ main {
     box-shadow: var(--nuevo);
     color: white;
     font-size: 47px;
+    aspect-ratio: 1 / 1;
+}
+
+#contactsOverview {
+    padding: 25px;
 }
 
 #contactsOverview button {
@@ -280,7 +298,6 @@ main {
 #currentContact {
     display: flex;
     flex-direction: column;
-    padding-left: 65px;
     gap: 21px;
     position: relative;
     left: 300%;
