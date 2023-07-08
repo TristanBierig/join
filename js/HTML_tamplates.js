@@ -227,14 +227,52 @@ function getTaskAssignedUsersHTML(user) {
   `;
 }
 
-function getProgressBarHTML() {
+function getProgressBarHTML(subtasks, subtaskPercent, completedSubtasks) {
   return /*html*/ `
     <div class="progress-bar-box">
-    <div class="progress-bar-bar"></div>
+    <div style="width: ${subtaskPercent}%;" class="progress-bar-bar"></div>
     </div>
     <div class="subtask-text-box">
-    <span>1/2</span> 
+    <span>${completedSubtasks}/${subtasks.length}</span> 
     <span>Done</span>
     </div>
+  `;
+}
+
+function getAssignedUsersHTML(task) {
+  return /*html*/ `
+      <div>
+        <div style="background-color: ${task.image.color};" class="assigned-to-display-maximized">${task.image.initials}</div>
+        <span>${task.name}</span>
+      </div>
+  `;
+}
+
+function getOverlayHTML(task) {
+  return /*html*/ `
+    <span style="background-color: #${task.categoryColor}" class="overlay-category">${task.category}</span>
+    <b class="overlay-headline">${task.title}</b>
+    <p>${task.description}</p>
+    <div class="overlay-due-date">
+      <b>Due date:</b>
+      <span>${task.dueDate}</span>
+    </div>
+    <div class="overlay-prio">
+      <b>Priority:</b>
+      <div>${task.prio}</div>
+    </div>
+    <b>Assigned To:</b>
+    <div id="assigned-to-box"></div>
+    <img onclick="closeOverlay('task-overlay')" class="overlay-close-button" src="../assets/img/icons/x-icon.svg" alt="X">
+    <div class="overlayy-delete-edit-box">
+      <div onclick="deleteTask(${task.id})" class="overlay-delete-box"><img src="../assets/img/icons/trash-bin.svg" alt=""></div>
+      <div onclick="editTask(${task.id})" class="overlay-edit-box"><img src="../assets/img/icons/bord-overlay-edit-pencil.svg" alt=""></div>
+    </div>
+  `;
+}
+
+function getOverlayBackgroundHTML() {
+  return /*html*/ `
+    <div onclick="animateAddTaskOverlayClosing()" id="add-task-overlay-background">TEST</div>
   `;
 }

@@ -1,0 +1,143 @@
+<section>
+  <h1>Add Task</h1>
+  <form onsubmit="addTask(); return false" class="add-task-form">
+    <div>
+      <div class="add-task-overlay-input-box">
+        <label for="title">Title</label>
+        <input
+          placeholder="Enter a title"
+          name="title"
+          required
+          id="title"
+          type="text"
+        />
+      </div>
+
+      <div class="add-task-overlay-input-box">
+        <label for="description">Description</label>
+        <textarea
+          placeholder="Enter a Description"
+          id="description"
+          cols="30"
+          rows="10"
+        ></textarea>
+      </div>
+
+      <div id="category-box" class="add-task-overlay-input-box">
+        <span class="label">Category</span>
+        <div onclick="toggleCategoryPicker()" id="category">
+          <div>
+            <span>Select task category</span>
+            <img
+              class="open-arrow"
+              src="../assets/img/icons/open-select-arrow.svg"
+              alt="arrow-down"
+            />
+          </div>
+        </div>
+        <div class="d-none" id="color-picker-box"></div>
+      </div>
+
+      <div class="add-task-overlay-input-box">
+        <span class="label">Assigned to</span>
+        <div onclick="toggleUserPicker()" id="assigned-to">
+          <div>
+            <span>Select contacts to assign</span>
+            <img
+              class="open-arrow"
+              src="../assets/img/icons/open-select-arrow.svg"
+              alt="arrow-down"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="add-task-overlay-seperator"></div>
+
+    <div class="form-right-box">
+      <div class="form-right-top-box">
+        <div class="add-task-overlay-input-box">
+          <label for="due-date">Due date</label>
+          <input
+            required
+            onclick="setMinDate()"
+            type="date"
+            name="due-date"
+            id="due-date"
+          />
+        </div>
+
+        <div class="add-task-overlay-input-box">
+          <span>Prio</span>
+          <div id="prio-box">
+            <div id="high-prio-box" onclick="setPrio('high')">
+              <span>Urgent</span>
+              <img
+                src="..//assets/img/icons/high-prio-icon-small.svg"
+                alt="high-prio"
+              />
+            </div>
+            <div id="medium-prio-box" onclick="setPrio('medium')">
+              <span>Medium</span>
+              <img
+                src="..//assets/img/icons/medium-prio-icon-small.svg"
+                alt="medium-prio"
+              />
+            </div>
+            <div id="low-prio-box" onclick="setPrio('low')">
+              <span>Low</span>
+              <img
+                src="..//assets/img/icons/low-prio-icon-small.svg"
+                alt="low-prio"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="add-task-overlay-input-box">
+          <label for="subtask-input">Subtasks</label>
+          <div class="input-with-icons">
+            <input
+              placeholder="Add new subtask"
+              id="subtask-input"
+              type="text"
+              name="subtask-input"
+            />
+            <div class="input-icon-box">
+              <img
+                onclick="clearInput('subtask-input')"
+                class="subtask-img"
+                src="../assets/img/icons/cancel-icon.svg"
+                alt=""
+              />
+              <div class="seperator-small"></div>
+              <img
+                onclick="addSubtask()"
+                class="subtask-img"
+                src="../assets/img/icons/checkmark-icon-black.svg"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+        <div id="subtask-box"></div>
+      </div>
+      <div class="form-right-bottom-box">
+        <div class="button-box">
+          <button class="button-secondary-with-icon" type="reset">
+            Clear <img src="../assets/img/icons/cancel-icon.svg" alt="" />
+          </button>
+          <button id="submit-button" class="button-with-icon" type="submit">
+            Create Task
+            <img src="../assets/img/icons/checkmark-icon.svg" alt="" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</section>
+<div id="addTaskConfirmModal" class="confirm-modal">
+  <span>Task added to board</span>
+  <img src="../assets/img/icons/sidebar-board.svg" alt="" />
+</div>
