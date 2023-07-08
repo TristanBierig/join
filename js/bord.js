@@ -94,8 +94,11 @@ function generateOverlayBackground() {
   }
 }
 
-function generateOverlayContent() {
+async function generateOverlayContent() {
   const container = document.getElementById("add-task-overlay-background");
+
+  container.innerHTML = `<div onclick="doNotClose(event)" w3-include-html="../assets/templates/task_Form_Overlay.html"></div>`;
+  await includeHTML();
 }
 
 async function deleteTask(taskID) {
