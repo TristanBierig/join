@@ -166,11 +166,46 @@ function checkIfBord() {
   }
 }
 
-
 function showToast() {
-  let modal = document.getElementById('confirmModal');
-  modal.classList.add('confirm-animation');
+  let modal = document.getElementById("confirmModal");
+  modal.classList.add("confirm-animation");
   setTimeout(() => {
-    modal.classList.remove('confirm-animation');
+    modal.classList.remove("confirm-animation");
   }, 2000);
+}
+
+/* ===== Add Task Overlay =====*/
+
+function openAddTaskOverlay() {
+  generateOverlayBackground();
+  generateOverlayContent();
+}
+
+function generateOverlayBackground() {
+  if (document.getElementById("add-task-overlay-background") == undefined) {
+    document.body.innerHTML += getOverlayBackgroundHTML();
+  } else {
+    const overlay = document.getElementById("add-task-overlay-background");
+    overlay.classList.remove("d-none");
+    console.log("exestiert");
+  }
+}
+
+async function generateOverlayContent() {
+  const container = document.getElementById("add-task-overlay-background");
+
+  container.innerHTML = `<div class="add-task-overlay-content" id="add-task-overlay-content" onclick="doNotClose(event)" w3-include-html="../assets/templates/task_Form_Overlay.html"></div>`;
+  await includeHTML();
+  document
+    .getElementById("add-task-overlay-content")
+    .classList.add("task-overlay-confirm-animation");
+}
+
+function animateAddTaskOverlayClosing() {
+  document
+    .getElementById("add-task-overlay-content")
+    .classList.remove("task-overlay-confirm-animation");
+  setTimeout(function () {
+    closeOverlay("add-task-overlay-background");
+  }, 225);
 }
