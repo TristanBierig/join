@@ -273,6 +273,6 @@ function getOverlayHTML(task) {
 
 function getOverlayBackgroundHTML() {
   return /*html*/ `
-    <div onclick="closeOverlay('add-task-overlay-background')" id="add-task-overlay-background">TEST</div>
+    <div onclick="animateAddTaskOverlayClosing()" id="add-task-overlay-background">TEST</div>
   `;
 }

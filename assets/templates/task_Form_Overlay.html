@@ -2,7 +2,7 @@
   <h1>Add Task</h1>
   <form onsubmit="addTask(); return false" class="add-task-form">
     <div>
-      <div class="input-box">
+      <div class="add-task-overlay-input-box">
         <label for="title">Title</label>
         <input
           placeholder="Enter a title"
@@ -13,7 +13,7 @@
         />
       </div>
 
-      <div class="input-box">
+      <div class="add-task-overlay-input-box">
         <label for="description">Description</label>
         <textarea
           placeholder="Enter a Description"
@@ -23,7 +23,7 @@
         ></textarea>
       </div>
 
-      <div id="category-box" class="input-box">
+      <div id="category-box" class="add-task-overlay-input-box">
         <span class="label">Category</span>
         <div onclick="toggleCategoryPicker()" id="category">
           <div>
@@ -38,7 +38,7 @@
         <div class="d-none" id="color-picker-box"></div>
       </div>
 
-      <div class="input-box">
+      <div class="add-task-overlay-input-box">
         <span class="label">Assigned to</span>
         <div onclick="toggleUserPicker()" id="assigned-to">
           <div>
@@ -53,11 +53,11 @@
       </div>
     </div>
 
-    <div class="seperator"></div>
+    <div class="add-task-overlay-seperator"></div>
 
     <div class="form-right-box">
       <div class="form-right-top-box">
-        <div class="input-box">
+        <div class="add-task-overlay-input-box">
           <label for="due-date">Due date</label>
           <input
             required
@@ -68,7 +68,7 @@
           />
         </div>
 
-        <div class="input-box">
+        <div class="add-task-overlay-input-box">
           <span>Prio</span>
           <div id="prio-box">
             <div id="high-prio-box" onclick="setPrio('high')">
@@ -95,7 +95,7 @@
           </div>
         </div>
 
-        <div class="input-box">
+        <div class="add-task-overlay-input-box">
           <label for="subtask-input">Subtasks</label>
           <div class="input-with-icons">
             <input

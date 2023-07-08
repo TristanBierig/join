@@ -97,8 +97,20 @@ function generateOverlayBackground() {
 async function generateOverlayContent() {
   const container = document.getElementById("add-task-overlay-background");
 
-  container.innerHTML = `<div onclick="doNotClose(event)" w3-include-html="../assets/templates/task_Form_Overlay.html"></div>`;
+  container.innerHTML = `<div class="add-task-overlay-content" id="add-task-overlay-content" onclick="doNotClose(event)" w3-include-html="../assets/templates/task_Form_Overlay.html"></div>`;
   await includeHTML();
+  document
+    .getElementById("add-task-overlay-content")
+    .classList.add("task-overlay-confirm-animation");
+}
+
+function animateAddTaskOverlayClosing() {
+  document
+    .getElementById("add-task-overlay-content")
+    .classList.remove("task-overlay-confirm-animation");
+  setTimeout(function () {
+    closeOverlay("add-task-overlay-background");
+  }, 225);
 }
 
 async function deleteTask(taskID) {
