@@ -1,5 +1,5 @@
 /**
- * this function changes the greeting depending on the time of day
+ * This function changes the greeting depending on the time of day.
  *
  */
 function greet() {
@@ -16,3 +16,19 @@ function greet() {
   }
 }
 greet();
+
+/**
+ * This function selects the name of the current user. Alternatively it uses "Guest".
+ *
+ */
+function updateUserName() {
+  let userName = document.getElementById("user-name");
+  let currentUser = setCurrentUser();
+
+  if (currentUser) {
+    userName.textContent = currentUser;
+  } else {
+    userName.textContent = "Guest";
+  }
+}
+updateUserName();
