@@ -248,6 +248,14 @@ function getAssignedUsersHTML(task) {
   `;
 }
 
+function getEditUserHTML(task) {
+  return /*html*/ `
+  <div>
+    <div style="background-color: ${task.image.color};" class="assigned-to-display-maximized">${task.image.initials}</div>
+  </div>
+`;
+}
+
 function getOverlayHTML(task) {
   return /*html*/ `
     <span style="background-color: #${task.categoryColor}" class="overlay-category">${task.category}</span>
@@ -274,5 +282,94 @@ function getOverlayHTML(task) {
 function getOverlayBackgroundHTML() {
   return /*html*/ `
     <div onclick="animateAddTaskOverlayClosing()" id="add-task-overlay-background">TEST</div>
+  `;
+}
+
+function getAddTaskOverlayContentHTML() {
+  return /*html*/ `
+    <div class="add-task-overlay-content" id="add-task-overlay-content" onclick="doNotClose(event)" w3-include-html="../assets/templates/task_Form_Overlay.html"></div>
+  `;
+}
+
+function getEditTaskHTML(task) {
+  return /*html*/ `
+    <form onsubmit="saveEditedTask(); return false" class="add-task-form edit-form">
+    <div class="add-task-overlay-input-box">
+      <label for="title">Title</label>
+      <input
+        placeholder="Enter a title"
+        name="title"
+        required
+        id="title"
+        type="text"
+        value="${task.title}"
+      />
+    </div>
+    <div class="add-task-overlay-input-box">
+      <label for="description">Description</label>
+      <textarea
+        placeholder="Enter a Description"
+        id="description"
+        cols="30"
+        rows="10"
+      >${task.description}</textarea>
+    </div>
+    <div class="add-task-overlay-input-box">
+      <label for="due-date">Due date</label>
+      <input
+        required
+        onclick="setMinDate()"
+        type="date"
+        name="due-date"
+        id="due-date"
+        value="${task.dueDate}"
+      />
+    </div>
+    <div class="add-task-overlay-input-box">
+      <span>Prio</span>
+      <div id="prio-box">
+        <div id="high-prio-box" onclick="setPrio('high')">
+          <span>Urgent</span>
+          <img
+            src="..//assets/img/icons/high-prio-icon-small.svg"
+            alt="high-prio"
+          />
+        </div>
+        <div id="medium-prio-box" onclick="setPrio('medium')">
+          <span>Medium</span>
+          <img
+            src="..//assets/img/icons/medium-prio-icon-small.svg"
+            alt="medium-prio"
+          />
+        </div>
+        <div id="low-prio-box" onclick="setPrio('low')">
+          <span>Low</span>
+          <img
+            src="..//assets/img/icons/low-prio-icon-small.svg"
+            alt="low-prio"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="add-task-overlay-input-box">
+      <span class="label">Assigned to</span>
+      <div onclick="toggleUserPicker()" id="assigned-to">
+        <div>
+          <span>Select contacts to assign</span>
+          <img
+            class="open-arrow"
+            src="../assets/img/icons/open-select-arrow.svg"
+            alt="arrow-down"
+          />
+        </div>
+      </div>
+    </div>
+    <div id="edit-assigned-users-box"></div>
+    <button class="button-with-icon edit-submit-button">
+      <span>Ok</span>
+      <img src="../assets/img/icons/checkmark-icon.svg" alt="">
+    </button>
+    <img class="overlay-close-button" src="../assets/img/icons/cancel-icon.svg" alt="">
+  </form>
   `;
 }

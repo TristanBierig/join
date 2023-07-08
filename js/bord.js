@@ -45,7 +45,6 @@ function renderAssignedUsersOverview(task) {
     });
 
     if (registeredUser) {
-      console.log(registeredUser);
       container.innerHTML += getTaskAssignedUsersHTML(registeredUser);
     }
   }
@@ -91,45 +90,15 @@ function getCompletedSubtasks(subtasks) {
   }
 }
 
-function openAddTaskOverlay() {
-  generateOverlayBackground();
-  generateOverlayContent();
-}
-
-function generateOverlayBackground() {
-  if (document.getElementById("add-task-overlay-background") == undefined) {
-    document.body.innerHTML += getOverlayBackgroundHTML();
-  } else {
-    const overlay = document.getElementById("add-task-overlay-background");
-    overlay.classList.remove("d-none");
-    console.log("exestiert");
-  }
-}
-
-async function generateOverlayContent() {
-  const container = document.getElementById("add-task-overlay-background");
-
-  container.innerHTML = `<div class="add-task-overlay-content" id="add-task-overlay-content" onclick="doNotClose(event)" w3-include-html="../assets/templates/task_Form_Overlay.html"></div>`;
-  await includeHTML();
-  document
-    .getElementById("add-task-overlay-content")
-    .classList.add("task-overlay-confirm-animation");
-}
-
-function animateAddTaskOverlayClosing() {
-  document
-    .getElementById("add-task-overlay-content")
-    .classList.remove("task-overlay-confirm-animation");
-  setTimeout(function () {
-    closeOverlay("add-task-overlay-background");
-  }, 225);
+function findIndexOfTasks(id) {
+  const index = tasks.findIndex((task) => {
+    return task.id === id;
+  });
+  return index;
 }
 
 async function deleteTask(taskID) {
-  const index = tasks.findIndex((task) => {
-    return task.id === taskID;
-  });
-  console.log(index);
+  const index = findIndexOfTasks(taskID);
   tasks.splice(index, 1);
 
   await uploadTasks();
@@ -137,7 +106,22 @@ async function deleteTask(taskID) {
   closeOverlay("task-overlay");
 }
 
-function editTask(taskID) {}
+function editTask(taskID) {
+  const index = findIndexOfTasks(taskID);
+  const task = tasks[index];
+  const container = document.getElementById("task-overlay-content");
+  container.innerHTML = getEditTaskHTML(task);
+  renderAssignedUsersOverviewOverlay(
+    task.id,
+    "edit-assigned-users-box",
+    getEditUserHTML
+  );
+  console.log(task);
+}
+
+function saveEditedTask() {
+  console.log("test");
+}
 
 /**
  * this function resets the inner HTML of all drop areas
@@ -235,7 +219,11 @@ function openTask(id) {
   const overlayContent = document.getElementById("task-overlay-content");
   overlay.classList.remove("d-none");
   overlayContent.innerHTML = getOverlayContent(id);
-  renderAssignedUsersOverviw(id);
+  renderAssignedUsersOverviewOverlay(
+    id,
+    "assigned-to-box",
+    getAssignedUsersHTML
+  );
 }
 
 function closeOverlay(id) {
@@ -253,22 +241,26 @@ function getOverlayContent(id) {
   }
 }
 
-function renderAssignedUsersOverviw(id) {
-  const userBox = document.getElementById("assigned-to-box");
+function renderAssignedUsersOverviewOverlay(id, boxID, callBack) {
+  const userBox = document.getElementById(boxID);
 
   for (let i = 0; i < tasks.length; i++) {
     const task = tasks[i];
 
     if (id == task.id) {
       task.assignedTo.forEach((user) => {
-        const registeredUser = users.find((registeredUser) => {
-          return registeredUser.name.replace(/(\r\n|\n|\r|\s)/gm, "") === user;
-        });
+        const registeredUser = getUserIndex(user);
 
         if (registeredUser) {
-          userBox.innerHTML += getAssignedUsersHTML(registeredUser);
+          userBox.innerHTML += callBack(registeredUser);
         }
       });
     }
   }
+}
+
+function getUserIndex(user) {
+  return users.find((registeredUser) => {
+    return registeredUser.name.replace(/(\r\n|\n|\r|\s)/gm, "") === user;
+  });
 }

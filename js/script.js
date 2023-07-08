@@ -194,7 +194,7 @@ function generateOverlayBackground() {
 async function generateOverlayContent() {
   const container = document.getElementById("add-task-overlay-background");
 
-  container.innerHTML = `<div class="add-task-overlay-content" id="add-task-overlay-content" onclick="doNotClose(event)" w3-include-html="../assets/templates/task_Form_Overlay.html"></div>`;
+  container.innerHTML = getAddTaskOverlayContentHTML();
   await includeHTML();
   document
     .getElementById("add-task-overlay-content")

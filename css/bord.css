@@ -303,17 +303,19 @@ input::placeholder {
   gap: 25px;
 }
 
-/* ===== AddTask Overlay ===== */
+/* ===== Edit Overlay ===== */
 
-#add-task-overlay-background {
-  position: absolute;
-  z-index: 100;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+#task-overlay-content > form {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.1);
+  flex-direction: column;
+}
+
+.edit-submit-button {
+  position: absolute;
+  bottom: 61px;
+  right: 40px;
+}
+
+.edit-form {
+  margin-right: 100px;
 }
