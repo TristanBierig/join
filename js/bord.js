@@ -4,20 +4,32 @@ let currentlyDraggedElement;
  * this function renders tasks on the bord
  *
  */
-function renderTodos() {
+function renderTodos(searchedTasks) {
   const url = window.location.href;
   const htmlPage = url.substring(url.lastIndexOf("/") + 1);
   if (htmlPage == "board.html") {
     resetDropAreas();
-    for (let i = 0; i < tasks.length; i++) {
-      const task = tasks[i];
-      const container = document.getElementById(task.status + "-area");
 
-      container.innerHTML += getTodoHTML(task);
-      renderAssignedUsersOverview(task);
-      renderSubtaskProgressBar(task);
+    if (searchedTasks) {
+      for (let i = 0; i < searchedTasks.length; i++) {
+        const task = searchedTasks[i];
+        renderTasks(task);
+      }
+    } else {
+      for (let i = 0; i < tasks.length; i++) {
+        const task = tasks[i];
+        renderTasks(task);
+      }
     }
   }
+}
+
+function renderTasks(task) {
+  const container = document.getElementById(task.status + "-area");
+
+  container.innerHTML += getTodoHTML(task);
+  renderAssignedUsersOverview(task);
+  renderSubtaskProgressBar(task);
 }
 
 function renderAssignedUsersOverview(task) {
@@ -204,9 +216,16 @@ function toggleDropareaHoverEffect(id, action) {
 
 function searchTask() {
   const input = document.getElementById("search-task-input").value;
+  let foundTasks = [];
   console.log(input);
 
-  /* TODO SUCHFUNKTION*/
+  for (let i = 0; i < tasks.length; i++) {
+    const task = tasks[i];
+    if (task.title.toLowerCase().includes(input.toLowerCase())) {
+      foundTasks.push(task);
+    }
+  }
+  renderTodos(foundTasks);
 }
 
 /* ===== Overlay Functions =====*/
