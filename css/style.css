@@ -44,7 +44,7 @@ body {
   background-color: var(--main-color);
   box-shadow: var(--nuevo);
   overflow: hidden;
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
 }
@@ -95,7 +95,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 232px;
   right: 0;
@@ -322,7 +322,7 @@ body {
 /* ======================================= */
 /* ===== Responsive Mobile Templates ===== */
 
-@media (max-width: 450px) {
+@media (max-width: 850px) {
 
   /* Sidebar*/
   .sidebar {

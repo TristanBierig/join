@@ -2,7 +2,7 @@
 /* ===== Login Pages ===== */
 
 /* Max-Width 450px */
-@media (max-width: 450px) {
+@media (max-width: 850px) {
 
     /* Login Modal */
     form {
@@ -12,8 +12,7 @@
     .login-modal {
         width: 90%;
         min-width: 0;
-        gap: 25px;
-        padding: 20px;
+        padding: 35px;
     }
 
     form input {
@@ -21,23 +20,28 @@
         padding: 8px 41px 8px 21px;
     }
 
+    .back-arrow {
+        top: 20px;
+        left: 20px;
+    }
+
     .input-wrapper img {
         top: 22.5px;
     }
 
     .input-wrapper {
-        display: flex;
-        justify-content: center;
+      
     }
 
-    h1 {
-        font-size: 47px;
+    .login-modal h1 {
+        font-size: 40px;
+        text-align: center;
     }
 
     .reset-password-container {
         flex-direction: column-reverse;
-        align-self: flex-start;
-        margin-left: 5%;
+        align-self: center;
+        
     }
 
     .checkmark {
