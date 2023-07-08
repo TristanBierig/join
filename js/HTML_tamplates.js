@@ -155,7 +155,7 @@ function editContactModalHTML(contact, i) {
       ${contact.initials} 
     </div>
 
-    <form id="editContactForm" onreset="deleteContact(${i})" onsubmit="saveEditContact(${i}); return false;">
+    <form class="user-form" id="editContactForm" onreset="deleteContact(${i})" onsubmit="saveEditContact(${i}); return false;">
       <div class="input-wrapper">
         <input id="contactNameEdit" required type="text" placeholder="Name">
         <img src="../assets/img/icons/user-icon.svg" alt="">

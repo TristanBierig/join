@@ -5,7 +5,7 @@
 @media (max-width: 850px) {
 
     /* Login Modal */
-    form {
+    .user-form {
         width: 100%;
     }
 
@@ -15,7 +15,7 @@
         padding: 35px;
     }
 
-    form input {
+    .user-form input {
         width: 100%;
         padding: 8px 41px 8px 21px;
     }
