@@ -202,9 +202,9 @@ body {
         background-color: var(--bg-color);
         top: 0;
         left: 0;
-      }
+    }
       
-      @keyframes fadeOutGreeting {
+    @keyframes fadeOutGreeting {
         from {
           opacity: 1;
         }
@@ -212,5 +212,5 @@ body {
           opacity: 0;
           display: none;
         }
-      }
+    }
 }
