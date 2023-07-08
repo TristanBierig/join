@@ -100,7 +100,7 @@ function currentContactHTML(contact, i) {
         </div>
     <div>
       <h3>${contact.name}</h3>
-      <span>
+      <span  onclick="openAddTaskOverlay()">
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g id="Capa 1">
             <g id="Group 11">
@@ -155,7 +155,7 @@ function editContactModalHTML(contact, i) {
       ${contact.initials} 
     </div>
 
-    <form id="editContactForm" onreset="deleteContact(${i})" onsubmit="saveEditContact(${i}); return false;">
+    <form class="user-form" id="editContactForm" onreset="deleteContact(${i})" onsubmit="saveEditContact(${i}); return false;">
       <div class="input-wrapper">
         <input id="contactNameEdit" required type="text" placeholder="Name">
         <img src="../assets/img/icons/user-icon.svg" alt="">
