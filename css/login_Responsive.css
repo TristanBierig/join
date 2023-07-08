@@ -18,6 +18,11 @@
 
     form input {
         width: 100%;
+        padding: 8px 41px 8px 21px;
+    }
+
+    .input-wrapper img {
+        top: 22.5px;
     }
 
     .input-wrapper {
@@ -48,6 +53,7 @@
     .btn-container>* {
         width: 150%;
         font-size: 16px;
+        height: 45px;
     }
 
     /* Signup */
@@ -80,6 +86,4 @@
         left: 40px !important;
         scale: 0.6;
     }
-
-
 }
