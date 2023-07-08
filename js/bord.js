@@ -42,8 +42,75 @@ function renderAssignedUsersOverview(task) {
 function renderSubtaskProgressBar(task) {
   const container = document.getElementById("subtask-box" + task.id);
   const subtasks = task.subTasks;
-  container.innerHTML = getProgressBarHTML();
+  const completedSubtasks = getCompletedSubtasks(subtasks);
+  const subtaskPercent = getSubtaskPercent(subtasks, completedSubtasks);
+
+  if (subtasks.length > 0) {
+    container.innerHTML = getProgressBarHTML(
+      subtasks,
+      subtaskPercent,
+      completedSubtasks
+    );
+  } else {
+    container.classList.add("d-none");
+  }
 }
+
+function getSubtaskPercent(subtasks, completedSubtasks) {
+  if (subtasks) {
+    const totalSubtasks = subtasks.length;
+    const subtaskPercent = (completedSubtasks / totalSubtasks) * 100;
+
+    return subtaskPercent;
+  }
+}
+
+function getCompletedSubtasks(subtasks) {
+  if (subtasks) {
+    let completedSubtasks = 0;
+
+    subtasks.forEach((subtasks) => {
+      if (subtasks.status === "closed") {
+        completedSubtasks++;
+      }
+    });
+
+    return completedSubtasks;
+  }
+}
+
+function openAddTaskOverlay() {
+  generateOverlayBackground();
+  generateOverlayContent();
+}
+
+function generateOverlayBackground() {
+  if (document.getElementById("add-task-overlay-background") == undefined) {
+    document.body.innerHTML += getOverlayBackgroundHTML();
+  } else {
+    const overlay = document.getElementById("add-task-overlay-background");
+    overlay.classList.remove("d-none");
+    console.log("exestiert");
+  }
+}
+
+function generateOverlayContent() {
+  const container = document.getElementById("add-task-overlay-background");
+}
+
+async function deleteTask(taskID) {
+  const index = tasks.findIndex((task) => {
+    return task.id === taskID;
+  });
+  console.log(index);
+  tasks.splice(index, 1);
+
+  await uploadTasks();
+  renderTodos();
+  closeOverlay("task-overlay");
+}
+
+function editTask(taskID) {}
 
 /**
  * this function resets the inner HTML of all drop areas
@@ -73,8 +140,10 @@ function resetDropAreas() {
  * @param {number} id id of the dragged Element
  */
 function startDragging(id) {
-  currentlyDraggedElement = id;
-  console.log(id);
+  currentlyDraggedElement = tasks.findIndex((task) => {
+    return id === task.id;
+  });
+  console.log(currentlyDraggedElement); //delete
 }
 
 /**
@@ -135,8 +204,8 @@ function openTask(id) {
   renderAssignedUsersOverviw(id);
 }
 
-function closeOverlay() {
-  const overlay = document.getElementById("task-overlay");
+function closeOverlay(id) {
+  const overlay = document.getElementById(id);
   overlay.classList.add("d-none");
 }
 
@@ -163,43 +232,9 @@ function renderAssignedUsersOverviw(id) {
         });
 
         if (registeredUser) {
-          console.log(registeredUser);
           userBox.innerHTML += getAssignedUsersHTML(registeredUser);
         }
       });
     }
   }
-}
-
-function getAssignedUsersHTML(task) {
-  return /*html*/ `
-      <div>
-        <div style="background-color: ${task.image.color};" class="assigned-to-display-maximized">${task.image.initials}</div>
-        <span>${task.name}</span>
-      </div>
-  `;
-}
-
-/*AUSLAGERN !!!*/
-function getOverlayHTML(task) {
-  return /*html*/ `
-    <span style="background-color: #${task.categoryColor}" class="overlay-category">${task.category}</span>
-    <b class="overlay-headline">${task.title}</b>
-    <p>${task.description}</p>
-    <div class="overlay-due-date">
-      <b>Due date:</b>
-      <span>${task.dueDate}</span>
-    </div>
-    <div class="overlay-prio">
-      <b>Priority:</b>
-      <div>${task.prio}</div>
-    </div>
-    <b>Assigned To:</b>
-    <div id="assigned-to-box"></div>
-    <img onclick="closeOverlay()" class="overlay-close-button" src="../assets/img/icons/x-icon.svg" alt="X">
-    <div class="overlayy-delete-edit-box">
-      <div class="overlay-delete-box"><img src="../assets/img/icons/trash-bin.svg" alt=""></div>
-      <div class="overlay-edit-box"><img src="../assets/img/icons/bord-overlay-edit-pencil.svg" alt=""></div>
-    </div>
-  `;
 }

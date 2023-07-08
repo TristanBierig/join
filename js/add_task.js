@@ -214,7 +214,7 @@ async function addTask() {
 
 async function getTaskData() {
   const task = {
-    id: tasks.length,
+    id: new Date().valueOf(),
     title: document.getElementById("title").value,
     description: document.getElementById("description").value,
     category: getCategory(),

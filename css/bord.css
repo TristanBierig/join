@@ -118,12 +118,12 @@ input::placeholder {
   background: white;
   border-radius: 30px;
   box-shadow: var(--shadoe-backlog-box);
+  cursor: pointer;
 }
 
 .task-category {
   padding: 4px 25px;
   border-radius: 8px;
-  background: #ff7a00; /*dynamisch über 2. classe einbinden wie pokedex*/
   width: fit-content;
 }
 
@@ -157,7 +157,7 @@ input::placeholder {
 .progress-bar-bar {
   background-color: rgba(41, 171, 226, 1);
   height: 100%;
-  width: 50%; /*mit js dynamisch machen inline*/
+  width: 0%;
 }
 
 .subtask-text-box {
@@ -196,7 +196,6 @@ input::placeholder {
 
 .assigned-to-overview-box {
   display: flex;
-  gap: -5px;
 }
 
 .assigned-to-display-maximized {
@@ -302,4 +301,19 @@ input::placeholder {
 .overlay-prio {
   display: flex;
   gap: 25px;
+}
+
+/* ===== AddTask Overlay ===== */
+
+#add-task-overlay-background {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.1);
 }

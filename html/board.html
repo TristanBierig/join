@@ -19,6 +19,7 @@
     <script src="../js/HTML_tamplates.js"></script>
     <script src="../js/add_task.js"></script>
     <script src="../js/script.js"></script>
+    <script src="../js/bord.js"></script>
   </head>
 
   <body onload="init()">
@@ -49,7 +50,7 @@
               />
             </div>
           </div>
-          <button class="button-with-icon">
+          <button onclick="openAddTaskOverlay()" class="button-with-icon">
             Add task <img src="../assets/img/icons/add-task-icon.svg" alt="" />
           </button>
         </div>
@@ -129,9 +130,12 @@
         </div>
       </section>
     </main>
-    <div onclick="closeOverlay()" class="d-none" id="task-overlay">
+    <div
+      onclick="closeOverlay('task-overlay')"
+      class="d-none"
+      id="task-overlay"
+    >
       <div onclick="doNotClose(event)" id="task-overlay-content"></div>
     </div>
   </body>
 </html>
-<script src="../js/bord.js"></script>
