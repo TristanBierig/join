@@ -179,6 +179,7 @@ async function generateOverlayContent() {
   container.innerHTML = getAddTaskOverlayContentHTML();
   await includeHTML();
   loadProfilePicture();
+  toggleSidebarFocus();
   document
     .getElementById("add-task-overlay-content")
     .classList.add("task-overlay-confirm-animation");
