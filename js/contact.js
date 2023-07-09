@@ -115,9 +115,9 @@ function deleteContact(i) {
 }
 
 
-function deleteContactMobile(i) {
+async function deleteContactMobile(i) {
     currentUser.contacts.splice(i, 1);
-    setItem('users', JSON.stringify(users));
+    await setItem('users', JSON.stringify(users));
     contactsBack();
 }
 

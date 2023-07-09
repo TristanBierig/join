@@ -2,10 +2,14 @@
   margin: 0;
 }
 
+body {
+  overflow: hidden;
+}
+
 main {
   margin-left: 232px; /*sidebar-width*/
-  margin-top: 95px; /*header-height*/
-  min-height: calc(100vh - 95px);
+  margin-top: 10vh; /*header-height*/
+  height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -255,7 +259,7 @@ textarea::placeholder {
   justify-content: center;
   align-items: center;
   gap: 25px;
-  bottom: -20%;
+  bottom: -100%;
   transform: translate(-50% -50%);
   padding: 20px;
   font-size: 21px;

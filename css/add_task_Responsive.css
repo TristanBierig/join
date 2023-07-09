@@ -1,0 +1,72 @@
+@media (max-width: 1200px) {
+    main {
+        overflow: scroll;
+    }
+
+   .add-task-form {
+    flex-direction: column;
+   }
+
+   .seperator {
+    margin-bottom: 8px;
+   }
+
+   .form-right-bottom-box {
+    padding-bottom: 50px;
+   }
+
+   .button-box {
+    justify-content: center;
+   }
+}
+
+@media (max-width: 850px) {
+    main {
+        margin-left: 0;
+        height: 80vh;
+        justify-content: flex-start;
+    }
+
+    section {
+        width: 90%;
+    }
+
+    .button-box button:first-child {
+        display: none;
+    }
+
+    .button-box button:last-child {
+        position: fixed;
+        z-index: 999;
+        top: 19px;
+        right: 19px;
+    }
+
+    section h1 {
+        padding-top: 70px;
+    }
+
+    section h1::before {
+        content: 'Kanban Project Management Tool';
+        position: absolute;
+        font-size: 16px;
+        font-weight: 400;
+        top: 20px;
+    }
+
+    .right-frame {
+        display: none;
+    }
+}
+
+
+@media (max-width: 500px) {
+    #prio-box {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #prio-box div {
+        width: 100%;
+    }
+}

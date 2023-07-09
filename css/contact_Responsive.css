@@ -219,4 +219,9 @@
     .contacts-back {
         right: 25px;
     }
+
+    .button-wrapper {
+     flex-direction: column-reverse;
+     align-items: center;
+    }
 }
