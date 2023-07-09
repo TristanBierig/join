@@ -14,6 +14,7 @@ async function init() {
   }
   loadProfilePicture();
   toggleSidebarFocus();
+  await initSummaryContent();
 }
 
 
