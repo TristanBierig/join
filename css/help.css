@@ -20,6 +20,10 @@ body {
     cursor: pointer;
 }
 
+.help-h3 {
+    display: none;
+}
+
 .help-h1 {
     font-size: 60px;
     margin: 0 0 40px 0;
@@ -52,5 +56,15 @@ ol {
 @media (max-width: 850px) {
     .main {
         padding: 60px 35px 20px 35px;
+        margin-left: 0;
+        margin-bottom: 60px;
+    }
+
+    .help-h3 {
+        display: block;
+        font-size: 16px;
+        font-weight: 400;
+        margin: 0;
+        padding: 20px 0;
     }
 }
