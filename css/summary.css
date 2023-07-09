@@ -18,6 +18,10 @@ body {
     margin-left: 60px;
 }
 
+.summary-h3 {
+    display: none;
+}
+
 .summary-h1, .summary-h2, .summary-hr1 {
     margin-right: 35px;
 }
@@ -106,7 +110,7 @@ body {
 
 .card-third-line:hover img {
     filter: invert(100%) brightness(150%);
-  }
+}
 
 .numbers {
     font-size: 40px;
@@ -131,6 +135,10 @@ body {
     margin: 42px;
 }
 
+.right-container {
+    margin-left: 20px;
+}
+
 .greetings {
     color: rgba(42, 54, 71, 1);
     font-size: 45px;
@@ -150,9 +158,9 @@ body {
 @media (max-width: 850px) {
     .summary {
         background-color: var(--bg-color);
-        padding: 0;
+        padding: 33px;
         width: auto;
-        height: 100vh;
+        height: 100%;
         margin-left: 0;
         margin-top: 71px; /*header-height*/
     }
@@ -164,8 +172,15 @@ body {
         margin: 0;
     }
 
+    .summary-h3 {
+        display: block;
+        font-size: 16px;
+        font-weight: 400;
+        margin: 0;
+    }
+
     .summary-h1 {
-        margin: 60px 10px 20px 0;
+        margin: 20px 10px 20px 0;
     } 
     
     .summary-h2 {
@@ -183,8 +198,13 @@ body {
         border-radius: 10px;
         width: 3px;
         height: 90px;
-        margin: 0;
+        margin: -10px 45px;
         transform: rotate(90deg);
+    }
+
+    .left-container {
+        margin-top: 0;
+        margin-bottom: 45px;
     }
 
     .right-container {
@@ -196,12 +216,12 @@ body {
         align-items: center;
         text-align: center;
         flex-wrap: wrap;
-        z-index: 1;
         animation: fadeOutGreeting 1s 1s ease-in forwards;
         position: fixed;
         background-color: var(--bg-color);
         top: 0;
         left: 0;
+        margin-left: 0;
     }
       
     @keyframes fadeOutGreeting {
