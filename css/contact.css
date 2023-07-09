@@ -43,13 +43,20 @@ main {
 .sub-header h3 {
     font-size: 27px;
     font-weight: 400;
+}
 
+#sub-header-mobile {
+    display: none;
 }
 
 .line {
     height: 59px;
     width: 2px;
     background-color: var(--secondary-color);
+}
+
+.contacts-back {
+    display: none;
 }
 
 
@@ -286,7 +293,7 @@ main {
 }
 
 #contactsOverview {
-    padding: 25px;
+    padding: 50px;
 }
 
 #contactsOverview button {

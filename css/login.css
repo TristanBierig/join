@@ -10,13 +10,6 @@ body {
     scale: 1 !important;
 }
 
-.error-msg {
-    position: absolute;
-    margin-top: 4px;
-    font-size: 12px;
-    color: var(--error-color);
-}
-
 .login-modal {
     display: flex;
     flex-direction: column;

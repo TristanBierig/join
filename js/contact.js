@@ -115,6 +115,18 @@ function deleteContact(i) {
 }
 
 
+function deleteContactMobile(i) {
+    currentUser.contacts.splice(i, 1);
+    setItem('users', JSON.stringify(users));
+    contactsBack();
+}
+
+
+function contactsBack() {
+    window.location.reload();
+}
+
+
 function showContact(i) {
     let contact = currentUser.contacts[i];
     let focus = document.getElementById('contact' + i);
@@ -128,6 +140,7 @@ function showContact(i) {
 
     focus.classList.add('contact-container-focus');
     currentContact.classList.add('current-contact-animation');
+    contactsBackImg.classList.remove('d-none');
 }
 
 

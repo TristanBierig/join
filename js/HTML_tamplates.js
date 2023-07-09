@@ -134,6 +134,33 @@ function currentContactHTML(contact, i) {
     <div class="bold">Phone</div>
     <a href="tel:${contact.phone}">${contact.phone}</a>
   </div>
+
+  <div class="mobile-addons">
+        <div class="mobile-contact-btn-container">
+          <button onclick="deleteContactMobile(${i})" class="button-secondary-with-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <mask id="mask0_68380_3548" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="32"
+                height="32">
+                <rect width="32" height="32" fill="#D9D9D9" />
+              </mask>
+              <g mask="url(#mask0_68380_3548)">
+                <path
+                  d="M9.33203 28C8.5987 28 7.97092 27.7389 7.4487 27.2167C6.92648 26.6944 6.66536 26.0667 6.66536 25.3333V8H5.33203V5.33333H11.9987V4H19.9987V5.33333H26.6654V8H25.332V25.3333C25.332 26.0667 25.0709 26.6944 24.5487 27.2167C24.0265 27.7389 23.3987 28 22.6654 28H9.33203ZM22.6654 8H9.33203V25.3333H22.6654V8ZM11.9987 22.6667H14.6654V10.6667H11.9987V22.6667ZM17.332 22.6667H19.9987V10.6667H17.332V22.6667Z"
+                  fill="#2A3647" />
+              </g>
+            </svg>
+          </button>
+
+          <button onclick="editContact(${i})" class="button-with-icon">
+            <svg width="21" height="30" viewBox="0 0 21 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M2.87121 22.0156L7.69054 24.9405L20.3337 4.10842C20.6203 3.63628 20.4698 3.02125 19.9977 2.73471L16.8881 0.847482C16.4159 0.56094 15.8009 0.711391 15.5144 1.18353L2.87121 22.0156Z"
+                fill="white" />
+              <path d="M2.28614 22.9794L7.10547 25.9043L2.37685 28.1892L2.28614 22.9794Z" fill="white" />
+            </svg>
+          </button>
+        </div>
+      </div>
   `;
 }
 
