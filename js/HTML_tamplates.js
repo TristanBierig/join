@@ -255,7 +255,7 @@ function getTodoHTML(todo) {
       <div class="assign-and-prio-box">
         <div class="assigned-to-overview-box" id="overview-assigned-to-box${todo.id}"></div>
         <div class="task-prio-box">
-          <img src="../assets/img/icons/low-prio-icon-small.svg" alt="">
+          <img src="../assets/img/icons/${todo.prio}-prio-icon-small.svg" alt="">
         </div>        
       </div>
       </div>

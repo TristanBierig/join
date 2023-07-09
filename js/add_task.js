@@ -10,7 +10,7 @@ let categoryColors = ["8AA4FF", "F00", "2AD300", "FF8A00", "E200BE", "0038FF"];
 
 let selectedPrio;
 let selectedColor;
-let subTasksTest = [];
+let currentSubtasks = [];
 
 function toggleCategoryPicker() {
   const categoryBox = document.getElementById("category");
@@ -130,12 +130,27 @@ function setPrio(prio) {
   const prioDivs = prioBox.querySelectorAll("div");
   selectedPrio = prio;
 
+  resetPrioImages(prioDivs);
   prioDivs.forEach((div) => {
     div.classList.remove("active", "high", "medium", "low");
   });
 
   const clickedPrio = document.getElementById(prio + "-prio-box");
   clickedPrio.classList.add(prio);
+  setPrioImage(clickedPrio, prio);
+}
+
+function setPrioImage(clickedPrio, prio) {
+  const image = clickedPrio.querySelector("img");
+  image.src = "../assets/img/icons/" + prio + "-prio-white-icon-small.svg";
+}
+
+function resetPrioImages(prioDivs) {
+  prioDivs.forEach((div) => {
+    const image = div.querySelector("img");
+    image.src =
+      "../assets/img/icons/" + div.id.split("-")[0] + "-prio-icon-small.svg";
+  });
 }
 
 function clearInput(id) {
@@ -148,7 +163,7 @@ function addSubtask() {
     name: document.getElementById("subtask-input").value,
     status: "open",
   };
-  subTasksTest.push(subtask);
+  currentSubtasks.push(subtask);
   renderSubtasks();
 }
 
@@ -157,8 +172,8 @@ function renderSubtasks() {
   clearInput("subtask-input");
   container.innerHTML = "";
 
-  subTasksTest.forEach((subtask, index) => {
-    container.innerHTML += getSubtaskHTML(subtask, "updateSubtask");
+  currentSubtasks.forEach((subtask, index) => {
+    container.innerHTML += getSubtaskHTML(subtask, "updateSubtask", "", index);
   });
 }
 
@@ -176,7 +191,7 @@ function updateSubtask() {
       updatedSubtasks.push(updatedSubtask);
     }
   });
-  subTasksTest = updatedSubtasks;
+  currentSubtasks = updatedSubtasks;
 }
 
 function getCategory() {
@@ -190,26 +205,44 @@ function getCategory() {
 }
 
 function getCategoryColor() {
-  const selectCategory = document.getElementById("selected-category").innerHTML;
+  const selectCategory = document.getElementById("selected-category");
   let color;
 
-  categorys.forEach((category) => {
-    if (category.name == selectCategory) {
-      color = category.color;
-      return;
-    }
-  });
+  if (selectCategory) {
+    const selectCategoryContent = selectCategory.innerHTML;
+    categorys.forEach((category) => {
+      if (category.name == selectCategoryContent) {
+        color = category.color;
+        return;
+      }
+    });
+  }
   return color;
 }
 
 async function addTask() {
-  document.getElementById("submit-button").disabled = true;
-  getTaskData();
-  await uploadTasks();
-  addTaskConfirmModal.classList.add("confirm-animation");
-  setTimeout(() => {
-    window.location.replace("board.html");
-  }, 1000);
+  if (formIsValide()) {
+    document.getElementById("submit-button").disabled = true;
+    getTaskData();
+    await uploadTasks();
+    addTaskConfirmModal.classList.add("confirm-animation");
+    setTimeout(() => {
+      window.location.replace("board.html");
+    }, 1000);
+  } else {
+    alert("alle felder ausfüllen");
+  }
+}
+
+function formIsValide() {
+  const category = document.getElementById("selected-category");
+  const prio = selectedPrio;
+
+  if (category && prio) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 async function getTaskData() {
@@ -222,12 +255,11 @@ async function getTaskData() {
     assignedTo: getAssignedPeople(),
     dueDate: document.getElementById("due-date").value,
     prio: selectedPrio,
-    subTasks: subTasksTest,
+    subTasks: currentSubtasks,
     status: "to-do",
   };
   tasks.push(task);
-  subTasksTest = []; // replace by new name
-  console.log(task); // delete
+  currentSubtasks = [];
 }
 
 async function uploadTasks() {
