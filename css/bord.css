@@ -77,7 +77,6 @@ input::placeholder {
   flex-direction: column;
   align-items: center;
   gap: 35px;
-  overflow-y: auto;
 }
 
 .dragarea-hover {
@@ -105,6 +104,13 @@ input::placeholder {
   align-items: center;
   flex-shrink: 0;
   border-radius: 10px;
+  cursor: pointer;
+  font-size: 30px;
+}
+
+.drag-and-drop-header > div:hover {
+  border: 2px solid var(--secondary-color);
+  color: var(--secondary-color);
 }
 
 .drag-area {
@@ -113,6 +119,7 @@ input::placeholder {
   flex-direction: column;
   gap: 35px;
   height: calc(100% - 58px);
+  overflow-y: auto;
 }
 
 /* ===== Task =====*/

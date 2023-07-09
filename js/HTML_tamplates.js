@@ -95,15 +95,15 @@ function getAssignUsersCheckedHTML(user) {
   `;
 }
 
-function getSubtaskHTML(subtask, functionName) {
+function getSubtaskHTML(subtask, functionName, taskID, index) {
   return /*html*/ `
-    <label onchange="${functionName}()"><input  type="checkbox"> ${subtask.name}</label>
+    <label onchange="${functionName}(${taskID}, ${index})"><input id="overlayCheckbox${index}" type="checkbox"> ${subtask.name}</label>
   `;
 }
 
-function getSubtaskCheckedHTML(subtask, functionName) {
+function getSubtaskCheckedHTML(subtask, functionName, taskID, index) {
   return /*html*/ `
-    <label onchange="${functionName}()"><input checked  type="checkbox"> ${subtask.name}</label>
+    <label onchange="${functionName}(${taskID}, ${index})"><input id="overlayCheckbox${index}" checked  type="checkbox"> ${subtask.name}</label>
   `;
 }
 
@@ -255,7 +255,7 @@ function getTodoHTML(todo) {
       <div class="assign-and-prio-box">
         <div class="assigned-to-overview-box" id="overview-assigned-to-box${todo.id}"></div>
         <div class="task-prio-box">
-          <img src="../assets/img/icons/low-prio-icon-small.svg" alt="">
+          <img src="../assets/img/icons/${todo.prio}-prio-icon-small.svg" alt="">
         </div>        
       </div>
       </div>
