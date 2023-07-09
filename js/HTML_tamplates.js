@@ -86,9 +86,24 @@ function getAssignUsersHTML(user) {
   `;
 }
 
-function getSubtaskHTML(subtask) {
+function getAssignUsersCheckedHTML(user) {
   return /*html*/ `
-    <label onchange="updateSubtask()"><input  type="checkbox"> ${subtask.name}</label>
+    <label onclick="doNotClose(event)" class="">
+      ${user.name}
+      <input checked name="" type="checkbox" />
+    </label>
+  `;
+}
+
+function getSubtaskHTML(subtask, functionName) {
+  return /*html*/ `
+    <label onchange="${functionName}()"><input  type="checkbox"> ${subtask.name}</label>
+  `;
+}
+
+function getSubtaskCheckedHTML(subtask, functionName) {
+  return /*html*/ `
+    <label onchange="${functionName}()"><input checked  type="checkbox"> ${subtask.name}</label>
   `;
 }
 
@@ -277,9 +292,7 @@ function getAssignedUsersHTML(task) {
 
 function getEditUserHTML(task) {
   return /*html*/ `
-  <div>
     <div style="background-color: ${task.image.color};" class="assigned-to-display-maximized">${task.image.initials}</div>
-  </div>
 `;
 }
 
@@ -298,6 +311,10 @@ function getOverlayHTML(task) {
     </div>
     <b>Assigned To:</b>
     <div id="assigned-to-box"></div>
+    <div id="subtaskBoxWrapper" class="add-task-overlay-input-box d-none">
+      <b>Subtasks</b>
+      <div id="subtask-box-overlay"></div>
+    </div>
     <img onclick="closeOverlay('task-overlay')" class="overlay-close-button" src="../assets/img/icons/x-icon.svg" alt="X">
     <div class="overlayy-delete-edit-box">
       <div onclick="deleteTask(${task.id})" class="overlay-delete-box"><img src="../assets/img/icons/trash-bin.svg" alt=""></div>
@@ -320,7 +337,7 @@ function getAddTaskOverlayContentHTML() {
 
 function getEditTaskHTML(task) {
   return /*html*/ `
-    <form onsubmit="saveEditedTask(); return false" class="add-task-form edit-form">
+    <form onsubmit="saveEditedTask(${task.id}); return false" class="add-task-form edit-form">
     <div class="add-task-overlay-input-box">
       <label for="title">Title</label>
       <input
@@ -394,9 +411,9 @@ function getEditTaskHTML(task) {
     <div id="edit-assigned-users-box"></div>
     <button class="button-with-icon edit-submit-button">
       <span>Ok</span>
-      <img src="../assets/img/icons/checkmark-icon.svg" alt="">
+      <img  src="../assets/img/icons/checkmark-icon.svg" alt="">
     </button>
-    <img class="overlay-close-button" src="../assets/img/icons/cancel-icon.svg" alt="">
+    <img onclick="closeOverlay('task-overlay')" class="overlay-close-button" src="../assets/img/icons/cancel-icon.svg" alt="">
   </form>
   `;
 }

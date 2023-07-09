@@ -1,5 +1,27 @@
 let currentlyDraggedElement;
 
+/* ===== Bord Render Functions ===== */
+
+/**
+ * this function resets the inner HTML of all drop areas
+ *
+ */
+function resetDropAreas() {
+  const areas = [
+    "to-do-area",
+    "in-progress-area",
+    "awaiting-feedback-area",
+    "done-area",
+  ];
+
+  for (let i = 0; i < areas.length; i++) {
+    const areaId = areas[i];
+
+    const area = document.getElementById(areaId);
+    area.innerHTML = "";
+  }
+}
+
 /**
  * this function renders tasks on the bord
  *
@@ -24,6 +46,11 @@ function renderTodos(searchedTasks) {
   }
 }
 
+/**
+ * this function is a helper funtion to @renderTodos and renders one task
+ *
+ * @param {JSON} task data of the task
+ */
 function renderTasks(task) {
   const container = document.getElementById(task.status + "-area");
 
@@ -32,6 +59,11 @@ function renderTasks(task) {
   renderSubtaskProgressBar(task);
 }
 
+/**
+ * this function is a helper funtion to @renderTasks and renders assigned users in the task card
+ *
+ * @param {JSON} task data of the task
+ */
 function renderAssignedUsersOverview(task) {
   const container = document.getElementById(
     "overview-assigned-to-box" + task.id
@@ -50,6 +82,11 @@ function renderAssignedUsersOverview(task) {
   }
 }
 
+/**
+ * this function is a helper funtion to @renderTasks and renders the subtask progress bar in the task card
+ *
+ * @param {JSON} task data of the task
+ */
 function renderSubtaskProgressBar(task) {
   const container = document.getElementById("subtask-box" + task.id);
   const subtasks = task.subTasks;
@@ -67,15 +104,12 @@ function renderSubtaskProgressBar(task) {
   }
 }
 
-function getSubtaskPercent(subtasks, completedSubtasks) {
-  if (subtasks) {
-    const totalSubtasks = subtasks.length;
-    const subtaskPercent = (completedSubtasks / totalSubtasks) * 100;
-
-    return subtaskPercent;
-  }
-}
-
+/**
+ * this function is a helper function for @renderSubtaskProgressBar and checks if subtask is closed or not
+ *
+ * @param {Array} subtasks all subtasks of the task
+ * @returns array with copleted subtasks
+ */
 function getCompletedSubtasks(subtasks) {
   if (subtasks) {
     let completedSubtasks = 0;
@@ -90,57 +124,27 @@ function getCompletedSubtasks(subtasks) {
   }
 }
 
+/**
+ * this fuction is a helper function for @renderSubtaskProgressBar and calculates a percentage of two parameters
+ *
+ * @param {Array} subtasks all subtasks of the task
+ * @param {Array} completedSubtasks completed subtask
+ * @returns a number that ist the percentage of the copleted subtasks in relation to all subtasks
+ */
+function getSubtaskPercent(subtasks, completedSubtasks) {
+  if (subtasks) {
+    const totalSubtasks = subtasks.length;
+    const subtaskPercent = (completedSubtasks / totalSubtasks) * 100;
+
+    return subtaskPercent;
+  }
+}
+
 function findIndexOfTasks(id) {
   const index = tasks.findIndex((task) => {
     return task.id === id;
   });
   return index;
-}
-
-async function deleteTask(taskID) {
-  const index = findIndexOfTasks(taskID);
-  tasks.splice(index, 1);
-
-  await uploadTasks();
-  renderTodos();
-  closeOverlay("task-overlay");
-}
-
-function editTask(taskID) {
-  const index = findIndexOfTasks(taskID);
-  const task = tasks[index];
-  const container = document.getElementById("task-overlay-content");
-  container.innerHTML = getEditTaskHTML(task);
-  renderAssignedUsersOverviewOverlay(
-    task.id,
-    "edit-assigned-users-box",
-    getEditUserHTML
-  );
-  console.log(task);
-}
-
-function saveEditedTask() {
-  console.log("test");
-}
-
-/**
- * this function resets the inner HTML of all drop areas
- *
- */
-function resetDropAreas() {
-  const areas = [
-    "to-do-area",
-    "in-progress-area",
-    "awaiting-feedback-area",
-    "done-area",
-  ];
-
-  for (let i = 0; i < areas.length; i++) {
-    const areaId = areas[i];
-
-    const area = document.getElementById(areaId);
-    area.innerHTML = "";
-  }
 }
 
 /* ===== DRAG FUNCTIONS =====*/
@@ -198,10 +202,12 @@ function toggleDropareaHoverEffect(id, action) {
   }
 }
 
+/**
+ * this function searches tasks based on input value
+ */
 function searchTask() {
   const input = document.getElementById("search-task-input").value;
   let foundTasks = [];
-  console.log(input);
 
   for (let i = 0; i < tasks.length; i++) {
     const task = tasks[i];
@@ -210,53 +216,6 @@ function searchTask() {
     }
   }
   renderTodos(foundTasks);
-}
-
-/* ===== Overlay Functions =====*/
-
-function openTask(id) {
-  const overlay = document.getElementById("task-overlay");
-  const overlayContent = document.getElementById("task-overlay-content");
-  overlay.classList.remove("d-none");
-  overlayContent.innerHTML = getOverlayContent(id);
-  renderAssignedUsersOverviewOverlay(
-    id,
-    "assigned-to-box",
-    getAssignedUsersHTML
-  );
-}
-
-function closeOverlay(id) {
-  const overlay = document.getElementById(id);
-  overlay.classList.add("d-none");
-}
-
-function getOverlayContent(id) {
-  for (let i = 0; i < tasks.length; i++) {
-    const task = tasks[i];
-
-    if (id == task.id) {
-      return getOverlayHTML(task);
-    }
-  }
-}
-
-function renderAssignedUsersOverviewOverlay(id, boxID, callBack) {
-  const userBox = document.getElementById(boxID);
-
-  for (let i = 0; i < tasks.length; i++) {
-    const task = tasks[i];
-
-    if (id == task.id) {
-      task.assignedTo.forEach((user) => {
-        const registeredUser = getUserIndex(user);
-
-        if (registeredUser) {
-          userBox.innerHTML += callBack(registeredUser);
-        }
-      });
-    }
-  }
 }
 
 function getUserIndex(user) {
