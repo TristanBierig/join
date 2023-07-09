@@ -158,7 +158,7 @@ function renderSubtasks() {
   container.innerHTML = "";
 
   subTasksTest.forEach((subtask, index) => {
-    container.innerHTML += getSubtaskHTML(subtask);
+    container.innerHTML += getSubtaskHTML(subtask, "updateSubtask");
   });
 }
 
