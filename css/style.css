@@ -111,7 +111,7 @@ body {
   color: black;
   background-color: white;
   box-shadow: var(--barra-superior);
-  z-index: 99;
+  z-index: 100;
 }
 
 .right-frame {
@@ -335,7 +335,7 @@ body {
 
   /* Sidebar*/
   .sidebar {
-    z-index: 99;
+    z-index: 98;
     top: auto;
     bottom: 0;
     left: 0;

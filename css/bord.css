@@ -13,6 +13,10 @@ main {
   background-color: var(--bg-color);
 }
 
+.cancel-btn {
+  display: none;
+}
+
 /* ===== Header =====*/
 
 .bord-header {
@@ -20,6 +24,10 @@ main {
   max-width: 1078px;
   display: flex;
   justify-content: space-between;
+}
+
+.bord-header h1 {
+  font-size: 47px;
 }
 
 .bord-header div {
@@ -63,7 +71,7 @@ input::placeholder {
 
 .drag-and-drop-row {
   width: 250px;
-  height: 661px;
+  min-height: 661px;
   background-color: var(--bg-color);
   display: flex;
   flex-direction: column;

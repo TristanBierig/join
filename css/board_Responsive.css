@@ -1,0 +1,175 @@
+@media (max-width: 1350px) {
+    main {
+        overflow: scroll;
+    }
+
+    .bord-header {
+        flex-direction: column;
+        gap: 20px;
+        width: 70%;
+        margin: 30px 0;
+        position: relative;
+    }
+
+    .drag-and-drop-container {
+        width: 70%;
+        flex-direction: column;
+    }
+
+    .drag-and-drop-row {
+        width: 100%;
+        min-height: 300px;
+        max-height: fit-content;
+    }
+
+    .subtask-box {
+        gap: 4px;
+    }
+
+    .progress-bar-box {
+        width: 90%;
+    }
+
+    .subtask-text-box {
+        display: flex;
+        gap: 4px;
+        flex-wrap: nowrap;
+    }
+
+    .drag-area {
+        flex-grow: 1;
+    }
+}
+
+@media (max-width: 1100px) {
+    .add-task-form {
+        flex-direction: column;
+        overflow: scroll;
+    }
+
+    form {
+        padding-bottom: 20px;
+    }
+
+    .add-task-overlay-content {
+        padding: 20px !important;
+        height: 90vh;
+        width: 70%;
+    }
+
+    .add-task-overlay-content section {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        gap: 25px;
+    }
+
+    .add-task-overlay-seperator {
+        margin-bottom: 16px !important;
+    }
+}
+
+
+@media (max-width: 850px) {
+    main {
+        margin-left: 0;
+        height: 80vh;
+        justify-content: flex-start;
+        min-height: auto;
+    }
+
+    #add-task-overlay-background {
+        background-color: rgba(0, 0, 0, 0) !important;
+        z-index: 98 !important;
+    }
+
+    .bord-header {
+        margin-top: 70px;
+    }
+
+    .bord-header h1::before {
+        content: 'Kanban Project Management Tool';
+        position: absolute;
+        font-size: 16px;
+        font-weight: 400;
+        top: -40px;
+    }
+
+    .drag-and-drop-container {
+        padding-bottom: 26px;
+    }
+
+    .add-task-overlay-content {
+        position: absolute !important;
+        top: 10vh;
+        width: 100%;
+        border-radius: 0 !important;
+        padding: 0 !important;
+        background-color: var(--bg-color) !important;
+        overflow: unset !important;
+        z-index: 98 !important;
+    }
+
+    .add-task-overlay-content h1 {
+        font-size: 47px;
+    }
+
+    .add-task-overlay-content section {
+        width: 100%;
+        padding: 16px;
+        height: 100%;
+    }
+
+    .add-task-form textarea {
+        height: 85px !important;
+    }
+
+    .cancel-btn {
+        display: flex;
+        position: absolute;
+        top: 12vh;
+        right: 6vh;
+        z-index: 100;
+        cursor: pointer;
+    }
+
+    .add-task-form {
+        height: fit-content !important;
+        overflow: scroll;
+    }
+
+    .add-task-form input {
+        padding: 8px 21px !important;
+        font-size: 16px !important;
+    }
+
+    .add-task-form>div {
+        position: static !important;
+    }
+
+    .button-box button:first-child {
+        display: none;
+    }
+
+    .button-box button:last-child {
+        position: absolute;
+        right: 200px !important;
+    }
+
+    #submit-button {
+        position: absolute;
+        z-index: 1000 !important;
+        top: 19px;
+        right: 19px;
+    }
+
+    #add-task-overlay-background {
+        position: unset !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .drag-and-drop-container {
+        width: 90%;
+    }
+}
