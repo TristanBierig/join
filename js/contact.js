@@ -11,6 +11,7 @@ async function initContacts() {
     }
     loadProfilePicture();
     renderContacts();
+    toggleSidebarFocus();
 }
 
 
