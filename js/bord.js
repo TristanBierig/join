@@ -1,5 +1,47 @@
 let currentlyDraggedElement;
 
+/* ===== General Bord Functions ===== */
+
+/**
+ * this function searches tasks based on input value
+ */
+function searchTask() {
+  const input = document.getElementById("search-task-input").value;
+  let foundTasks = [];
+
+  for (let i = 0; i < tasks.length; i++) {
+    const task = tasks[i];
+    if (task.title.toLowerCase().includes(input.toLowerCase())) {
+      foundTasks.push(task);
+    }
+  }
+  renderTodos(foundTasks);
+}
+
+/**
+ * this function finds the Id of the task in the tasks array and returns its index
+ *
+ * @param {number} id id of the task
+ * @returns index of task
+ */
+function findIndexOfTasks(id) {
+  const index = tasks.findIndex((task) => {
+    return task.id === id;
+  });
+  return index;
+}
+
+/**
+ *
+ * @param {*} user
+ * @returns
+ */
+function getUserIndex(user) {
+  return users.find((registeredUser) => {
+    return registeredUser.name.replace(/(\r\n|\n|\r|\s)/gm, "") === user;
+  });
+}
+
 /* ===== Bord Render Functions ===== */
 
 /**
@@ -140,13 +182,6 @@ function getSubtaskPercent(subtasks, completedSubtasks) {
   }
 }
 
-function findIndexOfTasks(id) {
-  const index = tasks.findIndex((task) => {
-    return task.id === id;
-  });
-  return index;
-}
-
 /* ===== DRAG FUNCTIONS =====*/
 
 /**
@@ -200,26 +235,4 @@ function toggleDropareaHoverEffect(id, action) {
   if (action == "add") {
     dragArea.classList.add("dragarea-hover");
   }
-}
-
-/**
- * this function searches tasks based on input value
- */
-function searchTask() {
-  const input = document.getElementById("search-task-input").value;
-  let foundTasks = [];
-
-  for (let i = 0; i < tasks.length; i++) {
-    const task = tasks[i];
-    if (task.title.toLowerCase().includes(input.toLowerCase())) {
-      foundTasks.push(task);
-    }
-  }
-  renderTodos(foundTasks);
-}
-
-function getUserIndex(user) {
-  return users.find((registeredUser) => {
-    return registeredUser.name.replace(/(\r\n|\n|\r|\s)/gm, "") === user;
-  });
 }

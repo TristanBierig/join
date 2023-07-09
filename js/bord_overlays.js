@@ -72,8 +72,8 @@ function renderSubtasksOverlay(id) {
       const subtasks = task.subTasks;
       if (subtasks.length > 0) {
         subtaskBoxWrapper.classList.remove("d-none");
-        subtasks.forEach((subtask) => {
-          renderSubtasksInOverlay(container, subtask);
+        subtasks.forEach((subtask, index) => {
+          renderSubtasksInOverlay(container, subtask, id, index);
         });
       }
     }
@@ -86,13 +86,20 @@ function renderSubtasksOverlay(id) {
  * @param {Element} container element where to render the subtasks
  * @param {JSON} subtask subtask with name and status
  */
-function renderSubtasksInOverlay(container, subtask) {
+function renderSubtasksInOverlay(container, subtask, taskId, index) {
   if (subtask.status == "open") {
-    container.innerHTML += getSubtaskHTML(subtask, "updateSubtaskInOverlay");
+    container.innerHTML += getSubtaskHTML(
+      subtask,
+      "updateSubtaskInOverlay",
+      taskId,
+      index
+    );
   } else {
     container.innerHTML += getSubtaskCheckedHTML(
       subtask,
-      "updateSubtaskInOverlay"
+      "updateSubtaskInOverlay",
+      taskId,
+      index
     );
   }
 }
@@ -111,9 +118,24 @@ async function deleteTask(taskID) {
   closeOverlay("task-overlay");
 }
 
-/*FUNKTION NOCH SCHREIBEN*/
-function updateSubtaskInOverlay() {
-  console.log("asd");
+/**
+ * this function updates subtasks after they are clicked to open or closed
+ *
+ * @param {number} taskID id of the selected task
+ * @param {number} subtaskIndex index of clicked subtask
+ */
+async function updateSubtaskInOverlay(taskID, subtaskIndex) {
+  const checkbox = document.getElementById("overlayCheckbox" + subtaskIndex);
+  const task = tasks[findIndexOfTasks(taskID)];
+
+  if (checkbox.checked) {
+    task.subTasks[subtaskIndex].status = "closed";
+  } else {
+    task.subTasks[subtaskIndex].status = "open";
+  }
+
+  await uploadTasks();
+  renderTodos();
 }
 
 /* ===== Edit Task Overlay Functions ===== */
