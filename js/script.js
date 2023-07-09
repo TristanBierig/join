@@ -13,6 +13,7 @@ async function init() {
     return;
   }
   loadProfilePicture();
+  await initSummaryContent();
 }
 
 
