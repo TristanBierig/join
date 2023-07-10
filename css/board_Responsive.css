@@ -1,6 +1,6 @@
 @media (max-width: 1350px) {
     main {
-        overflow: scroll;
+        padding-bottom: 30px;
     }
 
     .bord-header {
@@ -45,6 +45,7 @@
     .add-task-form {
         flex-direction: column;
         overflow: scroll;
+        overflow-x: hidden;
     }
 
     form {
@@ -73,9 +74,9 @@
 @media (max-width: 850px) {
     main {
         margin-left: 0;
-        height: 80vh;
         justify-content: flex-start;
         min-height: auto;
+        margin-bottom: 10vh;
     }
 
     #add-task-overlay-background {
@@ -106,7 +107,7 @@
         border-radius: 0 !important;
         padding: 0 !important;
         background-color: var(--bg-color) !important;
-        overflow: unset !important;
+        /* overflow: unset !important; */
         z-index: 98 !important;
     }
 
@@ -135,7 +136,6 @@
 
     .add-task-form {
         height: fit-content !important;
-        overflow: scroll;
     }
 
     .add-task-form input {
@@ -161,10 +161,6 @@
         z-index: 1000 !important;
         top: 19px;
         right: 19px;
-    }
-
-    #add-task-overlay-background {
-        position: unset !important;
     }
 }
 
