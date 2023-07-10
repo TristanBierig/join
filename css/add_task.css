@@ -186,6 +186,7 @@ textarea::placeholder {
 }
 
 #category-input {
+  position: relative;
   border: unset;
 }
 
@@ -209,7 +210,8 @@ textarea::placeholder {
 
 .add-category-img-box {
   position: absolute;
-  right: 0;
+  right: 14px;
+  top: 47px;
 }
 
 #assigned-to label {

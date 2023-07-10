@@ -11,7 +11,10 @@ function searchTask() {
 
   for (let i = 0; i < tasks.length; i++) {
     const task = tasks[i];
-    if (task.title.toLowerCase().includes(input.toLowerCase())) {
+    if (
+      task.title.toLowerCase().includes(input.toLowerCase()) ||
+      task.description.toLowerCase().includes(input.toLowerCase())
+    ) {
       foundTasks.push(task);
     }
   }

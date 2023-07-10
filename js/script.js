@@ -1,6 +1,7 @@
 let users = [];
 let currentUser;
 let tasks = [];
+let selectedTaskStatus;
 
 async function init() {
   await loadUsers();
@@ -17,7 +18,6 @@ async function init() {
   await initSummaryContent();
 }
 
-
 async function includeHTML() {
   let includeElements = document.querySelectorAll("[w3-include-html]");
   for (let i = 0; i < includeElements.length; i++) {
@@ -31,7 +31,6 @@ async function includeHTML() {
     }
   }
 }
-
 
 /**
  * This function checks if the user accessing a page within the app is properly logged in.
@@ -125,11 +124,11 @@ function toggleSidebarFocus() {
   if (idClass === "sidebar-help") {
     return;
   }
-  
-  document.getElementById(idObject).src = '../assets/img/icons/' + idClass + '-focus.svg';
+
+  document.getElementById(idObject).src =
+    "../assets/img/icons/" + idClass + "-focus.svg";
   document.getElementById(idClass).classList.add("sidebar-focus");
 }
-
 
 /**
  * Toggles the Modal css class for the log out button
@@ -139,6 +138,10 @@ function toggleLogOutModal() {
   document.getElementById("log-out-modal-wrapper").classList.toggle("d-none");
 }
 
+/**
+ * this function checks if the current page is bord.html
+ *
+ */
 function checkIfBord() {
   const url = window.location.href;
   const htmlPage = url.substring(url.lastIndexOf("/"));
@@ -148,6 +151,10 @@ function checkIfBord() {
   }
 }
 
+/**
+ * this function shows the confirm modal
+ *
+ */
 function showToast() {
   let modal = document.getElementById("confirmModal");
   modal.classList.add("confirm-animation");
@@ -158,11 +165,23 @@ function showToast() {
 
 /* ===== Add Task Overlay =====*/
 
-function openAddTaskOverlay() {
+/**
+ * this function opens the add task modal
+ *
+ * @param {string} status status of the clicked add task button
+ */
+function openAddTaskOverlay(status) {
   generateOverlayBackground();
   generateOverlayContent();
+  if (status) {
+    selectedTaskStatus = status;
+  }
 }
 
+/**
+ * this functiion creates the overlay background if its already exists show it
+ *
+ */
 function generateOverlayBackground() {
   if (document.getElementById("add-task-overlay-background") == undefined) {
     document.body.innerHTML += getOverlayBackgroundHTML();
@@ -173,6 +192,10 @@ function generateOverlayBackground() {
   }
 }
 
+/**
+ * opens the ovelay content with the include HTML function
+ *
+ */
 async function generateOverlayContent() {
   const container = document.getElementById("add-task-overlay-background");
 
@@ -185,6 +208,10 @@ async function generateOverlayContent() {
     .classList.add("task-overlay-confirm-animation");
 }
 
+/**
+ * this function closes the overlay with an animation
+ *
+ */
 function animateAddTaskOverlayClosing() {
   document
     .getElementById("add-task-overlay-content")

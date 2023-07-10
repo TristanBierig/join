@@ -248,7 +248,7 @@ function renderSubtasks() {
   container.innerHTML = "";
 
   currentSubtasks.forEach((subtask, index) => {
-    container.innerHTML += getSubtaskHTML(subtask, "updateSubtask", "", index);
+    container.innerHTML += getSubtaskHTML(subtask, "updateSubtask", index, "");
   });
 }
 
@@ -296,7 +296,7 @@ function getCategory() {
 function getCategoryColor() {
   const selectCategory = document.getElementById("selected-category");
   let color;
-  debugger;
+
   if (selectCategory) {
     const selectCategoryContent = selectCategory.innerHTML;
     categorys.forEach((category) => {
@@ -307,6 +307,14 @@ function getCategoryColor() {
     });
   }
   return color;
+}
+
+function getStatus() {
+  if (selectedTaskStatus) {
+    return selectedTaskStatus;
+  } else {
+    return "to-do";
+  }
 }
 
 /**
@@ -358,7 +366,7 @@ async function getTaskData() {
     dueDate: document.getElementById("due-date").value,
     prio: selectedPrio,
     subTasks: currentSubtasks,
-    status: "to-do",
+    status: getStatus(),
   };
   tasks.push(task);
   currentSubtasks = [];

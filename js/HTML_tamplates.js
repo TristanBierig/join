@@ -37,7 +37,7 @@ function getCreateNewCategoryHTML() {
       />
       <div class="add-category-img-box">
       <img
-        onclick="clearInput('subtask-input')"
+        onclick=""
         class="subtask-img"
         src="../assets/img/icons/cancel-icon.svg"
         alt=""
@@ -95,15 +95,15 @@ function getAssignUsersCheckedHTML(user) {
   `;
 }
 
-function getSubtaskHTML(subtask, functionName, taskID, index) {
+function getSubtaskHTML(subtask, functionName, index, taskID) {
   return /*html*/ `
-    <label onchange="${functionName}(${taskID}, ${index})"><input id="overlayCheckbox${index}" type="checkbox"> ${subtask.name}</label>
+    <label onchange="${functionName}(${index}, ${taskID} )"><input id="overlayCheckbox${index}" type="checkbox"> ${subtask.name}</label>
   `;
 }
 
-function getSubtaskCheckedHTML(subtask, functionName, taskID, index) {
+function getSubtaskCheckedHTML(subtask, functionName, index, taskID) {
   return /*html*/ `
-    <label onchange="${functionName}(${taskID}, ${index})"><input id="overlayCheckbox${index}" checked  type="checkbox"> ${subtask.name}</label>
+    <label onchange="${functionName}(${index}, ${taskID} )"><input id="overlayCheckbox${index}" checked  type="checkbox"> ${subtask.name}</label>
   `;
 }
 

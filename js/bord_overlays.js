@@ -91,15 +91,15 @@ function renderSubtasksInOverlay(container, subtask, taskId, index) {
     container.innerHTML += getSubtaskHTML(
       subtask,
       "updateSubtaskInOverlay",
-      taskId,
-      index
+      index,
+      taskId
     );
   } else {
     container.innerHTML += getSubtaskCheckedHTML(
       subtask,
       "updateSubtaskInOverlay",
-      taskId,
-      index
+      index,
+      taskId
     );
   }
 }
@@ -124,7 +124,7 @@ async function deleteTask(taskID) {
  * @param {number} taskID id of the selected task
  * @param {number} subtaskIndex index of clicked subtask
  */
-async function updateSubtaskInOverlay(taskID, subtaskIndex) {
+async function updateSubtaskInOverlay(subtaskIndex, taskID) {
   const checkbox = document.getElementById("overlayCheckbox" + subtaskIndex);
   const task = tasks[findIndexOfTasks(taskID)];
 
