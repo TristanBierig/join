@@ -51,7 +51,7 @@
       </div>
 
       <div id="currentContact"></div>
-      
+
     </section>
 
     <section onclick="toggleAddContactModal()" id="addContactModal" class="modal-container">
@@ -81,7 +81,7 @@
               <img src="../assets/img/icons/login-email.svg" alt="">
             </div>
             <div class="input-wrapper">
-              <input id="contactPhone" required type="tel" placeholder="Phone">
+              <input id="contactPhone" required type="number" placeholder="Phone">
               <img src="../assets/img/icons/telephone.svg" alt="">
             </div>
 
@@ -100,7 +100,8 @@
       </div>
     </section>
 
-    <img id="contactsBackImg" class="contacts-back d-none" onclick="contactsBack()" src="../assets/img/icons/arrow-left.svg">
+    <img id="contactsBackImg" class="contacts-back d-none" onclick="contactsBack()"
+      src="../assets/img/icons/arrow-left.svg">
 
     <section onclick="toggleEditContactModal()" id="editContactModal" class="modal-container"></section>
   </main>
