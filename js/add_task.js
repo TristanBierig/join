@@ -12,6 +12,10 @@ let selectedPrio;
 let selectedColor;
 let currentSubtasks = [];
 
+/**
+ * this function renders categorys inside the category container
+ *
+ */
 function toggleCategoryPicker() {
   const categoryBox = document.getElementById("category");
 
@@ -27,6 +31,10 @@ function toggleCategoryPicker() {
   }
 }
 
+/**
+ * this function renders the Input field in the category container
+ *
+ */
 function createNewCategory() {
   const categoryBox = document.getElementById("category");
   categoryBox.removeAttribute("onclick");
@@ -36,6 +44,10 @@ function createNewCategory() {
   getColorPicker();
 }
 
+/**
+ *
+ * this function displays the color picker and renders all colors inside it
+ */
 function getColorPicker() {
   const colorBox = document.getElementById("color-picker-box");
   colorBox.classList.remove("d-none");
@@ -46,6 +58,10 @@ function getColorPicker() {
   });
 }
 
+/**
+ *
+ * this function this function takes the input and color and creates a new category
+ */
 function addNewCategory() {
   const categoryBox = document.getElementById("category");
   const colorBox = document.getElementById("color-picker-box");
@@ -65,6 +81,12 @@ function addNewCategory() {
   }
 }
 
+/**
+ * this function removes the active color class from all colors and assignes it to the clicked color
+ *
+ * @param {string} color name of the selected color
+ * @param {string} id of the selected color
+ */
 function selectColor(color, id) {
   const colrPickerBox = document.getElementById("color-picker-box");
   const colorBoxes = colrPickerBox.querySelectorAll("div");
@@ -78,12 +100,22 @@ function selectColor(color, id) {
   selectedColorBox.classList.add("active-color");
 }
 
+/**
+ * this function renders the selected category and color inside the category container
+ *
+ * @param {string} category name of the selected category
+ * @param {string} color name of the selected color
+ */
 function selectCategory(category, color) {
   const categoryBox = document.getElementById("category");
 
   categoryBox.innerHTML = getSelectedCategoryHTML(category, color);
 }
 
+/**
+ * this function renders all registerd users inside the assign user container
+ *
+ */
 function toggleUserPicker() {
   const userBox = document.getElementById("assigned-to");
 
@@ -96,6 +128,11 @@ function toggleUserPicker() {
   }
 }
 
+/**
+ * this function hides the @userBox
+ *
+ * @param {Element} userBox container for the users to be selected from
+ */
 function hideusers(userBox) {
   let allLabels = userBox.querySelectorAll("label");
 
@@ -104,11 +141,20 @@ function hideusers(userBox) {
   });
 }
 
+/**
+ * this function makes it not posible to pick a date in the past
+ *
+ */
 function setMinDate() {
   const today = new Date().toISOString().split("T")[0];
   document.getElementsByName("due-date")[0].setAttribute("min", today);
 }
 
+/**
+ * this function checks whitch user is selected in the container "assigned-to" and returns an array with all users
+ *
+ * @returns to whitch users a task is assigned
+ */
 function getAssignedPeople() {
   const userBox = document.getElementById("assigned-to");
   const labels = userBox.querySelectorAll("label");
@@ -125,6 +171,11 @@ function getAssignedPeople() {
   return assignedTo;
 }
 
+/**
+ * this function sets the priority to whatever priority is selected also sets an activ class on the selected container
+ *
+ * @param {string} prio priority of the selected box
+ */
 function setPrio(prio) {
   const prioBox = document.getElementById("prio-box");
   const prioDivs = prioBox.querySelectorAll("div");
@@ -140,11 +191,22 @@ function setPrio(prio) {
   setPrioImage(clickedPrio, prio);
 }
 
+/**
+ * this function replaces the img of the selected priority element wit another image
+ *
+ * @param {Element} clickedPrio clicked priority container
+ * @param {string} prio priority of the clicked task
+ */
 function setPrioImage(clickedPrio, prio) {
   const image = clickedPrio.querySelector("img");
   image.src = "../assets/img/icons/" + prio + "-prio-white-icon-small.svg";
 }
 
+/**
+ * this functions sets all priority imagas back to the default image
+ *
+ * @param {NodeList} prioDivs nodelist with all priority containers
+ */
 function resetPrioImages(prioDivs) {
   prioDivs.forEach((div) => {
     const image = div.querySelector("img");
@@ -153,11 +215,20 @@ function resetPrioImages(prioDivs) {
   });
 }
 
+/**
+ * this function clears the value of input the element with @id
+ *
+ * @param {id} id of the input element to clear
+ */
 function clearInput(id) {
   let inputField = document.getElementById(id);
   inputField.value = "";
 }
 
+/**
+ * this function gets the value of an input creates an JSON and pushes this JSON in an array
+ *
+ */
 function addSubtask() {
   const subtask = {
     name: document.getElementById("subtask-input").value,
@@ -167,6 +238,10 @@ function addSubtask() {
   renderSubtasks();
 }
 
+/**
+ * this function renders created subtasks in the subtask container
+ *
+ */
 function renderSubtasks() {
   const container = document.getElementById("subtask-box");
   clearInput("subtask-input");
@@ -177,6 +252,10 @@ function renderSubtasks() {
   });
 }
 
+/**
+ * this function updates the subtasks to status open or closed based of if the checkbox is checked or not
+ *
+ */
 function updateSubtask() {
   const subtaskBox = document.getElementById("subtask-box");
   const subtasks = subtaskBox.querySelectorAll("label");
@@ -194,6 +273,11 @@ function updateSubtask() {
   currentSubtasks = updatedSubtasks;
 }
 
+/**
+ * checks if a category is selected and returns the category or "notSelected"
+ *
+ * @returns the selected category
+ */
 function getCategory() {
   const selectCategory = document.getElementById("selected-category");
 
@@ -204,10 +288,15 @@ function getCategory() {
   }
 }
 
+/**
+ * this function returns the color code of the selected category color
+ *
+ * @returns category color
+ */
 function getCategoryColor() {
   const selectCategory = document.getElementById("selected-category");
   let color;
-
+  debugger;
   if (selectCategory) {
     const selectCategoryContent = selectCategory.innerHTML;
     categorys.forEach((category) => {
@@ -220,6 +309,10 @@ function getCategoryColor() {
   return color;
 }
 
+/**
+ * this finction initiates the form submit if the form is valid else its displays error messages
+ *
+ */
 async function addTask() {
   if (formIsValide()) {
     document.getElementById("submit-button").disabled = true;
@@ -230,10 +323,15 @@ async function addTask() {
       window.location.replace("board.html");
     }, 1000);
   } else {
-    alert("alle felder ausfüllen");
+    alert("alle felder ausfüllen"); // Funktion schreiben die bitte feld ausfüllen felder anzeigt
   }
 }
 
+/**
+ * this function checks if necessary inputs are existent if so the return is true else its false
+ *
+ * @returns true or false
+ */
 function formIsValide() {
   const category = document.getElementById("selected-category");
   const prio = selectedPrio;
@@ -245,6 +343,10 @@ function formIsValide() {
   }
 }
 
+/**
+ * this function geathers all task data in a JSON and pushes the JSON in the tasks array
+ *
+ */
 async function getTaskData() {
   const task = {
     id: new Date().valueOf(),
@@ -262,6 +364,10 @@ async function getTaskData() {
   currentSubtasks = [];
 }
 
+/**
+ * this function upload the tasks array to the backend server
+ *
+ */
 async function uploadTasks() {
   await setItem("tasks", JSON.stringify(tasks));
 }
