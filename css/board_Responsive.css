@@ -133,8 +133,8 @@
     .cancel-btn {
         display: flex;
         position: absolute;
-        top: 12vh;
-        right: 6vh;
+        top: 20px;
+        right: 20px;
         z-index: 100;
         cursor: pointer;
     }

@@ -36,9 +36,8 @@
     }
 
     #mobileTaskBtn {
-        display: flex;
+        display: flex !important;
         margin-right: 16px;
-
     }
 
     section h1 {

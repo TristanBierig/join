@@ -179,8 +179,10 @@ function openAddTaskOverlay(status) {
 
 function toggleMobileTaskBtn() {
   boardMain.classList.toggle('main-fixed');
-  mobileTaskBtn.classList.toggle('d-none');
-  headerFrame.classList.toggle('button-box');
+  if (window.innerWidth < 850) {
+    mobileTaskBtn.classList.toggle('d-none');
+    headerFrame.classList.toggle('button-box');
+  }
 }
 
 /**

@@ -1,5 +1,6 @@
 <section>
   <h1>Add Task</h1>
+  <img onclick="animateAddTaskOverlayClosing()" class="cancel-btn" src="../assets/img/icons/x-icon.svg" alt="">
   <form onsubmit="addTask(); return false" class="add-task-form">
     <div>
       <div class="add-task-overlay-input-box">
@@ -89,7 +90,6 @@
       </div>
     </div>
     <input type="submit" id="submit-form" class="d-none">
-    <img onclick="animateAddTaskOverlayClosing()" class="cancel-btn" src="../assets/img/icons/x-icon.svg" alt="">
   </form>
 </section>
 <div id="addTaskConfirmModal" class="confirm-modal">
