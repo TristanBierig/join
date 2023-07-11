@@ -38,10 +38,10 @@ function updateUserName() {
 
   if (currentUser) {
     userName.innerHTML = currentUser.name;
-    return currentUser;
   } else {
-    guestLogin();
+    currentUser = 'Guest';
   }
+  return currentUser;
 }
 
 /**
@@ -109,7 +109,7 @@ function awaitingFeedbackTasks() {
  * 
  */
 function urgentTasks() {
-  let urgent = tasks.filter(t => t['priority'] == 'Urgent');
+  let urgent = tasks.filter(t => t['prio'] == 'high');
   document.getElementById('urgent-tasks').innerHTML = '';
   document.getElementById('urgent-tasks').innerHTML += `
         ${urgent.length}
