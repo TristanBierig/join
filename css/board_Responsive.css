@@ -1,195 +1,198 @@
 @media (max-width: 1350px) {
-    main {
-        padding-bottom: 30px;
-    }
+  main {
+    padding-bottom: 30px;
+  }
 
-    .bord-header {
-        flex-direction: column;
-        gap: 20px;
-        width: 70%;
-        margin: 30px 0;
-        position: relative;
-    }
+  .bord-header {
+    flex-direction: column;
+    gap: 20px;
+    width: 70%;
+    margin: 30px 0;
+    position: relative;
+  }
 
-    .drag-and-drop-container {
-        width: 70%;
-        flex-direction: column;
-    }
+  .drag-and-drop-container {
+    width: 70%;
+    flex-direction: column;
+  }
 
-    .drag-and-drop-row {
-        width: 100%;
-        min-height: 300px;
-        max-height: fit-content;
-    }
+  .drag-and-drop-row {
+    width: 100%;
+    min-height: 300px;
+    max-height: fit-content;
+  }
 
-    .subtask-box {
-        gap: 4px;
-    }
+  .subtask-box {
+    gap: 4px;
+  }
 
-    .progress-bar-box {
-        width: 90%;
-    }
+  .progress-bar-box {
+    width: 90%;
+  }
 
-    .subtask-text-box {
-        display: flex;
-        gap: 4px;
-        flex-wrap: nowrap;
-    }
+  .subtask-text-box {
+    display: flex;
+    gap: 4px;
+    flex-wrap: nowrap;
+  }
 
-    .drag-area {
-        flex-grow: 1;
-    }
+  .drag-area {
+    flex-grow: 1;
+  }
+
+  .mobile-category-box {
+    display: block;
+  }
 }
 
 @media (max-width: 1100px) {
-    .add-task-form {
-        flex-direction: column;
-    }
+  .add-task-form {
+    flex-direction: column;
+  }
 
-    form {
-        padding-bottom: 20px;
-    }
+  form {
+    padding-bottom: 20px;
+  }
 
-    .add-task-overlay-content {
-        padding: 20px !important;
-        height: 90vh;
-        width: 70%;
-    }
+  .add-task-overlay-content {
+    padding: 20px !important;
+    height: 90vh;
+    width: 70%;
+  }
 
-    .add-task-overlay-content section {
-        display: flex;
-        flex-direction: column;
-        width: 90%;
-        gap: 25px;
-    }
+  .add-task-overlay-content section {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    gap: 25px;
+  }
 
-    .add-task-overlay-seperator {
-        margin-bottom: 16px !important;
-    }
+  .add-task-overlay-seperator {
+    margin-bottom: 16px !important;
+  }
 
-    .add-task-overlay-seperator {
-        display: none !important;
-       }
+  .add-task-overlay-seperator {
+    display: none !important;
+  }
 }
 
-
 @media (max-width: 850px) {
-    main {
-        margin-left: 0;
-        justify-content: flex-start;
-        min-height: auto;
-        margin-bottom: 10vh;
-        width: 100%;
-    }
+  main {
+    margin-left: 0;
+    justify-content: flex-start;
+    min-height: auto;
+    margin-bottom: 10vh;
+    width: 100%;
+  }
 
-    #add-task-overlay-background {
-        background-color: rgba(0, 0, 0, 0) !important;
-        z-index: 98 !important;
-    }
+  #add-task-overlay-background {
+    background-color: rgba(0, 0, 0, 0) !important;
+    z-index: 98 !important;
+  }
 
-    #addTaskBtn span {
-        display: none;
-    }
+  #addTaskBtn span {
+    display: none;
+  }
 
-    .bord-header {
-        margin-top: 70px;
-    }
+  .bord-header {
+    margin-top: 70px;
+  }
 
-    .bord-header h1::before {
-        content: 'Kanban Project Management Tool';
-        position: absolute;
-        font-size: 16px;
-        font-weight: 400;
-        top: -40px;
-    }
+  .bord-header h1::before {
+    content: "Kanban Project Management Tool";
+    position: absolute;
+    font-size: 16px;
+    font-weight: 400;
+    top: -40px;
+  }
 
-    .drag-and-drop-container {
-        padding-bottom: 26px;
-    }
+  .drag-and-drop-container {
+    padding-bottom: 26px;
+  }
 
-    .add-task-overlay-content {
-        position: absolute !important;
-        top: 10vh;
-        width: 100%;
-        border-radius: 0 !important;
-        padding: 0 !important;
-        background-color: var(--bg-color) !important;
-        /* overflow: unset !important; */
-        z-index: 98 !important;
-    }
+  .add-task-overlay-content {
+    position: absolute !important;
+    top: 10vh;
+    width: 100%;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    background-color: var(--bg-color) !important;
+    /* overflow: unset !important; */
+    z-index: 98 !important;
+  }
 
-    #task-overlay-content {
-        position: fixed;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        width: auto;
-    }
+  #task-overlay-content {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: auto;
+  }
 
-    #prio-box {
-        flex-direction: column;
-    }
+  #prio-box {
+    flex-direction: column;
+  }
 
-    .add-task-overlay-content h1 {
-        font-size: 47px;
-    }
+  .add-task-overlay-content h1 {
+    font-size: 47px;
+  }
 
-    .add-task-overlay-content section {
-        width: 100%;
-        padding: 16px;
-        height: 100%;
-    }
+  .add-task-overlay-content section {
+    width: 100%;
+    padding: 16px;
+    height: 100%;
+  }
 
-    .add-task-form textarea {
-        height: 85px !important;
-    }
+  .add-task-form textarea {
+    height: 85px !important;
+  }
 
-    .cancel-btn {
-        display: flex;
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        z-index: 100;
-        cursor: pointer;
-    }
+  .cancel-btn {
+    display: flex;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    cursor: pointer;
+  }
 
-    .add-task-form {
-        height: fit-content !important;
-    }
+  .add-task-form {
+    height: fit-content !important;
+  }
 
-    .add-task-form input {
-        padding: 8px 21px !important;
-        font-size: 16px !important;
-    }
+  .add-task-form input {
+    padding: 8px 21px !important;
+    font-size: 16px !important;
+  }
 
-    .add-task-form>div {
-        position: static !important;
-    }
+  .add-task-form > div {
+    position: static !important;
+  }
 
-    .button-box {
-        display: none !important;
-    }
+  .button-box {
+    display: none !important;
+  }
 
-    #mobileTaskBtn {
-        display: flex;
-        margin-right: 16px;
-    }
+  #mobileTaskBtn {
+    display: flex;
+    margin-right: 16px;
+  }
 
-    #submit-button {
-        position: absolute;
-        z-index: 1000 !important;
-        top: 19px;
-        right: 19px;
-    }
+  #submit-button {
+    position: absolute;
+    z-index: 1000 !important;
+    top: 19px;
+    right: 19px;
+  }
 }
 
 @media (max-width: 600px) {
-    .drag-and-drop-container {
-        width: 90%;
-    }
+  .drag-and-drop-container {
+    width: 90%;
+  }
 
-    .bord-header {
-        width: 90%;
-    }
+  .bord-header {
+    width: 90%;
+  }
 }

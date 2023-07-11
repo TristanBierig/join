@@ -80,14 +80,15 @@ function renderTodos(searchedTasks) {
     if (searchedTasks) {
       for (let i = 0; i < searchedTasks.length; i++) {
         const task = searchedTasks[i];
-        renderTasks(task);
+        renderTasks(task, i);
       }
     } else {
       for (let i = 0; i < tasks.length; i++) {
         const task = tasks[i];
-        renderTasks(task);
+        renderTasks(task, i);
       }
     }
+    hideStatusArrows();
   }
 }
 
@@ -96,10 +97,10 @@ function renderTodos(searchedTasks) {
  *
  * @param {JSON} task data of the task
  */
-function renderTasks(task) {
+function renderTasks(task, index) {
   const container = document.getElementById(task.status + "-area");
 
-  container.innerHTML += getTodoHTML(task);
+  container.innerHTML += getTodoHTML(task, index);
   renderAssignedUsersOverview(task);
   renderSubtaskProgressBar(task);
 }
@@ -196,7 +197,6 @@ function startDragging(id) {
   currentlyDraggedElement = tasks.findIndex((task) => {
     return id === task.id;
   });
-  console.log(currentlyDraggedElement); //delete
 }
 
 /**
@@ -237,5 +237,48 @@ function toggleDropareaHoverEffect(id, action) {
   }
   if (action == "add") {
     dragArea.classList.add("dragarea-hover");
+  }
+}
+
+/* ===== Mobile Status change Functions ===== */
+
+/**
+ * This function changes the status of a specific task by clicking an a button in the mobile view
+ *
+ * @param {number} taskId id of the task
+ * @param {string} status status of the task
+ * @param {string} doWhat information if the task should be moved to the next or previous status
+ */
+async function changeStatusMobile(taskId, status, doWhat) {
+  const availibleStatus = ["to-do", "in-progress", "awaiting-feedback", "done"];
+  const task = tasks[findIndexOfTasks(taskId)];
+  const currentStatusIndex = availibleStatus.indexOf(status);
+
+  if (doWhat === "previous") {
+    task.status = availibleStatus[currentStatusIndex - 1];
+  }
+  if (doWhat === "next") {
+    task.status = availibleStatus[currentStatusIndex + 1];
+  }
+
+  await uploadTasks();
+  renderTodos();
+}
+
+/**
+ * this function hides the arrows without function in the mobile view
+ *
+ */
+function hideStatusArrows() {
+  for (let i = 0; i < tasks.length; i++) {
+    const task = tasks[i];
+    const mobileBox = document.getElementById("mobileBox" + i);
+
+    if (task.status === "to-do") {
+      mobileBox.querySelectorAll("img")[0].classList.add("d-none");
+    }
+    if (task.status === "done") {
+      mobileBox.querySelectorAll("img")[1].classList.add("d-none");
+    }
   }
 }

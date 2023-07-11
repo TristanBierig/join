@@ -243,9 +243,13 @@ function contactListItem(element, k) {
   `;
 }
 
-function getTodoHTML(todo) {
+function getTodoHTML(todo, index) {
   return /*html*/ `
     <div onclick="openTask(${todo.id})" class="task" draggable="true" ondragstart="startDragging(${todo.id})">
+      <div id="mobileBox${index}" class="mobile-category-box">
+        <img  onclick="doNotClose(event), changeStatusMobile(${todo.id}, '${todo.status}' , 'previous')" style="transform: rotate(90deg);" src="..//assets/img/icons/arrow-left.svg" alt="">
+        <img  onclick="doNotClose(event), changeStatusMobile(${todo.id}, '${todo.status}', 'next')" style="transform: rotate(-90deg);" src="..//assets/img/icons/arrow-left.svg" alt="">
+      </div>
       <span style="background-color: #${todo.categoryColor}" class="task-category">${todo.category}</span>
       <div class="task-title-description-box">
         <b>${todo.title}</b>

@@ -178,10 +178,10 @@ function openAddTaskOverlay(status) {
 }
 
 function toggleMobileTaskBtn() {
-  boardMain.classList.toggle('main-fixed');
+  boardMain.classList.toggle("main-fixed");
   if (window.innerWidth < 850) {
-    mobileTaskBtn.classList.toggle('d-none');
-    headerFrame.classList.toggle('button-box');
+    mobileTaskBtn.classList.toggle("d-none");
+    headerFrame.classList.toggle("button-box");
   }
 }
 
@@ -195,7 +195,6 @@ function generateOverlayBackground() {
   } else {
     const overlay = document.getElementById("add-task-overlay-background");
     overlay.classList.remove("d-none");
-    console.log("exestiert");
   }
 }
 
@@ -228,4 +227,15 @@ function animateAddTaskOverlayClosing() {
     closeOverlay("add-task-overlay-background");
     toggleMobileTaskBtn();
   }, 225);
+}
+
+function clearCategoryValue() {
+  const colorPickerBox = document.getElementById("color-picker-box");
+  const colorBoxes = colorPickerBox.querySelectorAll("div");
+  colorBoxes.forEach((colorBox) => {
+    colorBox.classList.remove("active-color");
+  });
+
+  let input = document.getElementById("category-input");
+  input.value = "";
 }

@@ -96,7 +96,7 @@ input::placeholder {
   color: var(--main-color);
 }
 
-.drag-and-drop-header>div {
+.drag-and-drop-header > div {
   border: 2px solid var(--main-color);
   display: flex;
   width: 30px;
@@ -110,21 +110,23 @@ input::placeholder {
   font-size: 30px;
 }
 
-.drag-and-drop-header>div:hover {
+.drag-and-drop-header > div:hover {
   border: 2px solid var(--secondary-color);
   color: var(--secondary-color);
 }
 
 .button-secondary-with-icon:hover img {
-  filter: invert(47%) sepia(28%) saturate(5405%) hue-rotate(164deg) brightness(101%) contrast(101%);
+  filter: invert(47%) sepia(28%) saturate(5405%) hue-rotate(164deg)
+    brightness(101%) contrast(101%);
 }
 
 .button-secondary-with-icon:active img {
   filter: none;
 }
 
-.drag-and-drop-header>div:hover img {
-  filter: invert(47%) sepia(28%) saturate(5405%) hue-rotate(164deg) brightness(101%) contrast(101%);
+.drag-and-drop-header > div:hover img {
+  filter: invert(47%) sepia(28%) saturate(5405%) hue-rotate(164deg)
+    brightness(101%) contrast(101%);
 }
 
 .drag-area {
@@ -148,6 +150,25 @@ input::placeholder {
   border-radius: 30px;
   box-shadow: var(--shadoe-backlog-box);
   cursor: pointer;
+  position: relative;
+}
+
+.mobile-category-box {
+  display: none;
+  z-index: 100;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+.mobile-category-box > img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+
+.mobile-category-box > img:hover {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .task-category {
@@ -207,7 +228,7 @@ input::placeholder {
   gap: 25px;
 }
 
-#assigned-to-box>div {
+#assigned-to-box > div {
   display: flex;
   align-items: center;
   gap: 25px;
@@ -278,7 +299,7 @@ input::placeholder {
   flex-direction: column;
 }
 
-#subtask-box-overlay>label {
+#subtask-box-overlay > label {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -353,7 +374,7 @@ input::placeholder {
 
 /* ===== Edit Overlay ===== */
 
-#task-overlay-content>form {
+#task-overlay-content > form {
   display: flex;
   flex-direction: column;
   gap: 8px;
