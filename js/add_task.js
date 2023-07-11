@@ -343,6 +343,15 @@ function formIsValide() {
   const prio = selectedPrio;
   const assign = document.getElementById('assigned-to').children;
 
+  if (allInputsAreValid(category, prio, assign)) {
+    return true;
+  } else {
+    return false;
+  }  
+}
+
+
+function allInputsAreValid(category, prio, assign) {
   if (!category) {
     errorTagCategory.classList.remove('d-none');
     return false;
@@ -356,12 +365,11 @@ function formIsValide() {
   } else {
     errorTagPrio.classList.add('d-none');
   }
-  
-  if (validateAssignment(assign)) {
-    return true;
-  } else {
+
+  if (!validateAssignment(assign)) {
     return false;
-  } 
+  }
+  return true;
 }
 
 
