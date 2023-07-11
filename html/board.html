@@ -34,7 +34,7 @@
       class="sidebar"
       w3-include-html="../assets/templates/sidebar.html"
     ></nav>
-    <main>
+    <main id="boardMain">
       <div class="bord-header">
         <h1>Board</h1>
         <div>
@@ -53,8 +53,9 @@
               />
             </div>
           </div>
-          <button onclick="openAddTaskOverlay()" class="button-with-icon">
-            Add task <img src="../assets/img/icons/add-task-icon.svg" alt="" />
+          <button id="addTaskBtn" onclick="openAddTaskOverlay()" class="button-with-icon">
+            <span>Add Task</span>
+            <img src="../assets/img/icons/add-task-icon.svg" alt="" />
           </button>
         </div>
       </div>

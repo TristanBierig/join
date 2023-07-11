@@ -331,7 +331,6 @@ function getOverlayBackgroundHTML() {
 
 function getAddTaskOverlayContentHTML() {
   return /*html*/ `
-      <img class="cancel-btn" src="../assets/img/icons/x-icon.svg" alt="">
     <div class="add-task-overlay-content" id="add-task-overlay-content" onclick="doNotClose(event)" w3-include-html="../assets/templates/task_Form_Overlay.html"></div>
   `;
 }

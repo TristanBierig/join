@@ -4,7 +4,7 @@
 
 main {
   margin-left: 232px; /*sidebar-width*/
-  margin-top: 95px; /*header-height*/
+  margin-top: 10vh; /*header-height*/
   min-height: calc(100vh - 95px);
   display: flex;
   flex-direction: column;

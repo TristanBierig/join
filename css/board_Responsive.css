@@ -77,11 +77,16 @@
         justify-content: flex-start;
         min-height: auto;
         margin-bottom: 10vh;
+        width: 100%;
     }
 
     #add-task-overlay-background {
         background-color: rgba(0, 0, 0, 0) !important;
         z-index: 98 !important;
+    }
+
+    #addTaskBtn span {
+        display: none;
     }
 
     .bord-header {
@@ -147,13 +152,13 @@
         position: static !important;
     }
 
-    .button-box button:first-child {
-        display: none;
+    .button-box {
+        display: none !important;
     }
 
-    .button-box button:last-child {
-        position: absolute;
-        right: 200px !important;
+    #mobileTaskBtn {
+        display: flex;
+        margin-right: 16px;
     }
 
     #submit-button {
@@ -166,6 +171,10 @@
 
 @media (max-width: 600px) {
     .drag-and-drop-container {
+        width: 90%;
+    }
+
+    .bord-header {
         width: 90%;
     }
 }

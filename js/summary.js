@@ -3,6 +3,7 @@
  *
  */
 async function initSummaryContent() {
+  await init();
   greetUser();
   updateUserName();
   loadTasksForSummary();
@@ -48,8 +49,8 @@ function updateUserName() {
  *
  */
 async function loadTasksForSummary() {
-    tasks = JSON.parse(await getItem('tasks'));
-    loadSummaryContent();
+  tasks = JSON.parse(await getItem('tasks'));
+  loadSummaryContent();
 }
 
 /**
@@ -57,15 +58,15 @@ async function loadTasksForSummary() {
  *
  */
 function loadSummaryContent() {
-    if (tasks.length > 0) {
-      tasksInBoard();
-      inProgressTasks();
-      awaitingFeedbackTasks();
-      urgentTasks();
-      getDeadline();
-      toDoTasks();
-      doneTasks();
-    }
+  if (tasks.length > 0) {
+    tasksInBoard();
+    inProgressTasks();
+    awaitingFeedbackTasks();
+    urgentTasks();
+    getDeadline();
+    toDoTasks();
+    doneTasks();
+  }
 }
 
 /**
@@ -73,8 +74,8 @@ function loadSummaryContent() {
  * 
  */
 function tasksInBoard() {
-    document.getElementById('in-board').innerHTML = '';
-    document.getElementById('in-board').innerHTML = `
+  document.getElementById('in-board').innerHTML = '';
+  document.getElementById('in-board').innerHTML = `
         ${tasks.length}
     `;
 }
@@ -84,9 +85,9 @@ function tasksInBoard() {
  * 
  */
 function inProgressTasks() {
-    let inProgress = tasks.filter(t => t['status'] == 'in-progress');
-    document.getElementById('in-progress').innerHTML = '';
-    document.getElementById('in-progress').innerHTML += `
+  let inProgress = tasks.filter(t => t['status'] == 'in-progress');
+  document.getElementById('in-progress').innerHTML = '';
+  document.getElementById('in-progress').innerHTML += `
         ${inProgress.length}
     `;
 }
@@ -96,9 +97,9 @@ function inProgressTasks() {
  * 
  */
 function awaitingFeedbackTasks() {
-    let awaitingFeedback = tasks.filter(t => t['status'] == 'awaiting-feedback');
-    document.getElementById('awaiting-feedback').innerHTML = '';
-    document.getElementById('awaiting-feedback').innerHTML += `
+  let awaitingFeedback = tasks.filter(t => t['status'] == 'awaiting-feedback');
+  document.getElementById('awaiting-feedback').innerHTML = '';
+  document.getElementById('awaiting-feedback').innerHTML += `
         ${awaitingFeedback.length}
     `;
 }
@@ -108,9 +109,9 @@ function awaitingFeedbackTasks() {
  * 
  */
 function urgentTasks() {
-    let urgent = tasks.filter(t => t['priority'] == 'Urgent');
-    document.getElementById('urgent-tasks').innerHTML = '';
-    document.getElementById('urgent-tasks').innerHTML += `
+  let urgent = tasks.filter(t => t['priority'] == 'Urgent');
+  document.getElementById('urgent-tasks').innerHTML = '';
+  document.getElementById('urgent-tasks').innerHTML += `
         ${urgent.length}
     `;
 }
@@ -152,9 +153,9 @@ function formatDeadline(deadline) {
  * 
  */
 function toDoTasks() {
-    let toDo = tasks.filter(t => t['status'] == 'to-do');
-    document.getElementById('to-do').innerHTML = '';
-    document.getElementById('to-do').innerHTML += `
+  let toDo = tasks.filter(t => t['status'] == 'to-do');
+  document.getElementById('to-do').innerHTML = '';
+  document.getElementById('to-do').innerHTML += `
         ${toDo.length}
     `;
 }
@@ -164,9 +165,9 @@ function toDoTasks() {
  * 
  */
 function doneTasks() {
-    let done = tasks.filter(t => t['status'] == 'done');
-    document.getElementById('done').innerHTML = '';
-    document.getElementById('done').innerHTML += `
+  let done = tasks.filter(t => t['status'] == 'done');
+  document.getElementById('done').innerHTML = '';
+  document.getElementById('done').innerHTML += `
         ${done.length}
     `;
 }

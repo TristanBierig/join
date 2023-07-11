@@ -39,6 +39,12 @@ body {
   color: var(--error-color);
 }
 
+.main-fixed {
+  position: fixed;
+  left: 0;
+  right: 0;
+}
+
 /* ===== Navigation ===== */
 .sidebar {
   display: flex;
@@ -243,7 +249,7 @@ body {
 }
 
 .button-secondary-wo-icon:active {
-  border: 1px solid var(--sidebar-focus-color);
+  outline: 1px solid var(--sidebar-focus-color);
   color: var(--sidebar-focus-color);
 }
 
@@ -300,7 +306,7 @@ body {
 }
 
 .button-secondary-with-icon:active {
-  border: 1px solid var(--sidebar-focus-color);
+  outline: 1px solid var(--sidebar-focus-color);
   color: var(--sidebar-focus-color);
 }
 

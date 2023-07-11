@@ -15,7 +15,6 @@ async function init() {
   }
   loadProfilePicture();
   toggleSidebarFocus();
-  await initSummaryContent();
 }
 
 async function includeHTML() {
@@ -178,6 +177,12 @@ function openAddTaskOverlay(status) {
   }
 }
 
+function toggleMobileTaskBtn() {
+  boardMain.classList.toggle('main-fixed');
+  mobileTaskBtn.classList.toggle('d-none');
+  headerFrame.classList.toggle('button-box');
+}
+
 /**
  * this functiion creates the overlay background if its already exists show it
  *
@@ -203,6 +208,7 @@ async function generateOverlayContent() {
   await includeHTML();
   loadProfilePicture();
   toggleSidebarFocus();
+  toggleMobileTaskBtn();
   document
     .getElementById("add-task-overlay-content")
     .classList.add("task-overlay-confirm-animation");
@@ -218,5 +224,6 @@ function animateAddTaskOverlayClosing() {
     .classList.remove("task-overlay-confirm-animation");
   setTimeout(function () {
     closeOverlay("add-task-overlay-background");
+    toggleMobileTaskBtn();
   }, 225);
 }

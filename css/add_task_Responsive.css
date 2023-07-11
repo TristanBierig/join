@@ -1,6 +1,6 @@
 @media (max-width: 1200px) {
     main {
-        overflow: scroll;
+        overflow-y: scroll;
     }
 
    .add-task-form {
@@ -31,15 +31,14 @@
         width: 90%;
     }
 
-    .button-box button:first-child {
+    .button-box {
         display: none;
     }
 
-    .button-box button:last-child {
-        position: fixed;
-        z-index: 999;
-        top: 19px;
-        right: 19px;
+    #mobileTaskBtn {
+        display: flex;
+        margin-right: 16px;
+
     }
 
     section h1 {
