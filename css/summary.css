@@ -1,7 +1,6 @@
 body {
     margin: 0;
     overflow: hidden;
-    overflow-x: scroll;
     scroll-behavior: smooth;
 }
 
@@ -177,6 +176,10 @@ body {
 }
 
 @media (max-width: 850px) {
+    body {
+        overflow-y: scroll;
+    }
+   
     .summary {
         background-color: var(--bg-color);
         padding: 33px;
@@ -273,6 +276,10 @@ body {
 }
 
 @media (max-width: 450px) {
+    body {
+        overflow-y: scroll;
+    }
+    
     .first-line {
         flex-wrap: wrap;
         flex-direction: column;
