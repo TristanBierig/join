@@ -3,8 +3,10 @@
 }
 
 main {
-  margin-left: 232px; /*sidebar-width*/
-  margin-top: 10vh; /*header-height*/
+  margin-left: 232px;
+  /*sidebar-width*/
+  margin-top: 10vh;
+  /*header-height*/
   min-height: calc(100vh - 95px);
   display: flex;
   flex-direction: column;
@@ -94,7 +96,7 @@ input::placeholder {
   color: var(--main-color);
 }
 
-.drag-and-drop-header > div {
+.drag-and-drop-header>div {
   border: 2px solid var(--main-color);
   display: flex;
   width: 30px;
@@ -108,9 +110,14 @@ input::placeholder {
   font-size: 30px;
 }
 
-.drag-and-drop-header > div:hover {
+.drag-and-drop-header>div:hover {
   border: 2px solid var(--secondary-color);
   color: var(--secondary-color);
+
+}
+
+.drag-and-drop-header>div:hover img {
+  filter: invert(47%) sepia(28%) saturate(5405%) hue-rotate(164deg) brightness(101%) contrast(101%);
 }
 
 .drag-area {
@@ -191,7 +198,7 @@ input::placeholder {
   gap: 25px;
 }
 
-#assigned-to-box > div {
+#assigned-to-box>div {
   display: flex;
   align-items: center;
   gap: 25px;
@@ -262,7 +269,7 @@ input::placeholder {
   flex-direction: column;
 }
 
-#subtask-box-overlay > label {
+#subtask-box-overlay>label {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -332,7 +339,7 @@ input::placeholder {
 
 /* ===== Edit Overlay ===== */
 
-#task-overlay-content > form {
+#task-overlay-content>form {
   display: flex;
   flex-direction: column;
 }
