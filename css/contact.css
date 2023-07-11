@@ -383,7 +383,7 @@ main {
 #currentContact>div:nth-child(4) a {
     display: inline-flex;
     text-decoration: none;
-    color: black;
+    color: rgb(23, 118, 233);
     margin-top: 15px;
 }
 

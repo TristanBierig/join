@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="../css/login.css">
   <link rel="stylesheet" href="../css/add_task_overlay.css">
   <link rel="stylesheet" href="../css/contact_Responsive.css">
+  <link rel="stylesheet" href="../css/board_Responsive.css">
   <link rel="shortcut icon" href="../assets/img/logos/logo_Regular.png" type="image/x-icon">
 
   <script src="../js/storage.js"></script>
@@ -28,7 +29,7 @@
   <header class="header" w3-include-html="../assets/templates/header.html"></header>
 
 
-  <main>
+  <main id="boardMain">
     <button onclick="toggleAddContactModal()" id="newContact" class="button-with-icon">
       New contact
       <img src="../assets/img/icons/add-contact-icon.svg" alt="">
@@ -61,7 +62,6 @@
       <div onclick="doNotClose(event)" id="addContact" class="modal-inner-container">
         <div class="left-frame-add">
           <img src="../assets/img/logos/logo_Light.png" alt="Join logo">
-          <img onclick="toggleAddContactModal()" class="cancel-btn" src="../assets/img/icons/cancel-icon.svg" alt="">
           <div class="contact-info">
             <h1>Add contact</h1>
             <h2>Tasks are better with a team!</h2>
@@ -89,7 +89,7 @@
             </div>
 
             <div class="button-wrapper">
-              <button type="reset" class="button-secondary-with-icon">
+              <button onclick="toggleAddContactModal()" type="reset" class="button-secondary-with-icon">
                <span>Close</span>
                 <img src="../assets/img/icons/cancel-icon.svg" alt="">
               </button>
