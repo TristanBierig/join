@@ -330,8 +330,6 @@ async function addTask() {
     setTimeout(() => {
       window.location.replace("board.html");
     }, 1000);
-  } else {
-    alert("alle felder ausfüllen"); // Funktion schreiben die bitte feld ausfüllen felder anzeigt
   }
 }
 
@@ -343,13 +341,52 @@ async function addTask() {
 function formIsValide() {
   const category = document.getElementById("selected-category");
   const prio = selectedPrio;
+  const assign = document.getElementById('assigned-to').children;
 
-  if (category && prio) {
+  if (!category) {
+    errorTagCategory.classList.remove('d-none');
+    return false;
+  } else {
+    errorTagCategory.classList.add('d-none');
+  }
+
+  if (!prio) {
+    errorTagPrio.classList.remove('d-none');
+    return false;
+  } else {
+    errorTagPrio.classList.add('d-none');
+  }
+  
+  if (validateAssignment(assign)) {
     return true;
   } else {
     return false;
+  } 
+}
+
+
+function validateAssignment(assign) {
+  if (assign.length < 2) {
+    errorTagAssign.classList.remove('d-none');
+    return false;
+  } else
+    if (!checkForAssignment(assign)) {
+      errorTagAssign.classList.remove('d-none');
+      return false;
+    } else {
+      return true;
+    }
+}
+
+
+function checkForAssignment(assign) {
+  for (let i = 0; i < assign.length; i++) {
+    if (assign[2].form[i].checked) {
+      return true;
+    }
   }
 }
+
 
 /**
  * this function geathers all task data in a JSON and pushes the JSON in the tasks array

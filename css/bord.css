@@ -164,11 +164,13 @@ input::placeholder {
 
 .task-title-description-box b {
   color: var(--main-color);
+  word-wrap: break-word;
 }
 
 .task-title-description-box p {
   color: rgba(168, 168, 168, 1);
   line-height: 120%;
+  word-wrap: break-word;
 }
 
 .subtask-box {

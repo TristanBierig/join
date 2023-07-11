@@ -31,6 +31,10 @@
   transition: right 225ms ease-in-out;
 }
 
+.add-task-overlay-content section {
+  overflow-y: scroll;
+}
+
 .task-overlay-confirm-animation {
   right: 0;
 }
@@ -161,6 +165,7 @@ textarea::placeholder {
   display: flex;
   justify-content: end;
   gap: 25px;
+  padding-bottom: 4px;
 }
 
 #prio-box {
