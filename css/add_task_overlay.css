@@ -32,7 +32,7 @@
 }
 
 .add-task-overlay-content section {
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .task-overlay-confirm-animation {

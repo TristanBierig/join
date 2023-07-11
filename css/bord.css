@@ -342,7 +342,7 @@ input::placeholder {
 }
 
 .add-task-form {
-  overflow: scroll;
+  overflow: auto;
   overflow-x: hidden;
 }
 

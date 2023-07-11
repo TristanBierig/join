@@ -45,6 +45,40 @@ body {
   right: 0;
 }
 
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #a8a8a8 #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #a8a8a8;
+  border-radius: 20px;
+  border: 4px solid rgba(0, 0, 0, 0.04);
+}
+
+*::-webkit-scrollbar-button:single-button:vertical:decrement {
+  background-image: url('../assets/img/icons/scrollbar-up.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+*::-webkit-scrollbar-button:single-button:vertical:increment {
+  background-image: url('../assets/img/icons/scrollbar-down.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 /* ===== Navigation ===== */
 .sidebar {
   display: flex;

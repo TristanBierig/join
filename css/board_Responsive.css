@@ -44,8 +44,6 @@
 @media (max-width: 1100px) {
     .add-task-form {
         flex-direction: column;
-        overflow: scroll;
-        overflow-x: hidden;
     }
 
     form {
