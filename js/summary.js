@@ -33,10 +33,10 @@ function greetUser() {
  */
 function updateUserName() {
   let userName = document.getElementById('user-name');
-  let currentUser = sessionStorage.getItem('currentUser');
+  userName.innerHTML = currentUser.name;
 
   if (currentUser) {
-    userName.textContent = currentUser;
+    userName.innerHTML = currentUser.name;
     return currentUser;
   } else {
     guestLogin();
