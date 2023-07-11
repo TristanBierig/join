@@ -230,7 +230,7 @@ main {
     border-bottom-left-radius: 30px;
 }
 
-.left-frame-add img {
+.left-frame-add img:first-child {
     width: 55.123px;
     height: 66.483px;
 }

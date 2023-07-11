@@ -150,6 +150,10 @@ textarea::placeholder {
   gap: 25px;
 }
 
+.button-secondary-with-icon:hover img {
+  filter: invert(47%) sepia(28%) saturate(5405%) hue-rotate(164deg) brightness(101%) contrast(101%);
+}
+
 #prio-box {
   display: flex;
   gap: 10px;

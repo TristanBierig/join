@@ -113,7 +113,10 @@ input::placeholder {
 .drag-and-drop-header>div:hover {
   border: 2px solid var(--secondary-color);
   color: var(--secondary-color);
+}
 
+.button-secondary-with-icon:hover img {
+  filter: invert(47%) sepia(28%) saturate(5405%) hue-rotate(164deg) brightness(101%) contrast(101%);
 }
 
 .drag-and-drop-header>div:hover img {

@@ -37,6 +37,9 @@
     <section id="contactsList"></section>
 
     <section id="contactsOverview">
+      <img id="contactsBackImg" class="contacts-back d-none" onclick="contactsBack()"
+      src="../assets/img/icons/arrow-left.svg">
+      
       <div id="sub-header" class="sub-header">
         <h1>Contacts</h1>
         <div class="line"></div>
@@ -58,14 +61,15 @@
       <div onclick="doNotClose(event)" id="addContact" class="modal-inner-container">
         <div class="left-frame-add">
           <img src="../assets/img/logos/logo_Light.png" alt="Join logo">
+          <img onclick="toggleAddContactModal()" class="cancel-btn" src="../assets/img/icons/cancel-icon.svg" alt="">
           <div class="contact-info">
             <h1>Add contact</h1>
             <h2>Tasks are better with a team!</h2>
           </div>
         </div>
 
+
         <div class="right-frame-add">
-          <img onclick="toggleAddContactModal()" class="cancel-btn" src="../assets/img/icons/cancel-icon.svg" alt="">
 
           <div class="img-wrapper">
             <img src="../assets/img/icons/default-user.svg" alt="">
@@ -87,21 +91,18 @@
 
             <div class="button-wrapper">
               <button type="reset" class="button-secondary-with-icon">
-                Cancel
+               <span>Close</span>
                 <img src="../assets/img/icons/cancel-icon.svg" alt="">
               </button>
               <button class="button-with-icon">
-                Create contact
+                <span>Create contact</span>
                 <img src="../assets/img/icons/checkmark-icon.svg" alt="">
               </button>
             </div>
           </form>
-        </div>
-      </div>
-    </section>
 
-    <img id="contactsBackImg" class="contacts-back d-none" onclick="contactsBack()"
-      src="../assets/img/icons/arrow-left.svg">
+        </div>
+    </section>
 
     <section onclick="toggleEditContactModal()" id="editContactModal" class="modal-container"></section>
   </main>
