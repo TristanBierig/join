@@ -402,7 +402,7 @@ function getEditTaskHTML(task) {
     </div>
     <div class="add-task-overlay-input-box">
       <span class="label">Assigned to</span>
-      <div onclick="toggleUserPicker()" id="assigned-to">
+      <div onclick="toggleUserPicker(${task.id})" id="assigned-to">
         <div>
           <span>Select contacts to assign</span>
           <img

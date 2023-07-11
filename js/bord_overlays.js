@@ -155,9 +155,30 @@ function editTask(taskID) {
     "edit-assigned-users-box",
     getEditUserHTML
   );
-  boardMain.classList.toggle('main-fixed');
+  boardMain.classList.toggle("main-fixed");
+  setPrio(task.prio);
+}
 
-  console.log(task); //delete
+/**
+ * this function checks if users are asigned to this task and if so cheks the input box
+ *
+ * @param {number} taskId of the selected task
+ */
+function checkAssignedUsers(taskId) {
+  const task = tasks[findIndexOfTasks(taskId)];
+  const assignedTo = task.assignedTo;
+  const assignedToBox = document.getElementById("assigned-to");
+  const labels = assignedToBox.querySelectorAll("label");
+
+  for (let i = 0; i < labels.length; i++) {
+    const label = labels[i];
+
+    if (
+      assignedTo.indexOf(label.innerText.replace(/(\r\n|\n|\r|\s)/gm, "")) > -1
+    ) {
+      label.querySelector("input").checked = true;
+    }
+  }
 }
 
 /**
@@ -191,17 +212,5 @@ async function saveEditedTask(taskID) {
 function closeOverlay(id) {
   const overlay = document.getElementById(id);
   overlay.classList.add("d-none");
-  boardMain.classList.toggle('main-fixed');
-}
-
-
-function clearCategoryValue() {
-  const colorPickerBox = document.getElementById("color-picker-box");
-  const colorBoxes = colorPickerBox.querySelectorAll("div");
-  colorBoxes.forEach((colorBox) => {
-    colorBox.classList.remove("active-color");
-  });
-
-  let input = document.getElementById('category-input');
-  input.value = '';
+  boardMain.classList.toggle("main-fixed");
 }

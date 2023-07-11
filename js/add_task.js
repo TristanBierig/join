@@ -116,7 +116,7 @@ function selectCategory(category, color) {
  * this function renders all registerd users inside the assign user container
  *
  */
-function toggleUserPicker() {
+function toggleUserPicker(taskId) {
   const userBox = document.getElementById("assigned-to");
 
   if (userBox.childElementCount >= 2) {
@@ -125,6 +125,7 @@ function toggleUserPicker() {
     users.forEach((user) => {
       userBox.innerHTML += getAssignUsersHTML(user);
     });
+    checkAssignedUsers(taskId);
   }
 }
 
@@ -341,29 +342,28 @@ async function addTask() {
 function formIsValide() {
   const category = document.getElementById("selected-category");
   const prio = selectedPrio;
-  const assign = document.getElementById('assigned-to').children;
+  const assign = document.getElementById("assigned-to").children;
 
   if (allInputsAreValid(category, prio, assign)) {
     return true;
   } else {
     return false;
-  }  
+  }
 }
-
 
 function allInputsAreValid(category, prio, assign) {
   if (!category) {
-    errorTagCategory.classList.remove('d-none');
+    errorTagCategory.classList.remove("d-none");
     return false;
   } else {
-    errorTagCategory.classList.add('d-none');
+    errorTagCategory.classList.add("d-none");
   }
 
   if (!prio) {
-    errorTagPrio.classList.remove('d-none');
+    errorTagPrio.classList.remove("d-none");
     return false;
   } else {
-    errorTagPrio.classList.add('d-none');
+    errorTagPrio.classList.add("d-none");
   }
 
   if (!validateAssignment(assign)) {
@@ -372,20 +372,17 @@ function allInputsAreValid(category, prio, assign) {
   return true;
 }
 
-
 function validateAssignment(assign) {
   if (assign.length < 2) {
-    errorTagAssign.classList.remove('d-none');
+    errorTagAssign.classList.remove("d-none");
     return false;
-  } else
-    if (!checkForAssignment(assign)) {
-      errorTagAssign.classList.remove('d-none');
-      return false;
-    } else {
-      return true;
-    }
+  } else if (!checkForAssignment(assign)) {
+    errorTagAssign.classList.remove("d-none");
+    return false;
+  } else {
+    return true;
+  }
 }
-
 
 function checkForAssignment(assign) {
   for (let i = 0; i < assign.length; i++) {
@@ -394,7 +391,6 @@ function checkForAssignment(assign) {
     }
   }
 }
-
 
 /**
  * this function geathers all task data in a JSON and pushes the JSON in the tasks array

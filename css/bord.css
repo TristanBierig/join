@@ -244,10 +244,17 @@ input::placeholder {
   border: 1px solid white;
   color: white;
   font-size: 12px;
+  flex: 0 0 auto;
 }
 
 .assigned-to-overview-box {
   display: flex;
+  width: 80%;
+  overflow-x: auto;
+}
+
+.assigned-to-overview-box > span:not(:first-child) {
+  margin-left: -10px;
 }
 
 .assigned-to-display-maximized {
