@@ -154,6 +154,10 @@ textarea::placeholder {
   filter: invert(47%) sepia(28%) saturate(5405%) hue-rotate(164deg) brightness(101%) contrast(101%);
 }
 
+.button-secondary-with-icon:active img {
+  filter: none;
+}
+
 #prio-box {
   display: flex;
   gap: 10px;

@@ -155,6 +155,7 @@ function editTask(taskID) {
     "edit-assigned-users-box",
     getEditUserHTML
   );
+  boardMain.classList.toggle('main-fixed');
 
   console.log(task); //delete
 }
@@ -190,4 +191,5 @@ async function saveEditedTask(taskID) {
 function closeOverlay(id) {
   const overlay = document.getElementById(id);
   overlay.classList.add("d-none");
+  boardMain.classList.toggle('main-fixed');
 }

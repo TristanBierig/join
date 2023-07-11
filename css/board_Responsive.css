@@ -116,6 +116,19 @@
         z-index: 98 !important;
     }
 
+    #task-overlay-content {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: auto;
+    }
+
+    #prio-box {
+        flex-direction: column;
+    }
+
     .add-task-overlay-content h1 {
         font-size: 47px;
     }

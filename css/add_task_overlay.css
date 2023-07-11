@@ -39,7 +39,7 @@
 
 .add-task-form {
   display: flex;
-  height: 600px;
+  /* height: 600px; */
 }
 
 .add-task-form > div {

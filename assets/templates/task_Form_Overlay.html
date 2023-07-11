@@ -1,7 +1,7 @@
 <section>
   <h1>Add Task</h1>
   <img onclick="animateAddTaskOverlayClosing()" class="cancel-btn" src="../assets/img/icons/x-icon.svg" alt="">
-  <form onsubmit="addTask(); return false" class="add-task-form">
+  <form onsubmit="addTask(); return false" onreset="window.location.reload();" class="add-task-form">
     <div>
       <div class="add-task-overlay-input-box">
         <label for="title">Title</label>

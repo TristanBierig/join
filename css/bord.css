@@ -119,6 +119,10 @@ input::placeholder {
   filter: invert(47%) sepia(28%) saturate(5405%) hue-rotate(164deg) brightness(101%) contrast(101%);
 }
 
+.button-secondary-with-icon:active img {
+  filter: none;
+}
+
 .drag-and-drop-header>div:hover img {
   filter: invert(47%) sepia(28%) saturate(5405%) hue-rotate(164deg) brightness(101%) contrast(101%);
 }
@@ -345,6 +349,7 @@ input::placeholder {
 #task-overlay-content>form {
   display: flex;
   flex-direction: column;
+  gap: 8px;
 }
 
 .edit-submit-button {
