@@ -193,3 +193,15 @@ function closeOverlay(id) {
   overlay.classList.add("d-none");
   boardMain.classList.toggle('main-fixed');
 }
+
+
+function clearCategoryValue() {
+  const colorPickerBox = document.getElementById("color-picker-box");
+  const colorBoxes = colorPickerBox.querySelectorAll("div");
+  colorBoxes.forEach((colorBox) => {
+    colorBox.classList.remove("active-color");
+  });
+
+  let input = document.getElementById('category-input');
+  input.value = '';
+}

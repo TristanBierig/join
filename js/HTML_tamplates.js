@@ -37,7 +37,7 @@ function getCreateNewCategoryHTML() {
       />
       <div class="add-category-img-box">
       <img
-        onclick=""
+        onclick="clearCategoryValue()"
         class="subtask-img"
         src="../assets/img/icons/cancel-icon.svg"
         alt=""
@@ -184,6 +184,7 @@ function editContactModalHTML(contact, i) {
   <div onclick="doNotClose(event)" id="editContact" class="modal-inner-container">
   <div class="left-frame-add">
     <img src="../assets/img/logos/logo_Light.png" alt="Join logo">
+    <img onclick="toggleEditContactModal()" class="cancel-btn" src="../assets/img/icons/cancel-icon.svg" alt="">
     <div class="contact-info">
       <h1>Edit contact</h1>
       <h2></h2>

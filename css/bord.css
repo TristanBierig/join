@@ -339,6 +339,11 @@ input::placeholder {
   gap: 25px;
 }
 
+.add-task-form {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
 .overlay-prio {
   display: flex;
   gap: 25px;

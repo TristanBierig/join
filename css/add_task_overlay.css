@@ -42,7 +42,7 @@
   /* height: 600px; */
 }
 
-.add-task-form > div {
+.add-task-form>div {
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -108,12 +108,12 @@ textarea::placeholder {
   position: relative;
 }
 
-.input-with-icons > input {
+.input-with-icons>input {
   width: 100%;
   padding-right: 80px;
 }
 
-.input-with-icons > div {
+.input-with-icons>div {
   position: absolute;
   right: 14px;
   top: 14px;
@@ -123,7 +123,7 @@ textarea::placeholder {
   display: flex;
 }
 
-.input-icon-box > div {
+.input-icon-box>div {
   border-left: 1px solid black;
   margin: 0 8px;
 }
@@ -203,7 +203,7 @@ textarea::placeholder {
 }
 
 #category div,
-#assigned-to > div {
+#assigned-to>div {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -215,14 +215,15 @@ textarea::placeholder {
   flex-direction: column;
 }
 
-#subtask-box > label {
+#subtask-box>label {
   display: flex;
   gap: 20px;
 }
 
 .add-category-img-box {
   position: absolute;
-  right: 0;
+  right: 10px;
+  top: 47px;
 }
 
 #assigned-to label {

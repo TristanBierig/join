@@ -68,6 +68,10 @@
     .add-task-overlay-seperator {
         margin-bottom: 16px !important;
     }
+
+    .add-task-overlay-seperator {
+        display: none !important;
+       }
 }
 
 
