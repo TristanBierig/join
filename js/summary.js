@@ -32,14 +32,14 @@ function greetUser() {
  *
  */
 function updateUserName() {
-  let userName = document.getElementById("user-name");
-  let currentUser = setCurrentUser();
+  let userName = document.getElementById('user-name');
+  let currentUser = sessionStorage.getItem('currentUser');
 
   if (currentUser) {
     userName.textContent = currentUser;
     return currentUser;
   } else {
-    userName.textContent = "Guest";
+    guestLogin();
   }
 }
 
