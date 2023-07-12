@@ -1,5 +1,5 @@
 /**
- *  Downloads the users array from the backend
+ *  Downloads the users array from the backend.
  *
  */
 async function loadUsers() {
@@ -37,6 +37,11 @@ async function registerUser() {
   registerBtn.disabled = false;
 }
 
+
+/**
+ * This function pushes the new user dataobject into the users Array.
+ * 
+ */
 function setNewUser() {
   users.push({
     name: username.value.trim(),
@@ -51,6 +56,12 @@ function setNewUser() {
   });
 }
 
+
+/**
+ * This function gets the first letter of both names of a user und safes the uppercase Initials in the user object. If user just entered one name, also just one letter is saved.
+ * 
+ * @returns - Returns the Initials back to the user object to be saved.
+ */
 function getInitials() {
   let name = username.value.trim();
   let first = name.charAt(0);
@@ -63,16 +74,36 @@ function getInitials() {
   }
 }
 
+
+/**
+ * This function picks a random color from a pre defined color object and uses it as an background color for the user icon.
+ * 
+ * @returns - Returns the hex color code from the colors object.
+ */
 function getRandomColor() {
   let keys = Object.keys(colors);
   let randomIndex = Math.floor(Math.random() * (keys.length - 1));
   return colors[keys[randomIndex]];
 }
 
+
+/**
+ * This function checks if a user is already registered by comparing the given email with the user array.
+ * 
+ * @param {object} user - The object of a single User. 
+ * @returns - Returns the email of an user only if the given email matches an email from an already existing user.
+ */
 function checkIfAlreadyExists(user) {
   return user.email === email.value;
 }
 
+
+/**
+ * This function is similar to the `checkIfAlreadyExists`, but it checks for an existing user in the login form and not at the registration.
+ * 
+ * @param {object} user - This is the object of a given user.
+ * @returns - Returns the email of an user only if the given email matches an email from an already existing user.
+ */
 function checkIfUserExists(user) {
   return user.email === loginEmail.value;
 }

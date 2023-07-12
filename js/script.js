@@ -183,7 +183,7 @@ function openAddTaskOverlay(status) {
 }
 
 /**
- * This function
+ * This function switches the buttons in the header, when the mobile layout gets triggered
  *
  */
 function toggleMobileTaskBtn() {
