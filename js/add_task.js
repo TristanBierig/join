@@ -312,6 +312,11 @@ function getCategoryColor() {
   return color;
 }
 
+/**
+ * this function returns ether the selected task status if there is none it returns "to-do"
+ *
+ * @returns status
+ */
 function getStatus() {
   if (selectedTaskStatus) {
     return selectedTaskStatus;
@@ -423,6 +428,10 @@ async function uploadTasks() {
   await setItem("tasks", JSON.stringify(tasks));
 }
 
+/**
+ * this function resets the add task form
+ *
+ */
 function resetAddTaskForm() {
   const categoryBox = document.getElementById("category-box");
   const assignedToBox = document.getElementById("add-task-assigned-to-box");

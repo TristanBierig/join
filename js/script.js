@@ -238,6 +238,10 @@ function animateAddTaskOverlayClosing() {
   }, 225);
 }
 
+/**
+ * this function resets the create category field and color picker
+ *
+ */
 function clearCategoryValue() {
   const colorPickerBox = document.getElementById("color-picker-box");
   const colorBoxes = colorPickerBox.querySelectorAll("div");
