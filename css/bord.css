@@ -20,6 +20,10 @@ main {
   display: none;
 }
 
+input::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
 /* ===== Header =====*/
 
 .bord-header {

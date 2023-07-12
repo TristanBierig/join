@@ -5,7 +5,7 @@
   --bg-color: rgb(246, 247, 248);
   --sidebar-text-color: rgb(205, 205, 205);
   --sidebar-focus-color: rgb(10, 24, 48);
-  --error-color: #FF001F;
+  --error-color: #ff001f;
 
   /* Boxshadows */
   --barra-superior: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
@@ -45,6 +45,10 @@ body {
   right: 0;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
 * {
@@ -68,13 +72,13 @@ body {
 }
 
 *::-webkit-scrollbar-button:single-button:vertical:decrement {
-  background-image: url('../assets/img/icons/scrollbar-up.svg');
+  background-image: url("../assets/img/icons/scrollbar-up.svg");
   background-repeat: no-repeat;
   background-position: center;
 }
 
 *::-webkit-scrollbar-button:single-button:vertical:increment {
-  background-image: url('../assets/img/icons/scrollbar-down.svg');
+  background-image: url("../assets/img/icons/scrollbar-down.svg");
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -356,7 +360,6 @@ body {
   color: var(--sidebar-focus-color);
 }
 
-
 /* ===== Toast ===== */
 .confirm-modal {
   display: flex;
@@ -379,12 +382,10 @@ body {
   bottom: 15%;
 }
 
-
 /* ======================================= */
 /* ===== Responsive Mobile Templates ===== */
 
 @media (max-width: 850px) {
-
   /* Sidebar*/
   .sidebar {
     top: auto;
@@ -430,8 +431,8 @@ body {
   }
 
   .header::before {
-    content: '';
-    background-image: url('../assets/img/logos/logo_Regular.png');
+    content: "";
+    background-image: url("../assets/img/logos/logo_Regular.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -440,7 +441,7 @@ body {
     margin-left: 10px;
   }
 
-  .header>span {
+  .header > span {
     display: none;
   }
 

@@ -26,6 +26,10 @@ h1 {
   margin-bottom: 40px;
 }
 
+input::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
 /* ===== Form Selectors =====*/
 
 form {
@@ -108,10 +112,12 @@ textarea::placeholder {
 
 .input-icon-box {
   display: flex;
+  align-items: center;
 }
 
 .input-icon-box > div {
   border-left: 1px solid black;
+  height: 25px;
   margin: 0 8px;
 }
 
@@ -222,9 +228,21 @@ textarea::placeholder {
 }
 
 .add-category-img-box {
+  display: flex;
+  align-items: center;
+  gap: 8px !important;
   position: absolute;
   right: 14px;
   top: 47px;
+}
+
+.add-category-img-box > div {
+  border-left: 1px solid black;
+  height: 25px;
+}
+
+.add-category-img-box:hover {
+  background-color: unset !important;
 }
 
 #assigned-to label {
@@ -251,6 +269,7 @@ textarea::placeholder {
 .subtask-img {
   width: 24px;
   height: 24px;
+  cursor: pointer;
 }
 
 #color-picker-box {

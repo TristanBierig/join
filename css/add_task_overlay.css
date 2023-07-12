@@ -125,10 +125,12 @@ textarea::placeholder {
 
 .input-icon-box {
   display: flex;
+  align-items: center;
 }
 
 .input-icon-box > div {
   border-left: 1px solid black;
+  height: 25px;
   margin: 0 8px;
 }
 
