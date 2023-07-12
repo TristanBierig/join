@@ -422,3 +422,104 @@ function getEditTaskHTML(task) {
   </form>
   `;
 }
+
+function getCategoryBoxHTML() {
+  return /*html*/ `
+  <span class="label">Category</span>
+  <div onclick="toggleCategoryPicker()" id="category">
+    <div>
+      <span>Select task category</span>
+      <img
+        class="open-arrow"
+        src="../assets/img/icons/open-select-arrow.svg"
+        alt="arrow-down"
+      />
+    </div>
+  </div>
+  <div class="d-none" id="color-picker-box"></div>
+  <div id="errorTagCategory" class="error-msg-task d-none">
+    Please select a category or create a new one
+  </div>
+  `;
+}
+
+function getAssignedToBoxHTML() {
+  return /*html*/ `
+  <span class="label">Assigned to</span>
+  <div onclick="toggleUserPicker()" id="assigned-to">
+    <div>
+      <span>Select contacts to assign</span>
+      <img
+        class="open-arrow"
+        src="../assets/img/icons/open-select-arrow.svg"
+        alt="arrow-down"
+      />
+    </div>
+  </div>
+  <div id="errorTagAssign" class="error-msg-task d-none">
+    Please assign the task to at least one person
+  </div>
+  `;
+}
+
+function getprioBoxHTML() {
+  return /*html*/ `
+  <span>Prio</span>
+  <div id="prio-box">
+    <div id="high-prio-box" onclick="setPrio('high')">
+      <span>Urgent</span>
+      <img
+        src="..//assets/img/icons/high-prio-icon-small.svg"
+        alt="high-prio"
+      />
+    </div>
+    <div id="medium-prio-box" onclick="setPrio('medium')">
+      <span>Medium</span>
+      <img
+        src="..//assets/img/icons/medium-prio-icon-small.svg"
+        alt="medium-prio"
+      />
+    </div>
+    <div id="low-prio-box" onclick="setPrio('low')">
+      <span>Low</span>
+      <img
+        src="..//assets/img/icons/low-prio-icon-small.svg"
+        alt="low-prio"
+      />
+    </div>
+  </div>
+  <div id="errorTagPrio" class="error-msg-task d-none">
+    Please select a priority
+  </div>
+  `;
+}
+
+function getsubtasksBoxHTML() {
+  return /*html*/ `
+  <label for="subtask-input">Subtasks</label>
+  <div class="input-with-icons">
+    <input
+      placeholder="Add new subtask"
+      id="subtask-input"
+      type="text"
+      name="subtask-input"
+    />
+    <div class="input-icon-box">
+      <img
+        onclick="clearInput('subtask-input')"
+        class="subtask-img"
+        src="../assets/img/icons/cancel-icon.svg"
+        alt=""
+      />
+      <div class="seperator-small"></div>
+      <img
+        onclick="addSubtask()"
+        class="subtask-img"
+        src="../assets/img/icons/checkmark-icon-black.svg"
+        alt=""
+      />
+    </div>
+  </div>
+</div>
+  `;
+}

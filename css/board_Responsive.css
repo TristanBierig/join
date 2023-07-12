@@ -38,6 +38,8 @@
 
   .drag-area {
     flex-grow: 1;
+    max-height: none;
+    height: calc(100% - 58px);
   }
 
   .mobile-category-box {
@@ -175,7 +177,7 @@
     font-size: 16px !important;
   }
 
-  .add-task-form>div {
+  .add-task-form > div {
     position: static !important;
   }
 

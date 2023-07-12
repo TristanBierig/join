@@ -125,7 +125,9 @@ function toggleUserPicker(taskId) {
     users.forEach((user) => {
       userBox.innerHTML += getAssignUsersHTML(user);
     });
-    checkAssignedUsers(taskId);
+    if (checkIfBord()) {
+      checkAssignedUsers(taskId);
+    }
   }
 }
 
@@ -419,4 +421,21 @@ async function getTaskData() {
  */
 async function uploadTasks() {
   await setItem("tasks", JSON.stringify(tasks));
+}
+
+function resetAddTaskForm() {
+  const categoryBox = document.getElementById("category-box");
+  const assignedToBox = document.getElementById("add-task-assigned-to-box");
+  const prioBox = document.getElementById("prio-box-wrapper");
+  const subtasksBox = document.getElementById("subtask-box-wrapper");
+  const subtaskBox = document.getElementById("subtask-box");
+
+  categoryBox.innerHTML = getCategoryBoxHTML();
+  assignedToBox.innerHTML = getAssignedToBoxHTML();
+  prioBox.innerHTML = getprioBoxHTML();
+  subtasksBox.innerHTML = getsubtasksBoxHTML();
+
+  subtaskBox.innerHTML = "";
+  currentSubtasks = [];
+  selectedPrio = "";
 }

@@ -135,7 +135,7 @@ input::placeholder {
   display: flex;
   flex-direction: column;
   gap: 35px;
-  height: calc(100% - 58px);
+  max-height: 65vh;
   overflow-y: auto;
 }
 
@@ -286,7 +286,7 @@ input::placeholder {
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.1);
-  z-index: 100;
+  z-index: 110;
 }
 
 #task-overlay-content {

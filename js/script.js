@@ -8,7 +8,9 @@ async function init() {
   await includeHTML();
   setCurrentUser();
   await loadTasks();
-  checkIfBord();
+  if (checkIfBord()) {
+    renderTodos();
+  }
   if (checkForBypass()) {
     window.location.href = "../index.html";
     return;
@@ -146,7 +148,9 @@ function checkIfBord() {
   const htmlPage = url.substring(url.lastIndexOf("/"));
 
   if (htmlPage == "/board.html") {
-    renderTodos();
+    return true;
+  } else {
+    return false;
   }
 }
 
@@ -178,10 +182,9 @@ function openAddTaskOverlay(status) {
   }
 }
 
-
 /**
  * This function
- * 
+ *
  */
 function toggleMobileTaskBtn() {
   if (window.innerWidth < 850) {
@@ -228,7 +231,7 @@ function animateAddTaskOverlayClosing() {
   document
     .getElementById("add-task-overlay-content")
     .classList.remove("task-overlay-confirm-animation");
-    boardMain.classList.remove("main-fixed");
+  boardMain.classList.remove("main-fixed");
   setTimeout(function () {
     closeOverlay("add-task-overlay-background");
     toggleMobileTaskBtn();

@@ -151,7 +151,8 @@ textarea::placeholder {
 }
 
 .button-secondary-with-icon:hover img {
-  filter: invert(47%) sepia(28%) saturate(5405%) hue-rotate(164deg) brightness(101%) contrast(101%);
+  filter: invert(47%) sepia(28%) saturate(5405%) hue-rotate(164deg)
+    brightness(101%) contrast(101%);
 }
 
 .button-secondary-with-icon:active img {
@@ -191,6 +192,10 @@ textarea::placeholder {
   outline: unset;
   border: 1px solid var(--sidebar-text-color);
   background-color: white;
+}
+
+#category > div {
+  cursor: pointer;
 }
 
 #category-input {
