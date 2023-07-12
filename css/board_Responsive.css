@@ -39,6 +39,7 @@
   .drag-area {
     flex-grow: 1;
     max-height: none;
+    min-height: none;
     height: calc(100% - 58px);
   }
 

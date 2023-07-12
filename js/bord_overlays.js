@@ -166,18 +166,21 @@ function editTask(taskID) {
  * @param {number} taskId of the selected task
  */
 function checkAssignedUsers(taskId) {
-  const task = tasks[findIndexOfTasks(taskId)];
-  const assignedTo = task.assignedTo;
-  const assignedToBox = document.getElementById("assigned-to");
-  const labels = assignedToBox.querySelectorAll("label");
+  if (taskId) {
+    const task = tasks[findIndexOfTasks(taskId)];
+    const assignedTo = task.assignedTo;
+    const assignedToBox = document.getElementById("assigned-to");
+    const labels = assignedToBox.querySelectorAll("label");
 
-  for (let i = 0; i < labels.length; i++) {
-    const label = labels[i];
+    for (let i = 0; i < labels.length; i++) {
+      const label = labels[i];
 
-    if (
-      assignedTo.indexOf(label.innerText.replace(/(\r\n|\n|\r|\s)/gm, "")) > -1
-    ) {
-      label.querySelector("input").checked = true;
+      if (
+        assignedTo.indexOf(label.innerText.replace(/(\r\n|\n|\r|\s)/gm, "")) >
+        -1
+      ) {
+        label.querySelector("input").checked = true;
+      }
     }
   }
 }

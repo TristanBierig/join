@@ -135,6 +135,7 @@ input::placeholder {
   display: flex;
   flex-direction: column;
   gap: 35px;
+  min-height: calc(100% - 58px);
   max-height: 65vh;
   overflow-y: auto;
 }
