@@ -5,7 +5,7 @@ let letters = [];
  * Then its checked if an endpoint within the app is accessed directly without login. If so, the user is redirected to the login page and prevented to navigate back into the app.
  * After that the profile picture is set, all contacts are getting renderd and the sidebar focus gets set.
  * 
- * @returns - Stops the further execution of the function if a bypass is recognized
+ * @returns - Stops the further execution of the function if a bypass is recognized.
  */
 async function initContacts() {
     await loadUsers();
@@ -39,7 +39,7 @@ function renderContacts() {
     contactsList.innerHTML = '';
     for (let j = 0; j < letters.length; j++) {
         const element = letters[j];
-        contactsList.innerHTML += /*html*/ `
+        contactsList.innerHTML +=  `
             <div id="contact${element}" class="contact-wrapper">
                 <span class="seperator-list">${element}</span>
                 <div class="line-list"></div>
