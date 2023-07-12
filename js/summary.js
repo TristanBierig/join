@@ -33,15 +33,14 @@ function greetUser() {
  *
  */
 function updateUserName() {
-  let userName = document.getElementById('user-name');
-  userName.innerHTML = currentUser.name;
+  let userNameElement = document.getElementById('user-name');
 
-  if (currentUser) {
-    userName.innerHTML = currentUser.name;
+  if (currentUser.name === 'Guest Visitor') {
+    const guestVisitor = currentUser.name.split(" ");
+    userNameElement.innerHTML = guestVisitor.join(" ");
   } else {
-    currentUser = 'Guest';
+    userNameElement.innerHTML = currentUser.name;
   }
-  return currentUser;
 }
 
 /**
@@ -121,30 +120,23 @@ function urgentTasks() {
  * 
  */
 function getDeadline() {
+  const today = new Date().toISOString().split("T")[0];
+  let earliestDate = tasks.filter(t => t['date'] == 'dueDate');
   document.getElementById('upcoming-deadline').innerHTML = '';
-  let topPrioDate = getTopPriorityDate();
+  document.getElementById('upcoming-deadline').innerHTML += `
+        ${earliestDate.length}
+  `;
 
-  if (topPrioDate) {
-    let formattedDate = formatDeadline(topPrioDate);
+  if (today < earliestDate) {
+    let formattedDate = formatDeadline(earliestDate);
     document.getElementById('upcoming-deadline').innerHTML = formattedDate;
   } else {
     document.getElementById('upcoming-deadline').innerHTML = 'there is no';
   }
 }
 
-function getTopPriorityDate() {
-  let topPrioDate = tasks[0].date;
-
-  for (let i = 1; i < tasks.length; i++) {
-    if (tasks[i].date < topPrioDate) {
-      topPrioDate = tasks[i].date;
-    }
-  }
-  return topPrioDate;
-}
-
-function formatDeadline(deadline) {
-  let formattedDate = deadline.getDate().toString().padStart(2, '0') + '.' + (deadline.getMonth() + 1).toString().padStart(2, '0') + '.' + deadline.getFullYear();
+function formatDeadline(earliestDate) {
+  let formattedDate = earliestDate.getDate().toString().padStart(2, '0') + '.' + (deadline.getMonth() + 1).toString().padStart(2, '0') + '.' + deadline.getFullYear();
   return formattedDate;
 }
 
