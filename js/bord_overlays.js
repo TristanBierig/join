@@ -16,6 +16,7 @@ function openTask(id) {
     getAssignedUsersHTML
   );
   renderSubtasksOverlay(id);
+  boardMain.classList.add("main-fixed");
 }
 
 /**
@@ -212,5 +213,5 @@ async function saveEditedTask(taskID) {
 function closeOverlay(id) {
   const overlay = document.getElementById(id);
   overlay.classList.add("d-none");
-  boardMain.classList.toggle("main-fixed");
+  boardMain.classList.remove("main-fixed");
 }

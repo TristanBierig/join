@@ -172,13 +172,18 @@ function showToast() {
 function openAddTaskOverlay(status) {
   generateOverlayBackground();
   generateOverlayContent();
+  boardMain.classList.add("main-fixed");
   if (status) {
     selectedTaskStatus = status;
   }
 }
 
+
+/**
+ * This function
+ * 
+ */
 function toggleMobileTaskBtn() {
-  boardMain.classList.toggle("main-fixed");
   if (window.innerWidth < 850) {
     mobileTaskBtn.classList.toggle("d-none");
     headerFrame.classList.toggle("button-box");
@@ -223,6 +228,7 @@ function animateAddTaskOverlayClosing() {
   document
     .getElementById("add-task-overlay-content")
     .classList.remove("task-overlay-confirm-animation");
+    boardMain.classList.remove("main-fixed");
   setTimeout(function () {
     closeOverlay("add-task-overlay-background");
     toggleMobileTaskBtn();

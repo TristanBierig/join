@@ -13,6 +13,7 @@ main {
   align-items: center;
   justify-content: space-evenly;
   background-color: var(--bg-color);
+  overflow-y: auto;
 }
 
 .cancel-btn {
@@ -291,6 +292,7 @@ input::placeholder {
 #task-overlay-content {
   display: flex;
   flex-direction: column;
+  max-height: 90vh;
   gap: 25px;
   padding: 50px;
   background-color: white;
@@ -299,6 +301,7 @@ input::placeholder {
   width: 623px;
   font-size: 21px;
   position: relative;
+  overflow-y: auto;
 }
 
 #subtask-box-overlay {

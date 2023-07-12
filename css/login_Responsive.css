@@ -87,3 +87,9 @@
         scale: 0.6;
     }
 }
+
+@media (max-height: 790px) {
+    .mobile-hidden-logo {
+        display: none;
+    }
+}

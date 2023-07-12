@@ -191,6 +191,7 @@ function animateLogo() {
 
     setTimeout(() => {
         openImgContainer.classList.add('negative-z')
+        openImg.classList.add('mobile-hidden-logo');
     }, 650);
 }
 

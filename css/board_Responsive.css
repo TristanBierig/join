@@ -83,11 +83,16 @@
     min-height: auto;
     margin-bottom: 10vh;
     width: 100%;
+    height: 80vh;
   }
 
   #add-task-overlay-background {
     background-color: rgba(0, 0, 0, 0) !important;
     z-index: 98 !important;
+  }
+
+  #addTaskBtn {
+    padding: 8px;
   }
 
   #addTaskBtn span {
@@ -96,6 +101,10 @@
 
   .bord-header {
     margin-top: 70px;
+  }
+
+  .bord-header div {
+    gap: 8px;
   }
 
   .bord-header h1::before {
@@ -166,7 +175,7 @@
     font-size: 16px !important;
   }
 
-  .add-task-form > div {
+  .add-task-form>div {
     position: static !important;
   }
 
