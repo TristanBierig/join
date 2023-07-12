@@ -261,6 +261,11 @@ textarea::placeholder {
   border: 2px solid white;
 }
 
+.error-msg-task {
+  color: var(--error-color);
+  font-size: 12px;
+}
+
 /* ===== Confirm Modal =====*/
 
 .confirm-modal {
