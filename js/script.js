@@ -3,6 +3,7 @@ let currentUser;
 let tasks = [];
 let selectedTaskStatus;
 
+
 async function init() {
   await loadUsers();
   await includeHTML();
@@ -17,6 +18,7 @@ async function init() {
   toggleSidebarFocus();
 }
 
+
 async function includeHTML() {
   let includeElements = document.querySelectorAll("[w3-include-html]");
   for (let i = 0; i < includeElements.length; i++) {
@@ -30,6 +32,7 @@ async function includeHTML() {
     }
   }
 }
+
 
 /**
  * This function checks if the user accessing a page within the app is properly logged in.
@@ -50,6 +53,7 @@ function checkForBypass() {
   }
 }
 
+
 /**
  * This function takes the one logged in user from the sessionstorage and updates the variable to be used in the script.
  *
@@ -58,6 +62,7 @@ function setCurrentUser() {
   let userIndex = sessionStorage.getItem("currentUser");
   currentUser = users[userIndex];
 }
+
 
 /**
  * This function checks if the user has an uploaded img file as a profile picture and sets it as an profile picture.
@@ -81,6 +86,7 @@ function loadProfilePicture() {
   }
 }
 
+
 /**
  * This function clears the logged-in user from the session storage and redirects to the login page.
  *
@@ -90,6 +96,7 @@ function logOut() {
   window.location.replace("../index.html");
 }
 
+
 /**
  * Prevents onclick functions to fire when an upper clickfunction gets triggerd
  *
@@ -98,6 +105,7 @@ function logOut() {
 function doNotClose(event) {
   event.stopPropagation();
 }
+
 
 /**
  * This function highlights the currently open page in the sidebar navigation and gets called from the sidebar.html SVG-Object onload
@@ -129,6 +137,7 @@ function toggleSidebarFocus() {
   document.getElementById(idClass).classList.add("sidebar-focus");
 }
 
+
 /**
  * Toggles the Modal css class for the log out button
  *
@@ -136,6 +145,7 @@ function toggleSidebarFocus() {
 function toggleLogOutModal() {
   document.getElementById("log-out-modal-wrapper").classList.toggle("d-none");
 }
+
 
 /**
  * this function checks if the current page is bord.html
@@ -150,6 +160,7 @@ function checkIfBord() {
   }
 }
 
+
 /**
  * this function shows the confirm modal
  *
@@ -161,6 +172,8 @@ function showToast() {
     modal.classList.remove("confirm-animation");
   }, 2000);
 }
+
+
 
 /* ===== Add Task Overlay =====*/
 
@@ -180,7 +193,7 @@ function openAddTaskOverlay(status) {
 
 
 /**
- * This function
+ * This function switches the buttons in the header, when the mobile layout gets triggered
  * 
  */
 function toggleMobileTaskBtn() {

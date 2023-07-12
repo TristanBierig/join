@@ -79,6 +79,11 @@ function checkForPassword(i) {
 }
 
 
+/**
+ * This function checks if the remember me checkbox was checked.
+ * If so, the login data of the user gets stored in the local storage. Else the local storage gets cleared.
+ * 
+ */
 function checkForRememberMeLogin() {
     if (rememberMe.checked) {
         localStorage.setItem('rememberEmail', loginEmail.value);
@@ -149,6 +154,12 @@ function registerSuccess() {
 }
 
 
+/**
+ * This function checks if a user entered an existing email in the forgot my password input field. If so an email with the reset link is send to the user.
+ * Else an error message is shown and the function resets the form.
+ * 
+ * @returns - Should return true to submit the form, else resets it.
+ */
 function resetPassword() {
     let email = users.find(checkIfUserExists)
     if (email) {
@@ -161,6 +172,11 @@ function resetPassword() {
 }
 
 
+/**
+ * This function gets the msg from url that was send to reset the password of a certain user (recognized by its email). Then allows to change the password via the form. 
+ * Onsubmit the new data is saved to the backend.
+ * 
+ */
 async function getResetUser() {
     const urlParams = new URLSearchParams(window.location.search);
     const msg = urlParams.get('msg');
@@ -196,6 +212,10 @@ function animateLogo() {
 }
 
 
+/**
+ * This function checks onload of login page if the last user set a "remember me" and looks for the data in the local storage. If found the data is set as the input.values.
+ * 
+ */
 function checkForRemember() {
     let email = localStorage.getItem('rememberEmail');
     let pw = localStorage.getItem('rememberPw');
@@ -207,6 +227,10 @@ function checkForRemember() {
 }
 
 
+/**
+ * This function checks if the user send email to reset his password. If so, a toast notification is triggered and the status of the email send is being deleted.
+ * 
+ */
 function checkIfEmailSend() {
     let status = localStorage.getItem('emailSend');
     emailSend = status;
