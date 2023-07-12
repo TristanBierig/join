@@ -1,6 +1,12 @@
 let letters = [];
 
-
+/**
+ * This function is the first on executed on the html document. First, all user data is loaded from the backend, html templates are implemented and the current logged in User is set from the session storage.
+ * Then its checked if an endpoint within the app is accessed directly without login. If so, the user is redirected to the login page and prevented to navigate back into the app.
+ * After that the profile picture is set, all contacts are getting renderd and the sidebar focus gets set.
+ * 
+ * @returns - Stops the further execution of the function if a bypass is recognized
+ */
 async function initContacts() {
     await loadUsers();
     await includeHTML();
@@ -17,7 +23,7 @@ async function initContacts() {
 
 /**
  * This function gets the first letter of every Name of the contactlist and filters them in a way so every letter is just saved once.
- * Then the array gets sorted in alphabetical order and gets renderd
+ * Then the array gets sorted in alphabetical order and gets renderd as a dividing/ sorting design
  * 
  */
 function renderContacts() {
@@ -49,6 +55,12 @@ function renderContacts() {
 }
 
 
+/**
+ * This function takes the name of a contact and returns the first letters of the both or just the on name
+ * 
+ * @param {string} name - This string is the value of the given contact name where the initials should be processed
+ * @returns - Returns the Initials of the given Name
+ */
 function getInitialsContact(name) {
     let first = name.charAt(0);
     let secondIndex = name.indexOf(' ');
@@ -61,6 +73,10 @@ function getInitialsContact(name) {
 }
 
 
+/**
+ * This function toggles the animation and visibility of the Modal to add a new contact
+ * 
+ */
 function toggleAddContactModal() {
     addContactForm.reset();
     let parent = document.getElementById('addContactModal');
@@ -71,6 +87,10 @@ function toggleAddContactModal() {
 }
 
 
+/**
+ * This function toggles the animation and visibility of the Modal to edit an existing contact
+ * 
+ */
 function toggleEditContactModal() {
     let parent = document.getElementById('editContactModal');
     let child = document.getElementById('editContact');
@@ -80,11 +100,11 @@ function toggleEditContactModal() {
 }
 
 
-function resetAddContactForm() {
-    addContactForm.reset();
-}
-
-
+/**
+ * This function takes the values from the add contact Form and some extra data for colors and initials in the Modal and creating a new object.
+ * Then all contacts are rendered again an the new contact is highlighted, scrolled into view and a generic toast confirms the added contact.
+ * 
+ */
 function addNewContact() {
     let name = contactName.value;
     currentUser.contacts.push({
@@ -95,7 +115,7 @@ function addNewContact() {
         'color': getRandomColor()
     });
     setItem('users', JSON.stringify(users));
-    resetAddContactForm()
+    addContactForm.reset();
     toggleAddContactModal();
     renderContacts();
 
@@ -106,27 +126,38 @@ function addNewContact() {
 }
 
 
-function deleteContact(i) {
+
+/**
+ * This function deletes the data of a certain contact from the current logged in user object, safes it to the backend and renders again all the contacts.
+ * 
+ * @param {integer} i - This should be te index of the deleting contact in the contact array within the currentUser object.
+ */
+async function deleteContact(i) {
     currentUser.contacts.splice(i, 1);
-    setItem('users', JSON.stringify(users));
+    await setItem('users', JSON.stringify(users));
     toggleEditContactModal();
     currentContact.innerHTML = '';
     renderContacts();
 }
 
 
+/**
+ * This function deletes the data of a certain contact from the current logged in user object, safes it to the backend and renders again all the contacts.
+ * 
+ * @param {integer} i - This should be te index of the deleting contact in the contact array within the currentUser object.
+ */
 async function deleteContactMobile(i) {
     currentUser.contacts.splice(i, 1);
     await setItem('users', JSON.stringify(users));
-    contactsBack();
-}
-
-
-function contactsBack() {
     window.location.reload();
 }
 
 
+/**
+ * This function renders the clicked contact from the contactslist into the container on the right respectively in modal on mobile layout and highlights the user in the list.
+ * 
+ * @param {integer} i - This should be the index of the clicked contact.
+ */
 function showContact(i) {
     let contact = currentUser.contacts[i];
     let focus = document.getElementById('contact' + i);
@@ -144,6 +175,11 @@ function showContact(i) {
 }
 
 
+/**
+ * This function opens the modal to edit a given contact and sets the input values to the data from the contact to be edited.
+ * 
+ * @param {integer} i - This should be the index o the edited contact
+ */
 function editContact(i) {
     let contact = currentUser.contacts[i];
     editContactModal.innerHTML = '';
@@ -156,7 +192,13 @@ function editContact(i) {
 }
 
 
-function saveEditContact(i) {
+
+/**
+ * This function saves the data from the inputs to the given contact object and uploads new data to the backend, closing the modal and shows the current contact 
+ * 
+ * @param {integer} i - This should be the index of the edit contact
+ */
+async function saveEditContact(i) {
     let contact = currentUser.contacts[i];
     let name = contactNameEdit.value
 
@@ -165,7 +207,7 @@ function saveEditContact(i) {
     contact.phone = contactPhoneEdit.value;
     contact.initials = getInitialsContact(name);
 
-    setItem('users', JSON.stringify(users));
+    await setItem('users', JSON.stringify(users));
     toggleEditContactModal();
     showContact(i);
 }
