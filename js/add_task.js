@@ -342,7 +342,7 @@ async function addTask() {
 }
 
 /**
- * this function checks if necessary inputs are existent if so the return is true else its false
+ * This function checks if necessary inputs are existent if so the return is true else its false
  *
  * @returns true or false
  */
@@ -358,6 +358,16 @@ function formIsValide() {
   }
 }
 
+
+/**
+ * This function checks all input from the form, that are not HTML5-Form-Validated, at its own terms.
+ * Just lets the from submit when all pass the test, otherwise a error message is displayed.
+ *  
+ * @param {string} category - Should be the selected Category from the dropdown menu.
+ * @param {string} prio - Should be the selected Prio Button.
+ * @param {object} assign - Should be the HTML Collection of the dropdown content.
+ * @returns true or false depending on the certain test.
+ */
 function allInputsAreValid(category, prio, assign) {
   if (!category) {
     errorTagCategory.classList.remove("d-none");
@@ -379,6 +389,13 @@ function allInputsAreValid(category, prio, assign) {
   return true;
 }
 
+
+/**
+ * This function checks the HTML Collection of the given param and validates it.
+ * 
+ * @param {object} assign - Should be the HTML Collection of the dropdown content.
+ * @returns true on a passed test, else returns false.
+ */
 function validateAssignment(assign) {
   if (assign.length < 2) {
     errorTagAssign.classList.remove("d-none");
@@ -391,6 +408,13 @@ function validateAssignment(assign) {
   }
 }
 
+
+/**
+ * This function checks if any of the input checkboxes within the object is checked or not.
+ * 
+ * @param {object} assign - Should be the HTML Collection of the dropdown content.
+ * @returns Just returns true on passed test.
+ */
 function checkForAssignment(assign) {
   for (let i = 0; i < assign.length; i++) {
     if (assign[2].form[i].checked) {
