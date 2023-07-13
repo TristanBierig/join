@@ -120,24 +120,18 @@ function urgentTasks() {
  * 
  */
 function getDeadline() {
-  const today = new Date().toISOString().split("T")[0];
-  let earliestDate = tasks.filter(t => t['date'] == 'dueDate');
   document.getElementById('upcoming-deadline').innerHTML = '';
+  let earliestDate = tasks[0].dueDate;
+
+    for (let i = 1; i < tasks.length; i++) {
+        if (tasks[i].dueDate < earliestDate) {
+          earliestDate = tasks[i].dueDate;
+        }
+    }
+
   document.getElementById('upcoming-deadline').innerHTML += `
-        ${earliestDate.length}
+        ${earliestDate}
   `;
-
-  if (today < earliestDate) {
-    let formattedDate = formatDeadline(earliestDate);
-    document.getElementById('upcoming-deadline').innerHTML = formattedDate;
-  } else {
-    document.getElementById('upcoming-deadline').innerHTML = 'there is no';
-  }
-}
-
-function formatDeadline(earliestDate) {
-  let formattedDate = earliestDate.getDate().toString().padStart(2, '0') + '.' + (deadline.getMonth() + 1).toString().padStart(2, '0') + '.' + deadline.getFullYear();
-  return formattedDate;
 }
 
 /**
