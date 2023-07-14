@@ -287,7 +287,7 @@ function updateAssignedUsersDisplay() {
  * @returns true or false
  */
 function checkIfEditTask() {
-  if (checkIfBoard() && !document.getElementById("add-task-overlay-content")) {
+  if (checkIfBoard() && document.getElementById("edit-assigned-users-box")) {
     return true;
   } else {
     return false;
