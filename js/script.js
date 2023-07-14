@@ -8,7 +8,7 @@ async function init() {
   await includeHTML();
   setCurrentUser();
   await loadTasks();
-  if (checkIfBord()) {
+  if (checkIfBoard()) {
     renderTodos();
   }
   if (checkForBypass()) {
@@ -19,10 +19,9 @@ async function init() {
   toggleSidebarFocus();
 }
 
-
 /**
  * This function loads the html templates from a seperate directory.
- * 
+ *
  */
 async function includeHTML() {
   let includeElements = document.querySelectorAll("[w3-include-html]");
@@ -145,10 +144,10 @@ function toggleLogOutModal() {
 }
 
 /**
- * this function checks if the current page is bord.html
+ * this function checks if the current page is board.html
  *
  */
-function checkIfBord() {
+function checkIfBoard() {
   const url = window.location.href;
   const htmlPage = url.substring(url.lastIndexOf("/"));
 
