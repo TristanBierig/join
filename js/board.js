@@ -1,6 +1,6 @@
 let currentlyDraggedElement;
 
-/* ===== General Bord Functions ===== */
+/* ===== General Board Functions ===== */
 
 /**
  * this function searches tasks based on input value
@@ -45,7 +45,7 @@ function getUserIndex(user) {
   });
 }
 
-/* ===== Bord Render Functions ===== */
+/* ===== Board Render Functions ===== */
 
 /**
  * this function resets the inner HTML of all drop areas
@@ -68,7 +68,7 @@ function resetDropAreas() {
 }
 
 /**
- * this function renders tasks on the bord
+ * this function renders tasks on the board
  *
  */
 function renderTodos(searchedTasks) {

@@ -96,6 +96,8 @@
 
   #addTaskBtn {
     padding: 8px;
+    height: 51px;
+    width: 51px;
   }
 
   #addTaskBtn span {
@@ -129,7 +131,6 @@
     border-radius: 0 !important;
     padding: 0 !important;
     background-color: var(--bg-color) !important;
-    /* overflow: unset !important; */
     z-index: 98 !important;
   }
 

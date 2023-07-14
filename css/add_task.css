@@ -283,6 +283,7 @@ textarea::placeholder {
   height: 20px !important;
   border-radius: 50%;
   border: 2px solid white;
+  cursor: pointer;
 }
 
 .error-msg-task {

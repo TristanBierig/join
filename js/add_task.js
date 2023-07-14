@@ -125,7 +125,7 @@ function toggleUserPicker(taskId) {
     users.forEach((user) => {
       userBox.innerHTML += getAssignUsersHTML(user);
     });
-    if (checkIfBord()) {
+    if (checkIfBoard()) {
       checkAssignedUsers(taskId);
     }
   }
@@ -358,11 +358,10 @@ function formIsValide() {
   }
 }
 
-
 /**
  * This function checks all input from the form, that are not HTML5-Form-Validated, at its own terms.
  * Just lets the from submit when all pass the test, otherwise a error message is displayed.
- *  
+ *
  * @param {string} category - Should be the selected Category from the dropdown menu.
  * @param {string} prio - Should be the selected Prio Button.
  * @param {object} assign - Should be the HTML Collection of the dropdown content.
@@ -389,10 +388,9 @@ function allInputsAreValid(category, prio, assign) {
   return true;
 }
 
-
 /**
  * This function checks the HTML Collection of the given param and validates it.
- * 
+ *
  * @param {object} assign - Should be the HTML Collection of the dropdown content.
  * @returns true on a passed test, else returns false.
  */
@@ -408,10 +406,9 @@ function validateAssignment(assign) {
   }
 }
 
-
 /**
  * This function checks if any of the input checkboxes within the object is checked or not.
- * 
+ *
  * @param {object} assign - Should be the HTML Collection of the dropdown content.
  * @returns Just returns true on passed test.
  */
@@ -471,4 +468,13 @@ function resetAddTaskForm() {
   subtaskBox.innerHTML = "";
   currentSubtasks = [];
   selectedPrio = "";
+}
+
+/**
+ * this function resets the add category container
+ *
+ */
+function resetAddCategory() {
+  const categoryBox = document.getElementById("category-box");
+  categoryBox.innerHTML = getCategoryBoxHTML();
 }

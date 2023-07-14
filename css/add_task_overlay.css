@@ -241,9 +241,21 @@ textarea::placeholder {
 }
 
 .add-category-img-box {
+  display: flex;
+  align-items: center;
+  gap: 8px !important;
   position: absolute;
-  right: 10px;
+  right: 14px;
   top: 47px;
+}
+
+.add-category-img-box > div {
+  border-left: 1px solid black;
+  height: 25px;
+}
+
+.add-category-img-box:hover {
+  background-color: unset !important;
 }
 
 #assigned-to label {
@@ -270,6 +282,7 @@ textarea::placeholder {
 .subtask-img {
   width: 24px;
   height: 24px;
+  cursor: pointer;
 }
 
 #color-picker-box {
@@ -283,6 +296,7 @@ textarea::placeholder {
   height: 20px !important;
   border-radius: 50%;
   border: 2px solid white;
+  cursor: pointer;
 }
 
 .error-msg-task {

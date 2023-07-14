@@ -37,7 +37,7 @@ function getCreateNewCategoryHTML() {
       />
       <div class="add-category-img-box">
       <img
-        onclick="clearCategoryValue()"
+        onclick="resetAddCategory()"
         class="subtask-img"
         src="../assets/img/icons/cancel-icon.svg"
         alt=""
