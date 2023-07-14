@@ -199,9 +199,12 @@ body {
   background-color: var(--main-color);
   border-radius: 20px;
   border-top-right-radius: 0;
-  cursor: pointer;
   text-decoration: none;
   outline: 1px solid white;
+}
+
+.log-out-modal>* {
+  cursor: pointer;
 }
 
 .log-out-modal a {
