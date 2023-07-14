@@ -422,9 +422,10 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-width: 80%;
+    width: 80%;
     min-height: 80%;
     gap: 10px;
+    border-radius: 8px;
   }
 
   .sidebar-link-wrapper {
@@ -435,6 +436,7 @@ body {
     min-height: 65px;
     width: 25%;
     overflow: hidden;
+    border-radius: 8px;
   }
 
   /* Header */
