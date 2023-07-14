@@ -279,7 +279,7 @@ function hideStatusArrows(searchedTasks) {
     array = tasks;
   }
   for (let i = 0; i < array.length; i++) {
-    const task = tasks[i];
+    const task = array[i];
     const mobileBox = document.getElementById("mobileBox" + i);
 
     if (task.status === "to-do") {
