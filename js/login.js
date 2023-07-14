@@ -187,6 +187,9 @@ async function getResetUser() {
         await setItem('users', JSON.stringify(users));
         newPwForm.reset();
         showToast();
+        setTimeout(() => {
+            window.location = "/join/index.html";
+        }, 2000);
     } else {
         errorTagPw.classList.remove('d-none');
     }
