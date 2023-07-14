@@ -345,6 +345,7 @@ function getAddTaskOverlayContentHTML() {
 
 function getEditTaskHTML(task) {
   return /*html*/ `
+    <div>
     <form onsubmit="saveEditedTask(${task.id}); return false" class="add-task-form edit-form">
     <div class="add-task-overlay-input-box">
       <label for="title">Title</label>
@@ -423,6 +424,7 @@ function getEditTaskHTML(task) {
     </button>
     <img onclick="closeOverlay('task-overlay')" class="overlay-close-button" src="../assets/img/icons/cancel-icon.svg" alt="">
   </form>
+  </div>
   `;
 }
 
