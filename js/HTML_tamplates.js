@@ -312,7 +312,7 @@ function getOverlayHTML(task) {
     </div>
     <div class="overlay-prio">
       <b>Priority:</b>
-      <div>${task.prio}</div>
+      <div id="overlayPrioBox">${task.prio}</div>
     </div>
     <b>Assigned To:</b>
     <div id="assigned-to-box"></div>
@@ -521,5 +521,17 @@ function getsubtasksBoxHTML() {
     </div>
   </div>
 </div>
+  `;
+}
+
+function getOverviewPrioHTML(text, prio) {
+  return /*html*/ `
+    <div class="overview-prio-box">
+      <span>${text}</span>
+      <img
+        src="..//assets/img/icons/${prio}-prio-white-icon-small.svg"
+        alt="high-prio"
+      />
+    </div>
   `;
 }

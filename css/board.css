@@ -181,6 +181,7 @@ input::placeholder {
   padding: 4px 25px;
   border-radius: 8px;
   width: fit-content;
+  color: white;
 }
 
 .task-title-description-box {
@@ -309,6 +310,16 @@ input::placeholder {
   overflow-y: auto;
 }
 
+.overview-prio-box {
+  display: flex;
+  padding: 4px 18px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  box-shadow: var(--nuevo);
+}
+
 #subtask-box-overlay {
   display: flex;
   flex-direction: column;
@@ -384,6 +395,7 @@ input::placeholder {
 
 .overlay-prio {
   display: flex;
+  align-items: center;
   gap: 25px;
 }
 

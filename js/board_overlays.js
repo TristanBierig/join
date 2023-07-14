@@ -10,6 +10,7 @@ function openTask(id) {
   const overlayContent = document.getElementById("task-overlay-content");
   overlay.classList.remove("d-none");
   overlayContent.innerHTML = getOverlayContent(id);
+  setOverlayPrioIcon(id);
   renderAssignedUsersOverviewOverlay(
     id,
     "assigned-to-box",
@@ -17,6 +18,23 @@ function openTask(id) {
   );
   renderSubtasksOverlay(id);
   boardMain.classList.add("main-fixed");
+}
+
+function setOverlayPrioIcon(id) {
+  const task = tasks[findIndexOfTasks(id)];
+  const container = document.getElementById("overlayPrioBox");
+
+  if (task.prio === "high") {
+    container.innerHTML = getOverviewPrioHTML("Urgent", task.prio);
+  }
+  if (task.prio === "medium") {
+    container.innerHTML = getOverviewPrioHTML("Medium", task.prio);
+  }
+  if (task.prio === "low") {
+    container.innerHTML = getOverviewPrioHTML("Low", task.prio);
+  }
+
+  container.querySelector("div").classList.add(task.prio);
 }
 
 /**
