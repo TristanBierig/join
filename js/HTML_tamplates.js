@@ -79,7 +79,7 @@ function getSelectedCategoryHTML(category, color) {
 
 function getAssignUsersHTML(user) {
   return /*html*/ `
-    <label onclick="doNotClose(event)" class="">
+    <label onclick="doNotClose(event)" onchange="updateAssignedUsersDisplay()"  class="">
       ${user.name}
       <input name="" type="checkbox" />
     </label>
@@ -88,7 +88,7 @@ function getAssignUsersHTML(user) {
 
 function getAssignUsersCheckedHTML(user) {
   return /*html*/ `
-    <label onclick="doNotClose(event)" class="">
+    <label onclick="doNotClose(event)" onchange="updateAssignedUsersDisplay()" class="">
       ${user.name}
       <input checked name="" type="checkbox" />
     </label>
@@ -303,6 +303,7 @@ function getEditUserHTML(task) {
 
 function getOverlayHTML(task) {
   return /*html*/ `
+
     <span style="background-color: #${task.categoryColor}" class="overlay-category">${task.category}</span>
     <b class="overlay-headline">${task.title}</b>
     <p>${task.description}</p>
@@ -325,6 +326,7 @@ function getOverlayHTML(task) {
       <div onclick="deleteTask(${task.id})" class="overlay-delete-box"><img src="../assets/img/icons/trash-bin.svg" alt=""></div>
       <div onclick="editTask(${task.id})" class="overlay-edit-box"><img src="../assets/img/icons/bord-overlay-edit-pencil.svg" alt=""></div>
     </div>
+   
   `;
 }
 

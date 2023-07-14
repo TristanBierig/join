@@ -20,6 +20,11 @@ function openTask(id) {
   boardMain.classList.add("main-fixed");
 }
 
+/**
+ * this function renders the priority display in the task overview
+ *
+ * @param {number} id of the selectet task
+ */
 function setOverlayPrioIcon(id) {
   const task = tasks[findIndexOfTasks(id)];
   const container = document.getElementById("overlayPrioBox");
@@ -62,20 +67,15 @@ function getOverlayContent(id) {
  */
 function renderAssignedUsersOverviewOverlay(id, boxID, callBack) {
   const userBox = document.getElementById(boxID);
+  const task = tasks[findIndexOfTasks(id)];
 
-  for (let i = 0; i < tasks.length; i++) {
-    const task = tasks[i];
+  task.assignedTo.forEach((user) => {
+    const registeredUser = getUserIndex(user, id);
 
-    if (id == task.id) {
-      task.assignedTo.forEach((user) => {
-        const registeredUser = getUserIndex(user);
-
-        if (registeredUser) {
-          userBox.innerHTML += callBack(registeredUser);
-        }
-      });
+    if (registeredUser) {
+      userBox.innerHTML += callBack(registeredUser);
     }
-  }
+  });
 }
 
 /**
@@ -235,4 +235,41 @@ function closeOverlay(id) {
   const overlay = document.getElementById(id);
   overlay.classList.add("d-none");
   boardMain.classList.remove("main-fixed");
+}
+
+/**
+ * this function renders asigned users when userlabel is clicked in edit overlay
+ *
+ */
+function updateAssignedUsersDisplay() {
+  if (checkIfEditTask()) {
+    const container = document.getElementById("edit-assigned-users-box");
+    container.innerHTML = "";
+    const labels = document
+      .getElementById("assigned-to")
+      .querySelectorAll("label");
+
+    for (let i = 0; i < labels.length; i++) {
+      const label = labels[i];
+      const user = getUserIndex(
+        label.innerText.replace(/(\r\n|\n|\r|\s)/gm, "")
+      );
+      if (user && label.control.checked) {
+        container.innerHTML += getEditUserHTML(user);
+      }
+    }
+  }
+}
+
+/**
+ * this function checks if the edit overlay is open
+ *
+ * @returns true or false
+ */
+function checkIfEditTask() {
+  if (checkIfBoard() && !document.getElementById("add-task-overlay-content")) {
+    return true;
+  } else {
+    return false;
+  }
 }

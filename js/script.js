@@ -256,3 +256,40 @@ function clearCategoryValue() {
   let input = document.getElementById("category-input");
   input.value = "";
 }
+
+/**
+ * this function renders asigned users when userlabel is clicked in edit overlay
+ *
+ */
+function updateAssignedUsersDisplay() {
+  if (checkIfEditTask()) {
+    const container = document.getElementById("edit-assigned-users-box");
+    container.innerHTML = "";
+    const labels = document
+      .getElementById("assigned-to")
+      .querySelectorAll("label");
+
+    for (let i = 0; i < labels.length; i++) {
+      const label = labels[i];
+      const user = getUserIndex(
+        label.innerText.replace(/(\r\n|\n|\r|\s)/gm, "")
+      );
+      if (user && label.control.checked) {
+        container.innerHTML += getEditUserHTML(user);
+      }
+    }
+  }
+}
+
+/**
+ * this function checks if the edit overlay is open
+ *
+ * @returns true or false
+ */
+function checkIfEditTask() {
+  if (checkIfBoard() && !document.getElementById("add-task-overlay-content")) {
+    return true;
+  } else {
+    return false;
+  }
+}

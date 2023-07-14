@@ -123,7 +123,7 @@ function toggleUserPicker(taskId) {
     hideusers(userBox);
   } else {
     users.forEach((user) => {
-      userBox.innerHTML += getAssignUsersHTML(user);
+      userBox.innerHTML += getAssignUsersHTML(user, taskId);
     });
     if (checkIfBoard()) {
       checkAssignedUsers(taskId);
