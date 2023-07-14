@@ -88,8 +88,51 @@
     }
 }
 
-@media (max-height: 790px) {
-    .mobile-hidden-logo {
-        display: none;
+@media (max-height: 830px) {
+    .logo-wrapper {
+        height: 10vh;
+    }
+
+    #openImg {
+        height: 10vh;
+        margin: 0 !important;
+        top: 30px !important;
+    }
+
+    .login-modal {
+        height: 80vh;
+        margin-top: 10vh;
+        margin-bottom: 10vh;
+    }
+
+    .signup-container {
+        height: 10vh;
+        bottom: 0;
+    }
+}
+
+@media (max-height: 650px) {
+    #openImg {
+        top: 25px !important;
+    }
+
+    .login-modal h1 {
+        margin: 0;
+    }
+
+    .login-modal h1::after {
+        bottom: -10px;
+    }
+
+    .user-form {
+        gap: 20px;
+    }
+
+    .reset-password-container {
+        gap: 20px;
+    }
+
+    .btn-container > * {
+height: 40px;
     }
 }

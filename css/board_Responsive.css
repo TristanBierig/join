@@ -95,7 +95,8 @@
   }
 
   #addTaskBtn {
-    padding: 8px;
+    height: 48px;
+    width: 48px;
   }
 
   #addTaskBtn span {
@@ -206,5 +207,11 @@
 
   .bord-header {
     width: 90%;
+  }
+}
+
+@media (max-width: 330px) {
+  #search-task-input {
+    width: 230px;
   }
 }

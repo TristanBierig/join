@@ -209,5 +209,6 @@ async function saveEditContact(i) {
 
     await setItem('users', JSON.stringify(users));
     toggleEditContactModal();
+    renderContacts();
     showContact(i);
 }
