@@ -18,6 +18,7 @@ function searchTask() {
       foundTasks.push(task);
     }
   }
+
   renderTodos(foundTasks);
 }
 
@@ -88,7 +89,7 @@ function renderTodos(searchedTasks) {
         renderTasks(task, i);
       }
     }
-    hideStatusArrows();
+    hideStatusArrows(searchedTasks);
   }
 }
 
@@ -268,9 +269,16 @@ async function changeStatusMobile(taskId, status, doWhat) {
 /**
  * this function hides the arrows without function in the mobile view
  *
+ * @param {array} searchedTasks array with the searched taks
  */
-function hideStatusArrows() {
-  for (let i = 0; i < tasks.length; i++) {
+function hideStatusArrows(searchedTasks) {
+  let array;
+  if (searchedTasks) {
+    array = searchedTasks;
+  } else {
+    array = tasks;
+  }
+  for (let i = 0; i < array.length; i++) {
     const task = tasks[i];
     const mobileBox = document.getElementById("mobileBox" + i);
 
