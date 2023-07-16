@@ -50,6 +50,12 @@ body {
     margin-bottom: 60px;
   }
 
+  .arrow-left {
+    position: absolute;
+    right: 32px;
+    top: 100px;
+  }
+
   .legal-h3 {
     display: block;
     font-size: 16px;

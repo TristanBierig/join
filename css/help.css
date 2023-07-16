@@ -66,6 +66,12 @@ ol {
     margin-bottom: 60px;
   }
 
+  .arrow-left {
+    position: absolute;
+    right: 32px;
+    top: 100px;
+  }
+
   .help-h3 {
     display: block;
     font-size: 16px;

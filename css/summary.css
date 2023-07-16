@@ -289,6 +289,22 @@ body {
     flex-direction: column;
   }
 
+  .card-second-line {
+    width: 330px;
+    margin: 0;
+    padding: 5px;
+  }
+
+  .summary-hr2 {
+    margin: 22px;
+  }
+
+  .arrow-img {
+    width: 50px;
+    height: auto;
+    margin: 0 10px;
+  }
+
   .third-line {
     flex-wrap: wrap;
     flex-direction: column;
