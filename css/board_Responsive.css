@@ -126,7 +126,7 @@
 
   .add-task-overlay-content {
     position: absolute !important;
-    top: 10vh;
+    top: 95px;
     width: 100%;
     border-radius: 0 !important;
     padding: 0 !important;
