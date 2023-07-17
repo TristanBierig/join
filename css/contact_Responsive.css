@@ -67,6 +67,7 @@
         opacity: 1;
         z-index: 1;
         overflow-y: scroll;
+        overflow-x: hidden;
     }
 
     #contactsOverview:has(.current-contact-animation) .contacts-back {

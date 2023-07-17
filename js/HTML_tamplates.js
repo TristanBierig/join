@@ -208,7 +208,7 @@ function editContactModalHTML(contact, i) {
         <img src="../assets/img/icons/login-email.svg" alt="">
       </div>
       <div class="input-wrapper">
-        <input id="contactPhoneEdit" required type="tel" placeholder="Phone">
+        <input id="contactPhoneEdit" required type="number" placeholder="Phone">
         <img src="../assets/img/icons/telephone.svg" alt="">
       </div>
 
