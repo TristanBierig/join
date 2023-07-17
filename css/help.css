@@ -56,9 +56,6 @@ ol {
 }
 
 @media (max-width: 850px) {
-  body {
-  }
-
   .main {
     overflow-y: scroll;
     padding: 60px 35px 95px 35px;
