@@ -41,10 +41,11 @@ body {
 
 @media (max-width: 850px) {
   body {
-    overflow-y: scroll;
+    overflow: unset;
   }
 
   .main {
+    overflow-y: scroll;
     padding: 60px 35px 20px 35px;
     margin-left: 0;
     margin-bottom: 60px;
