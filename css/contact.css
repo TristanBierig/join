@@ -322,6 +322,7 @@ main {
     font-size: 47px;
     font-weight: 500;
     margin: 0;
+    word-break: break-word;
 }
 
 #currentContact div:first-child span svg path {

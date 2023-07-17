@@ -107,6 +107,7 @@ function toggleEditContactModal() {
  */
 function addNewContact() {
     let name = contactName.value;
+    name = capitalizeFirstLetter(name);
     currentUser.contacts.push({
         'name': name,
         'email': contactEmail.value,
@@ -121,10 +122,16 @@ function addNewContact() {
 
     let newContact = document.getElementById('contact' + (currentUser.contacts.length - 1));
     showContact((currentUser.contacts.length - 1));
-    newContact.scrollIntoView({ behavior: 'smooth' }, true);
+    if (window.innerWidth > 1100) {
+        newContact.scrollIntoView({ behavior: 'smooth' }, true);
+    }
     showToast();
 }
 
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 
 /**
