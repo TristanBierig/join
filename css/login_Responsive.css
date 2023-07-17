@@ -37,7 +37,7 @@
     .reset-password-container {
         flex-direction: column-reverse;
         align-self: center;
-        
+
     }
 
     .checkmark {
@@ -93,10 +93,13 @@
         height: 10vh;
     }
 
+    .logo-animation {
+        top: 30px !important;
+    }
+
     #openImg {
         height: 10vh;
         margin: 0 !important;
-        top: 30px !important;
     }
 
     .login-modal {
@@ -112,7 +115,7 @@
 }
 
 @media (max-height: 650px) {
-    #openImg {
+    .logo-animation {
         top: 25px !important;
     }
 
@@ -132,7 +135,7 @@
         gap: 20px;
     }
 
-    .btn-container > * {
-height: 40px;
+    .btn-container>* {
+        height: 40px;
     }
 }
