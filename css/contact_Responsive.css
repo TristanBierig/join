@@ -175,13 +175,13 @@
         top: 22.5px;
     }
 
-    .input-wrapper{
+    .input-wrapper {
         display: flex;
         justify-content: center;
         flex-grow: 1;
     }
 
-    .right-frame-add:has(.img-wrapper) .img-wrapper  {
+    .right-frame-add:has(.img-wrapper) .img-wrapper {
         position: absolute;
         top: 0;
         transform: translateY(-50%);
@@ -205,6 +205,7 @@
 
     #contactsList {
         min-height: 80vh;
+        padding-bottom: 50px;
     }
 
     .sub-header p {
@@ -225,8 +226,8 @@
     }
 
     .button-wrapper {
-     flex-direction: column-reverse;
-     align-items: center;
+        flex-direction: column-reverse;
+        align-items: center;
     }
 }
 
