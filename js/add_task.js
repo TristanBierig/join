@@ -233,12 +233,15 @@ function clearInput(id) {
  *
  */
 function addSubtask() {
-  const subtask = {
-    name: document.getElementById("subtask-input").value,
-    status: "open",
-  };
-  currentSubtasks.push(subtask);
-  renderSubtasks();
+  const input = document.getElementById("subtask-input");
+  if (input.value.length > 0) {
+    const subtask = {
+      name: input.value,
+      status: "open",
+    };
+    currentSubtasks.push(subtask);
+    renderSubtasks();
+  }
 }
 
 /**
