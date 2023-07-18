@@ -320,9 +320,3 @@ textarea::placeholder {
   background-color: rgb(122, 226, 41) !important;
   color: white;
 }
-
-@media (max-width: 850px) {
-  .add-task-overlay-content section {
-    padding-top: 50px;
-  }
-}
